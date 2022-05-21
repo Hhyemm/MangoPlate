@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mmb-CJ-Xhf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--맛집보기-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="맛집보기" image="search" id="kLN-d3-4Jn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1512" y="828"/>
+        </scene>
+        <!--망고픽-->
+        <scene sceneID="eF6-Fs-A5u">
+            <objects>
+                <viewController id="dCi-8h-VHR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q6Q-wn-RpW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8TK-iM-EW6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="망고픽" image="mangopick" id="vIe-Z0-lTb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3c-TT-NXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-814" y="828"/>
+        </scene>
+        <!--Plus View Controller-->
+        <scene sceneID="iSc-hC-lUh">
+            <objects>
+                <viewController id="DkV-c5-fHg" customClass="PlusViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pzw-yJ-tmY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qKK-3P-FgC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="plus" id="GAM-zH-4xd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAd-9n-xqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="828"/>
+        </scene>
+        <!--소식-->
+        <scene sceneID="l4c-el-AZm">
+            <objects>
+                <viewController id="g4i-V6-HA3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EbV-vB-7Sc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="95t-sJ-18h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="소식" image="news" id="QsQ-gs-Xu7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hv6-43-66e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="828"/>
+        </scene>
+        <!--내정보-->
+        <scene sceneID="gfp-Gh-zWa">
+            <objects>
+                <viewController id="z3S-df-gw0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dC0-Wz-XLe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2AR-L5-Kjr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="내정보" image="info" id="cA9-NV-6tz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzf-AW-4X2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1219" y="828"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Sj7-XC-xtm">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mmb-CJ-Xhf" customClass="TabBarController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yrB-pd-c9H">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.93333339689999995" green="0.47450977560000002" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="zqT-hd-rhC"/>
+                        <segue destination="dCi-8h-VHR" kind="relationship" relationship="viewControllers" id="WTS-Bm-WMW"/>
+                        <segue destination="DkV-c5-fHg" kind="relationship" relationship="viewControllers" id="fx2-Oy-7dE"/>
+                        <segue destination="g4i-V6-HA3" kind="relationship" relationship="viewControllers" id="upo-HZ-Oze"/>
+                        <segue destination="z3S-df-gw0" kind="relationship" relationship="viewControllers" id="rkF-jP-ya6"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P5e-nz-XLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24.637681159420293" y="91.741071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="info" width="27" height="27"/>
+        <image name="mangopick" width="25" height="25"/>
+        <image name="news" width="27" height="27"/>
+        <image name="plus" width="47" height="45"/>
+        <image name="search" width="27" height="27"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
