@@ -13,7 +13,9 @@
 		92B1CF51283925A700223987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF4F283925A700223987 /* Main.storyboard */; };
 		92B1CF53283925A700223987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF52283925A700223987 /* Assets.xcassets */; };
 		92B1CF56283925A700223987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF54283925A700223987 /* LaunchScreen.storyboard */; };
-		92B1CF5F283951D800223987 /* restaurantSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF5D283951D800223987 /* restaurantSearchViewController.swift */; };
+		92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */; };
+		92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF662839689A00223987 /* LocationAgreeViewController.swift */; };
+		92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF6828396CEB00223987 /* RegionSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,9 @@
 		92B1CF52283925A700223987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92B1CF55283925A700223987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92B1CF57283925A700223987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92B1CF5D283951D800223987 /* restaurantSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurantSearchViewController.swift; sourceTree = "<group>"; };
+		92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchViewController.swift; sourceTree = "<group>"; };
+		92B1CF662839689A00223987 /* LocationAgreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAgreeViewController.swift; sourceTree = "<group>"; };
+		92B1CF6828396CEB00223987 /* RegionSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +108,10 @@
 		92B1CF6528395CE600223987 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				92B1CF5D283951D800223987 /* restaurantSearchViewController.swift */,
+				92B1CF662839689A00223987 /* LocationAgreeViewController.swift */,
+				92B1CF6828396CEB00223987 /* RegionSelectViewController.swift */,
 				92B1CF4D283925A700223987 /* TabBarViewController.swift */,
+				92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,8 +188,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
-				92B1CF5F283951D800223987 /* restaurantSearchViewController.swift in Sources */,
+				92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */,
+				92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */,
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
+				92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */,
 				92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

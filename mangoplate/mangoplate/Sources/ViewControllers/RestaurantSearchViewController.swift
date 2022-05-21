@@ -1,7 +1,7 @@
 
 import UIKit
 
-class restaurantSearchViewController: UIViewController {
+class RestaurantSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

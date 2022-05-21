@@ -57,7 +57,7 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
-        guard let RSVC = self.storyboard?.instantiateViewController(identifier: "restaurantSearchViewController") as? restaurantSearchViewController else { return }
+        guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
         self.addChild(RSVC)
         RSVC.view.frame = containerView.frame
         containerView.addSubview(RSVC.view)

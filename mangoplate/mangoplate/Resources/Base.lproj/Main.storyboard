@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BAz-4T-wGx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,6 +8,118 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Location Agree View Controller-->
+        <scene sceneID="w8b-22-irK">
+            <objects>
+                <viewController id="BAz-4T-wGx" customClass="LocationAgreeViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zh3-ry-tpj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locImage" translatesAutoresizingMaskIntoConstraints="NO" id="RDy-d5-t9i">
+                                <rect key="frame" x="139.5" y="174" width="135" height="135"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="b7a-bR-5qG"/>
+                                    <constraint firstAttribute="width" constant="135" id="cWe-tn-Hg8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치기반 서비스 약관동의 (선택)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-fa-l2t">
+                                <rect key="frame" x="68" y="414" width="278.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" red="0.2901961207" green="0.2901961207" blue="0.2901961207" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es9-Cx-pJH">
+                                <rect key="frame" x="151.5" y="445.5" width="111" height="33.5"/>
+                                <color key="tintColor" red="0.58823531870000001" green="0.58823531870000001" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="이용약관 보기">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWa-AE-18L">
+                                <rect key="frame" x="164.5" y="469.5" width="85" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="6Ya-mx-8mM"/>
+                                    <constraint firstAttribute="width" constant="85" id="X8u-Qy-7tz"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="편리한 맛집 검색을 위해 위치정보 동의가 필요합니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dx-VA-UgC">
+                                <rect key="frame" x="45" y="519" width="324" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.58823531870000001" green="0.58823531870000001" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RO7-a8-YxK">
+                                <rect key="frame" x="82" y="662" width="250" height="55"/>
+                                <color key="backgroundColor" red="0.93333339689999995" green="0.47450977560000002" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="YbO-R5-Ug9"/>
+                                    <constraint firstAttribute="height" constant="55" id="jcn-Xa-KEG"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99215686319999996" green="0.94117647410000005" blue="0.8392156959" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="동의하기">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9V-aY-fd1">
+                                <rect key="frame" x="171.5" y="753" width="71" height="35.5"/>
+                                <color key="tintColor" red="0.93333339689999995" green="0.47450977560000002" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="싫어요">
+                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="pressDifferButton:" destination="BAz-4T-wGx" eventType="touchUpInside" id="778-hA-Nvb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VLc-Mw-otv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RDy-d5-t9i" firstAttribute="centerX" secondItem="zh3-ry-tpj" secondAttribute="centerX" id="1co-vn-xNI"/>
+                            <constraint firstItem="ZWa-AE-18L" firstAttribute="top" secondItem="es9-Cx-pJH" secondAttribute="bottom" constant="-9.5" id="C0H-NY-x0q"/>
+                            <constraint firstItem="VLc-Mw-otv" firstAttribute="trailing" secondItem="8Dx-VA-UgC" secondAttribute="trailing" constant="45" id="Don-jH-8vt"/>
+                            <constraint firstItem="es9-Cx-pJH" firstAttribute="centerX" secondItem="zh3-ry-tpj" secondAttribute="centerX" id="FUX-vt-gfY"/>
+                            <constraint firstItem="Eqw-fa-l2t" firstAttribute="top" secondItem="RDy-d5-t9i" secondAttribute="bottom" constant="105" id="Oet-kh-Xqs"/>
+                            <constraint firstItem="RO7-a8-YxK" firstAttribute="top" secondItem="8Dx-VA-UgC" secondAttribute="bottom" constant="100" id="QJO-fW-Qg8"/>
+                            <constraint firstItem="8Dx-VA-UgC" firstAttribute="top" secondItem="es9-Cx-pJH" secondAttribute="bottom" constant="40" id="RYA-JB-g68"/>
+                            <constraint firstItem="Z9V-aY-fd1" firstAttribute="top" secondItem="RO7-a8-YxK" secondAttribute="bottom" constant="36" id="Vmy-zD-fjz"/>
+                            <constraint firstItem="RO7-a8-YxK" firstAttribute="centerX" secondItem="zh3-ry-tpj" secondAttribute="centerX" id="YG5-19-fL7"/>
+                            <constraint firstItem="es9-Cx-pJH" firstAttribute="top" secondItem="Eqw-fa-l2t" secondAttribute="bottom" constant="5" id="YkM-FI-W73"/>
+                            <constraint firstItem="RDy-d5-t9i" firstAttribute="top" secondItem="VLc-Mw-otv" secondAttribute="top" constant="130" id="arY-ES-1QW"/>
+                            <constraint firstItem="ZWa-AE-18L" firstAttribute="centerX" secondItem="zh3-ry-tpj" secondAttribute="centerX" id="fjk-hd-H5s"/>
+                            <constraint firstItem="8Dx-VA-UgC" firstAttribute="leading" secondItem="VLc-Mw-otv" secondAttribute="leading" constant="45" id="iul-Ud-91d"/>
+                            <constraint firstItem="Z9V-aY-fd1" firstAttribute="centerX" secondItem="zh3-ry-tpj" secondAttribute="centerX" id="jO1-cv-XXd"/>
+                            <constraint firstItem="Eqw-fa-l2t" firstAttribute="centerX" secondItem="zh3-ry-tpj" secondAttribute="centerX" id="nHa-fN-qXf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="agreeButton" destination="RO7-a8-YxK" id="sbv-PE-19f"/>
+                        <outlet property="label" destination="8Dx-VA-UgC" id="cXv-O9-Qne"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ny-Wx-Ebi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="-563.16964285714278"/>
+        </scene>
+        <!--Region Select View Controller-->
+        <scene sceneID="eOF-Ur-DJH">
+            <objects>
+                <viewController storyboardIdentifier="RegionSelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Zg-l1-Rhx" customClass="RegionSelectViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SiF-pn-pdF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="u0b-wH-nmZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pC9-Rv-qQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="-563"/>
+        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -289,12 +401,24 @@
         <!--Restaurant Search View Controller-->
         <scene sceneID="5ie-Ms-jbU">
             <objects>
-                <viewController storyboardIdentifier="restaurantSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ruF-K6-1Hx" customClass="restaurantSearchViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="restaurantSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ruF-K6-1Hx" customClass="RestaurantSearchViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="051-gv-dyt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMR-9o-riC">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2gN-KL-YON"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZMR-9o-riC" firstAttribute="centerX" secondItem="051-gv-dyt" secondAttribute="centerX" id="IIu-S8-33T"/>
+                            <constraint firstItem="ZMR-9o-riC" firstAttribute="centerY" secondItem="051-gv-dyt" secondAttribute="centerY" id="rgL-HE-VTH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50p-3u-lLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -303,6 +427,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="locImage" width="213" height="217"/>
         <image name="mangopick" width="25" height="25"/>
         <image name="myInfo" width="27" height="27"/>
         <image name="news" width="27" height="27"/>
@@ -310,6 +435,9 @@
         <image name="restaurantSearch" width="27" height="27"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
