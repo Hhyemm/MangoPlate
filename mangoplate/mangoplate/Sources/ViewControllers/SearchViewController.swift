@@ -10,4 +10,8 @@ class SearchViewController: UIViewController {
 
         textField.becomeFirstResponder()
     }
+    
+    @IBAction func pressBackButton(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
 }
