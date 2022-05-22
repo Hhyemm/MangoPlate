@@ -18,4 +18,6 @@ class LocationAgreeViewController: UIViewController {
         RSVC.modalPresentationStyle = .fullScreen // 화면 전환 스타일 지정
         self.present(RSVC, animated: false, completion: nil)
     }
+    
+    
 }

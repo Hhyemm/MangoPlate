@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03C5EBBDF5ABCEA41FABB04D /* Pods_mangoplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A0CA929DCAED15D0831272 /* Pods_mangoplate.framework */; };
 		92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF49283925A700223987 /* AppDelegate.swift */; };
 		92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4B283925A700223987 /* SceneDelegate.swift */; };
 		92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4D283925A700223987 /* TabBarViewController.swift */; };
@@ -16,9 +17,14 @@
 		92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */; };
 		92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF662839689A00223987 /* LocationAgreeViewController.swift */; };
 		92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF6828396CEB00223987 /* RegionSelectViewController.swift */; };
+		92B1CF6B2839D6C800223987 /* RegionSelectContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF6A2839D6C800223987 /* RegionSelectContainerViewController.swift */; };
+		92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF6C283A132A00223987 /* RegionSelectCell.swift */; };
+		92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF6D283A132A00223987 /* RegionSelectCell.xib */; };
+		92B1CF71283A36F400223987 /* RegionSelectItem1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF70283A36F400223987 /* RegionSelectItem1ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77A0CA929DCAED15D0831272 /* Pods_mangoplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mangoplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1CF46283925A700223987 /* mangoplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangoplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1CF49283925A700223987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B1CF4B283925A700223987 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +36,12 @@
 		92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchViewController.swift; sourceTree = "<group>"; };
 		92B1CF662839689A00223987 /* LocationAgreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAgreeViewController.swift; sourceTree = "<group>"; };
 		92B1CF6828396CEB00223987 /* RegionSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectViewController.swift; sourceTree = "<group>"; };
+		92B1CF6A2839D6C800223987 /* RegionSelectContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectContainerViewController.swift; sourceTree = "<group>"; };
+		92B1CF6C283A132A00223987 /* RegionSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectCell.swift; sourceTree = "<group>"; };
+		92B1CF6D283A132A00223987 /* RegionSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionSelectCell.xib; sourceTree = "<group>"; };
+		92B1CF70283A36F400223987 /* RegionSelectItem1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionSelectItem1ViewController.swift; path = mangoplate/Sources/ViewControllers/RegionSelectItem1ViewController.swift; sourceTree = SOURCE_ROOT; };
+		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
+		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C5EBBDF5ABCEA41FABB04D /* Pods_mangoplate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		089F5AD1606D3015E5565536 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */,
+				C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		92B1CF3D283925A700223987 = {
 			isa = PBXGroup;
 			children = (
 				92B1CF48283925A700223987 /* mangoplate */,
 				92B1CF47283925A700223987 /* Products */,
+				089F5AD1606D3015E5565536 /* Pods */,
+				D11F6C4696A2336BF1B24CE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +101,7 @@
 				92B1CF49283925A700223987 /* AppDelegate.swift */,
 				92B1CF4F283925A700223987 /* Main.storyboard */,
 				92B1CF54283925A700223987 /* LaunchScreen.storyboard */,
+				92B1CF6D283A132A00223987 /* RegionSelectCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -101,6 +126,7 @@
 		92B1CF6428395CDD00223987 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				92B1CF6C283A132A00223987 /* RegionSelectCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -110,10 +136,20 @@
 			children = (
 				92B1CF662839689A00223987 /* LocationAgreeViewController.swift */,
 				92B1CF6828396CEB00223987 /* RegionSelectViewController.swift */,
+				92B1CF6A2839D6C800223987 /* RegionSelectContainerViewController.swift */,
+				92B1CF70283A36F400223987 /* RegionSelectItem1ViewController.swift */,
 				92B1CF4D283925A700223987 /* TabBarViewController.swift */,
 				92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D11F6C4696A2336BF1B24CE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77A0CA929DCAED15D0831272 /* Pods_mangoplate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92B1CF5A283925A700223987 /* Build configuration list for PBXNativeTarget "mangoplate" */;
 			buildPhases = (
+				5710520D695BDB2F4BDF7923 /* [CP] Check Pods Manifest.lock */,
 				92B1CF42283925A700223987 /* Sources */,
 				92B1CF43283925A700223987 /* Frameworks */,
 				92B1CF44283925A700223987 /* Resources */,
+				254180E5F53F47068D1BF56C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,12 +213,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B1CF56283925A700223987 /* LaunchScreen.storyboard in Resources */,
+				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
 				92B1CF51283925A700223987 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		254180E5F53F47068D1BF56C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mangoplate/Pods-mangoplate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mangoplate/Pods-mangoplate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mangoplate/Pods-mangoplate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5710520D695BDB2F4BDF7923 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mangoplate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92B1CF42283925A700223987 /* Sources */ = {
@@ -189,8 +270,11 @@
 			files = (
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
 				92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */,
+				92B1CF71283A36F400223987 /* RegionSelectItem1ViewController.swift in Sources */,
 				92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */,
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
+				92B1CF6B2839D6C800223987 /* RegionSelectContainerViewController.swift in Sources */,
+				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
 				92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */,
 				92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */,
 			);
@@ -336,6 +420,7 @@
 		};
 		92B1CF5B283925A700223987 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -363,6 +448,7 @@
 		};
 		92B1CF5C283925A700223987 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -36,20 +36,20 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(newsImage, newsLabel)
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
         
-        animationView.backgroundColor = UIColor(red: 238/255, green: 121/255, blue: 48/255, alpha: 1.0)
+        animationView.backgroundColor = .mainOrangeColor
     }
     
     func pressTabBarItemButton(_ image: UIImageView, _ label: UILabel, _ aniView: UIView) {
-        image.tintColor = UIColor(red: 238/255, green: 121/255, blue: 48/255, alpha: 1.0)
-        label.textColor = UIColor(red: 238/255, green: 121/255, blue: 48/255, alpha: 1.0)
+        image.tintColor = .mainOrangeColor
+        label.textColor = .mainOrangeColor
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping:0.5, initialSpringVelocity: 0.1) {
             self.animationView.frame = CGRect(x:aniView.frame.minX, y: aniView.frame.minY, width: aniView.frame.width, height: 3)
         }
     }
     
     func unPressTabBarItemButton(_ image: UIImageView, _ label: UILabel) {
-        image.tintColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
-        label.textColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
+        image.tintColor = .mainGrayColor
+        label.textColor = .mainGrayColor
     }
     
     @IBAction func pressRestaurantSearchButton(_ sender: UIButton) {
@@ -90,6 +90,10 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
     }
+}
 
+extension UIColor {
+    static let mainOrangeColor = UIColor(red: 238/255, green: 121/255, blue: 48/255, alpha: 1.0)
+    static let mainGrayColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
 }
 
