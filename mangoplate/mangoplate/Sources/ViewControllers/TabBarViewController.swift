@@ -37,6 +37,7 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
         
         animationView.backgroundColor = .mainOrangeColor
+        presentViewController()
     }
     
     func pressTabBarItemButton(_ image: UIImageView, _ label: UILabel, _ aniView: UIView) {
@@ -57,12 +58,7 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
-        guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
-        self.addChild(RSVC)
-        RSVC.view.frame = containerView.frame
-        containerView.addSubview(RSVC.view)
-        //.addConstraint(RSVC.view.constraints)
-        RSVC.didMove(toParent: self)
+        presentViewController()
         
     }
     
@@ -89,6 +85,14 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(restaurantSearchImage, restaurantSearchLabel)
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
+    }
+    
+    func presentViewController() {
+        guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
+        self.addChild(RSVC)
+        RSVC.view.frame = containerView.frame
+        containerView.addSubview(RSVC.view)
+        RSVC.didMove(toParent: self)
     }
 }
 

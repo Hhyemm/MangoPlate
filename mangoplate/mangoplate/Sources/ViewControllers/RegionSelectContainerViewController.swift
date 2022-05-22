@@ -81,6 +81,4 @@ extension RegionSelectContainerViewController: PageboyViewControllerDataSource, 
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
-    
-    
 }

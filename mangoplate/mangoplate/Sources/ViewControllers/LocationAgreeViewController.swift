@@ -15,9 +15,7 @@ class LocationAgreeViewController: UIViewController {
     
     @IBAction func pressDifferButton(_ sender: UIButton) {
         guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RegionSelectViewController") as? RegionSelectViewController else { return }
-        RSVC.modalPresentationStyle = .fullScreen // 화면 전환 스타일 지정
+        RSVC.modalPresentationStyle = .fullScreen
         self.present(RSVC, animated: false, completion: nil)
     }
-    
-    
 }
