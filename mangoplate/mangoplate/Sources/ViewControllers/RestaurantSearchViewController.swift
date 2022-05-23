@@ -1,17 +1,38 @@
 
 import UIKit
 
+protocol SendDelegate: AnyObject {
+    func send(title: String, tag: Int)
+}
+
+extension RestaurantSearchViewController: SendDelegate {
+    func send(title: String, tag: Int) {
+        self.sortTitleLabel.text = title
+        sortTag = tag
+    }
+}
+
+
 class RestaurantSearchViewController: UIViewController {
 
     var images = ["bannerImage1", "bannerImage2", "bannerImage3", "bannerImage4", "bannerImage5"]
+    var sortTag = 1
     
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var surroundView: UIView!
+    @IBOutlet weak var filterView: UIView!
+    @IBOutlet weak var sortTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setPageControl()
+        filterView.layer.borderWidth = 1
+        filterView.layer.borderColor = UIColor.mainDarkGrayColor.cgColor
+        filterView.layer.cornerRadius = filterView.frame.height / 2
+        
+        surroundView.layer.cornerRadius = surroundView.frame.height / 2
     }
     
     @IBAction func pressSearchButton(_ sender: UIButton) {
@@ -53,5 +74,13 @@ class RestaurantSearchViewController: UIViewController {
     
     @IBAction func pageChanged(_ sender: UIPageControl) {
         bannerImageView.image = UIImage(named: images[pageControl.currentPage])
+    }
+    
+    @IBAction func pressSortButton(_ sender: UIButton) {
+        guard let SortVC = self.storyboard?.instantiateViewController(identifier: "SortViewController") as? SortViewController else { return }
+        SortVC.modalPresentationStyle = .overCurrentContext
+        SortVC.delegate = self
+        SortVC.sortTag = sortTag
+        self.present(SortVC, animated: false, completion: nil)
     }
 }

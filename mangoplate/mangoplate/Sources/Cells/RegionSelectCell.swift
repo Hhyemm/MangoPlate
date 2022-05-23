@@ -10,7 +10,7 @@ class RegionSelectCell: UICollectionViewCell {
         super.awakeFromNib()
         
         regionView.layer.borderWidth = 2
-        regionView.layer.borderColor = UIColor.mainGrayColor.cgColor
+        regionView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
         regionView.layer.cornerRadius = 25
     }
 }

@@ -27,6 +27,7 @@
 		92B1CF7C283A6AAC00223987 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF7A283A6AAC00223987 /* SearchCell.xib */; };
 		92B1CF7E283A6C2A00223987 /* RecommendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF7D283A6C2A00223987 /* RecommendSearchViewController.swift */; };
 		92B1CF80283A6FC800223987 /* RecentSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF7F283A6FC800223987 /* RecentSearchViewController.swift */; };
+		92B1CF82283AA34600223987 /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF81283AA34600223987 /* SortViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		92B1CF7A283A6AAC00223987 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchCell.xib; path = mangoplate/Sources/Cells/SearchCell.xib; sourceTree = SOURCE_ROOT; };
 		92B1CF7D283A6C2A00223987 /* RecommendSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecommendSearchViewController.swift; path = mangoplate/Sources/ViewControllers/RecommendSearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		92B1CF7F283A6FC800223987 /* RecentSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecentSearchViewController.swift; path = mangoplate/Sources/ViewControllers/RecentSearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		92B1CF81283AA34600223987 /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 				92B1CF77283A64C400223987 /* SearchTabBarViewController.swift */,
 				92B1CF7D283A6C2A00223987 /* RecommendSearchViewController.swift */,
 				92B1CF7F283A6FC800223987 /* RecentSearchViewController.swift */,
+				92B1CF81283AA34600223987 /* SortViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
 				92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */,
 				92B1CF7E283A6C2A00223987 /* RecommendSearchViewController.swift in Sources */,
+				92B1CF82283AA34600223987 /* SortViewController.swift in Sources */,
 				92B1CF71283A36F400223987 /* RegionSelectItem1ViewController.swift in Sources */,
 				92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */,
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
