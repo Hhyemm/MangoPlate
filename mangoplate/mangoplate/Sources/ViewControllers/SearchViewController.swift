@@ -8,7 +8,12 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setTextField()
+    }
+    
+    func setTextField() {
         textField.becomeFirstResponder()
+        textField.tintColor = .mainOrangeColor
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {

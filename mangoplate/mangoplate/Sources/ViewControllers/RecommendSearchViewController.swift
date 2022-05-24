@@ -29,4 +29,8 @@ extension RecommendSearchViewController: UITableViewDelegate, UITableViewDataSou
         cell.title.text = list[indexPath.item]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
