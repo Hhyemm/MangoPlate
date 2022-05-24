@@ -43,3 +43,15 @@
 <img width="300" alt="스크린샷 2022-05-24 오전 10 44 31" src="https://user-images.githubusercontent.com/98953443/169931814-72313410-a363-4fe9-bc4a-db48126c120d.png">
 
 </br>
+
+# 2022-05-24 진행상황
+
+## 1. 메인화면 내 주변창
+
+<img width="300" alt="스크린샷 2022-05-24 오후 9 56 33" src="https://user-images.githubusercontent.com/98953443/170040149-48bcf876-aae7-4d9c-b07d-db646c190760.png">
+
+## 2. 메인화면 필터창
+
+<img width="300" alt="스크린샷 2022-05-24 오후 9 56 41" src="https://user-images.githubusercontent.com/98953443/170040236-2f9eaedd-bf83-4a8b-9c42-287ba517bf36.png">
+
+</br>
