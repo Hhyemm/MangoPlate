@@ -2,8 +2,10 @@
 import UIKit
 
 class RegionSelectItem1ViewController: UIViewController {
-    var list = ["홍대", "이태원/한남동", "신촌/이대", "강남역", "가로수길", "평택시", "방배/반포/잠원"]
     
+    var list = ["홍대", "이태원/한남동", "신촌/이대", "강남역", "가로수길", "평택시", "방배/반포/잠원"]
+    var selectRegions = [IndexPath]()
+   
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -37,7 +39,20 @@ extension RegionSelectItem1ViewController: UICollectionViewDelegate, UICollectio
             return CGSize(width: collectionView.frame.width / 2 - 15, height: 50)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegionSelectCell", for: indexPath) as! RegionSelectCell
-    }
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+       let cell = collectionView.cellForItem(at: indexPath) as! RegionSelectCell
+        if selectRegions.contains(indexPath) {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            selectRegions.remove(at: selectRegions.firstIndex(of: indexPath)!)
+            cell.regionName.textColor = .mainLightGrayColor
+            cell.regionView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
+            return false
+       } else {
+           selectRegions.append(indexPath)
+           cell.regionName.textColor = .mainOrangeColor
+           cell.regionView.layer.borderColor = UIColor.mainOrangeColor.cgColor
+           
+           return true
+       }
+   }
 }

@@ -4,6 +4,7 @@ import UIKit
 class RegionSelectContainerViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var applyView: UIView!
     @IBOutlet weak var applyButton: UIButton!
     
     var list = ["인기지역", "서울-강남", "서울-강북", "경기도", "인천", "대구", "부산", "제주"]
@@ -11,17 +12,17 @@ class RegionSelectContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setCollectionView()
+        applyView.layer.cornerRadius = applyView.frame.height / 2
+    }
+    
+    func setCollectionView() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "RegionCategoryCell", bundle: nil), forCellWithReuseIdentifier: "RegionCategoryCell")
         collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: [])
     }
-    
-    
-    @IBAction func pressApplyButton(_ sender: UIButton) {
-    }
-    
 }
 
 extension RegionSelectContainerViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {

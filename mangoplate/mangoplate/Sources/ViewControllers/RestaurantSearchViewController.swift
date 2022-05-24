@@ -12,7 +12,6 @@ extension RestaurantSearchViewController: SendDelegate {
     }
 }
 
-
 class RestaurantSearchViewController: UIViewController {
 
     var images = ["bannerImage1", "bannerImage2", "bannerImage3", "bannerImage4", "bannerImage5"]
@@ -39,6 +38,10 @@ class RestaurantSearchViewController: UIViewController {
         guard let SearchVC = self.storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController else { return }
         SearchVC.modalPresentationStyle = .fullScreen
         self.present(SearchVC, animated: false, completion: nil)
+    }
+    
+    func moveBannerImage() {
+        
     }
     
     func setPageControl() {
