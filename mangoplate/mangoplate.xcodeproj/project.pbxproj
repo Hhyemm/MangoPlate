@@ -31,6 +31,9 @@
 		92B1CF87283B71B800223987 /* RegionCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF85283B71B800223987 /* RegionCategoryCell.swift */; };
 		92B1CF88283B71B800223987 /* RegionCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF86283B71B800223987 /* RegionCategoryCell.xib */; };
 		92B1CF8B283C729500223987 /* SurroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF8A283C729500223987 /* SurroundViewController.swift */; };
+		92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF8C283C7D2C00223987 /* FilterViewController.swift */; };
+		92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF8E283CA31600223987 /* FilterFoodCell.swift */; };
+		92B1CF91283CA31600223987 /* FilterFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CF8F283CA31600223987 /* FilterFoodCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		92B1CF85283B71B800223987 /* RegionCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionCategoryCell.swift; path = mangoplate/Sources/Cells/RegionCategoryCell.swift; sourceTree = SOURCE_ROOT; };
 		92B1CF86283B71B800223987 /* RegionCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RegionCategoryCell.xib; path = mangoplate/Resources/RegionCategoryCell.xib; sourceTree = SOURCE_ROOT; };
 		92B1CF8A283C729500223987 /* SurroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurroundViewController.swift; path = mangoplate/Sources/ViewControllers/SurroundViewController.swift; sourceTree = SOURCE_ROOT; };
+		92B1CF8C283C7D2C00223987 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = mangoplate/Sources/ViewControllers/FilterViewController.swift; sourceTree = SOURCE_ROOT; };
+		92B1CF8E283CA31600223987 /* FilterFoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFoodCell.swift; sourceTree = "<group>"; };
+		92B1CF8F283CA31600223987 /* FilterFoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterFoodCell.xib; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +130,7 @@
 				92B1CF6D283A132A00223987 /* RegionSelectCell.xib */,
 				92B1CF86283B71B800223987 /* RegionCategoryCell.xib */,
 				92B1CF7A283A6AAC00223987 /* SearchCell.xib */,
+				92B1CF8F283CA31600223987 /* FilterFoodCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,6 +158,7 @@
 				92B1CF6C283A132A00223987 /* RegionSelectCell.swift */,
 				92B1CF85283B71B800223987 /* RegionCategoryCell.swift */,
 				92B1CF79283A6AAC00223987 /* SearchCell.swift */,
+				92B1CF8E283CA31600223987 /* FilterFoodCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 				92B1CF7F283A6FC800223987 /* RecentSearchViewController.swift */,
 				92B1CF81283AA34600223987 /* SortViewController.swift */,
 				92B1CF8A283C729500223987 /* SurroundViewController.swift */,
+				92B1CF8C283C7D2C00223987 /* FilterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +254,7 @@
 				92B1CF7C283A6AAC00223987 /* SearchCell.xib in Resources */,
 				92B1CF88283B71B800223987 /* RegionCategoryCell.xib in Resources */,
 				92B1CF56283925A700223987 /* LaunchScreen.storyboard in Resources */,
+				92B1CF91283CA31600223987 /* FilterFoodCell.xib in Resources */,
 				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
 				92B1CF51283925A700223987 /* Main.storyboard in Resources */,
@@ -312,7 +322,9 @@
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
 				92B1CF6B2839D6C800223987 /* RegionSelectContainerViewController.swift in Sources */,
 				92B1CF78283A64C400223987 /* SearchTabBarViewController.swift in Sources */,
+				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
+				92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */,
 				92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */,
 				92B1CF8B283C729500223987 /* SurroundViewController.swift in Sources */,
 				92B1CF80283A6FC800223987 /* RecentSearchViewController.swift in Sources */,

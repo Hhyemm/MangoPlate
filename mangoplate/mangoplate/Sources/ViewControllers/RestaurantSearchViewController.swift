@@ -89,4 +89,11 @@ class RestaurantSearchViewController: UIViewController {
         SurroundVC.modalPresentationStyle = .overCurrentContext
         self.present(SurroundVC, animated: false, completion: nil)
     }
+    
+    @IBAction func pressFilterButton(_ sender: UIButton) {
+        guard let FilterVC = self.storyboard?.instantiateViewController(identifier: "FilterViewController") as? FilterViewController else { return }
+        FilterVC.modalPresentationStyle = .overCurrentContext
+        self.present(FilterVC, animated: false, completion: nil)
+    }
+    
 }
