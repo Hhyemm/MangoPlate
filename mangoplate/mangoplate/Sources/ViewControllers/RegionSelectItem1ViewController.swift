@@ -1,14 +1,9 @@
 
 import UIKit
 
-protocol sendPressIndex: AnyObject {
-    func pressIndexCell(isPress: Bool)
-}
-
 class RegionSelectItem1ViewController: UIViewController {
     var list = ["홍대", "이태원/한남동", "신촌/이대", "강남역", "가로수길", "평택시", "방배/반포/잠원"]
     
-    var delegate: sendPressIndex?
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -44,6 +39,5 @@ extension RegionSelectItem1ViewController: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RegionSelectCell", for: indexPath) as! RegionSelectCell
-        delegate?.pressIndexCell(isPress: true)
     }
 }

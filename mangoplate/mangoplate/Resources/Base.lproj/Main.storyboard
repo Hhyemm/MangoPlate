@@ -743,6 +743,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="33"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="pressSurroundButton:" destination="ruF-K6-1Hx" eventType="touchUpInside" id="zY7-o9-ibh"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.91372549530000002" green="0.91372549530000002" blue="0.91372549530000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1065,6 +1068,91 @@
             </objects>
             <point key="canvasLocation" x="1524.6376811594205" y="1428.3482142857142"/>
         </scene>
+        <!--Surround View Controller-->
+        <scene sceneID="FRz-U5-wmS">
+            <objects>
+                <viewController storyboardIdentifier="SurroundViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lfj-7o-GkP" customClass="SurroundViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w4F-20-bJd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCr-tC-hlE">
+                                <rect key="frame" x="0.0" y="626" width="414" height="270"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTh-ai-AsP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.8078432083" green="0.8078432083" blue="0.8078432083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="tIG-ln-MhS"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMc-o9-eFs">
+                                        <rect key="frame" x="3" y="15" width="46" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="LAS-L2-JvR"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrowDown2"/>
+                                        <connections>
+                                            <action selector="pressDismissButton:" destination="lfj-7o-GkP" eventType="touchUpInside" id="S9t-fN-apb"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보다 편리한 맛집 검색을 위해 위치서비스를 사용해 보세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22Z-3N-yWl">
+                                        <rect key="frame" x="30" y="60" width="354" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELW-MC-vJd">
+                                        <rect key="frame" x="82" y="131" width="250" height="50"/>
+                                        <color key="backgroundColor" red="0.93333339689999995" green="0.47450977560000002" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="pwa-EH-dPc"/>
+                                            <constraint firstAttribute="height" constant="50" id="wrY-QK-YTB"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="위치서비스 켜기">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="pressOnLocationServiceButton:" destination="lfj-7o-GkP" eventType="touchUpInside" id="gCi-YS-JVD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="WTh-ai-AsP" firstAttribute="leading" secondItem="cCr-tC-hlE" secondAttribute="leading" id="1a5-do-4AW"/>
+                                    <constraint firstItem="ELW-MC-vJd" firstAttribute="top" secondItem="22Z-3N-yWl" secondAttribute="bottom" constant="30" id="3Mp-d8-EU8"/>
+                                    <constraint firstAttribute="trailing" secondItem="22Z-3N-yWl" secondAttribute="trailing" constant="30" id="59T-Mg-zTu"/>
+                                    <constraint firstAttribute="height" constant="270" id="5cd-EG-arE"/>
+                                    <constraint firstItem="xMc-o9-eFs" firstAttribute="top" secondItem="cCr-tC-hlE" secondAttribute="top" constant="15" id="BMU-2s-Z0g"/>
+                                    <constraint firstItem="22Z-3N-yWl" firstAttribute="top" secondItem="xMc-o9-eFs" secondAttribute="bottom" constant="20" id="VJj-U6-gvJ"/>
+                                    <constraint firstItem="22Z-3N-yWl" firstAttribute="leading" secondItem="cCr-tC-hlE" secondAttribute="leading" constant="30" id="b1S-wk-20z"/>
+                                    <constraint firstItem="xMc-o9-eFs" firstAttribute="leading" secondItem="cCr-tC-hlE" secondAttribute="leading" constant="3" id="pYZ-ad-YNJ"/>
+                                    <constraint firstItem="WTh-ai-AsP" firstAttribute="top" secondItem="cCr-tC-hlE" secondAttribute="top" id="s1c-ln-s6E"/>
+                                    <constraint firstItem="ELW-MC-vJd" firstAttribute="centerX" secondItem="cCr-tC-hlE" secondAttribute="centerX" id="yOb-Qt-ea7"/>
+                                    <constraint firstAttribute="trailing" secondItem="WTh-ai-AsP" secondAttribute="trailing" id="yP1-5E-UGm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sWu-xp-5Fk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sWu-xp-5Fk" firstAttribute="trailing" secondItem="cCr-tC-hlE" secondAttribute="trailing" id="AJa-go-LMp"/>
+                            <constraint firstItem="cCr-tC-hlE" firstAttribute="leading" secondItem="sWu-xp-5Fk" secondAttribute="leading" id="eZh-3c-k9M"/>
+                            <constraint firstAttribute="bottom" secondItem="cCr-tC-hlE" secondAttribute="bottom" id="jWl-rI-8UL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="onLocationButton" destination="ELW-MC-vJd" id="WeY-aO-enu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qH3-M1-4Xs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2242" y="1428"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="tmv-C0-sVV">
             <objects>
@@ -1171,19 +1259,46 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="15"/>
                                 </buttonConfiguration>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w1B-VX-dPY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ztc-q2-RDF"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9Vw-TF-8Xx">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3dX-Iq-f84">
+                                        <rect key="frame" x="0.0" y="-34" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6XV-0O-dT8">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="q3y-hG-s1q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q3y-hG-s1q" firstAttribute="trailing" secondItem="qIU-sB-Sc4" secondAttribute="trailing" constant="15" id="4xu-uY-Odf"/>
+                            <constraint firstItem="w1B-VX-dPY" firstAttribute="top" secondItem="q3y-hG-s1q" secondAttribute="top" id="BPE-us-v1L"/>
                             <constraint firstItem="q3y-hG-s1q" firstAttribute="bottom" secondItem="qIU-sB-Sc4" secondAttribute="bottom" constant="10" id="FQ1-GT-7FR"/>
+                            <constraint firstItem="w1B-VX-dPY" firstAttribute="leading" secondItem="q3y-hG-s1q" secondAttribute="leading" id="G8b-yp-wwc"/>
                             <constraint firstItem="Za4-Ld-to6" firstAttribute="centerX" secondItem="T3h-mO-OEz" secondAttribute="centerX" id="JXO-x1-kJ3"/>
                             <constraint firstItem="q3y-hG-s1q" firstAttribute="bottom" secondItem="Za4-Ld-to6" secondAttribute="bottom" id="btQ-n7-FQz"/>
+                            <constraint firstItem="q3y-hG-s1q" firstAttribute="trailing" secondItem="w1B-VX-dPY" secondAttribute="trailing" id="cLt-Pf-ety"/>
                             <constraint firstItem="qIU-sB-Sc4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Za4-Ld-to6" secondAttribute="trailing" constant="30" id="u7S-gW-0Ow"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="applyButton" destination="Za4-Ld-to6" id="Jib-yj-OXb"/>
+                        <outlet property="collectionView" destination="w1B-VX-dPY" id="FO9-iq-qMk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3O-O3-srl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1292,8 +1407,8 @@
         <image name="locImage" width="213" height="217"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mangopick" width="25" height="25"/>
-        <image name="map" catalog="system" width="128" height="110"/>
         <image name="map" width="25" height="25"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="myInfo" width="27" height="27"/>
         <image name="news" width="27" height="27"/>
         <image name="plus" width="512" height="512"/>

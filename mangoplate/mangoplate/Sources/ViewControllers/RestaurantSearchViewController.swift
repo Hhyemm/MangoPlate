@@ -83,4 +83,10 @@ class RestaurantSearchViewController: UIViewController {
         SortVC.sortTag = sortTag
         self.present(SortVC, animated: false, completion: nil)
     }
+    
+    @IBAction func pressSurroundButton(_ sender: UIButton) {
+        guard let SurroundVC = self.storyboard?.instantiateViewController(identifier: "SurroundViewController") as? SurroundViewController else { return }
+        SurroundVC.modalPresentationStyle = .overCurrentContext
+        self.present(SurroundVC, animated: false, completion: nil)
+    }
 }

@@ -39,7 +39,7 @@ class TabBarViewController: UIViewController {
         animationView.backgroundColor = .mainOrangeColor
         presentViewController()
     }
-    
+
     func pressTabBarItemButton(_ image: UIImageView, _ label: UILabel, _ aniView: UIView) {
         image.tintColor = .mainOrangeColor
         label.textColor = .mainOrangeColor
