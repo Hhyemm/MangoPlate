@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DetailImageCell" id="gTV-IL-0wX" customClass="DetailImageCell" customModule="mangoplate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="101" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="101" height="96"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bannerImage2" translatesAutoresizingMaskIntoConstraints="NO" id="MD4-xz-cMP">
+                        <rect key="frame" x="0.0" y="0.0" width="101" height="96"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="MD4-xz-cMP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Bqc-nf-xiE"/>
+                <constraint firstAttribute="trailing" secondItem="MD4-xz-cMP" secondAttribute="trailing" id="Vfc-hJ-FpL"/>
+                <constraint firstItem="MD4-xz-cMP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gYk-8u-aFa"/>
+                <constraint firstAttribute="bottom" secondItem="MD4-xz-cMP" secondAttribute="bottom" id="pfF-q5-HKa"/>
+            </constraints>
+            <size key="customSize" width="101" height="96"/>
+            <connections>
+                <outlet property="detailImage" destination="MD4-xz-cMP" id="wqC-Xr-vv7"/>
+            </connections>
+            <point key="canvasLocation" x="174.63768115942031" y="101.78571428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bannerImage2" width="673" height="260"/>
+    </resources>
+</document>
