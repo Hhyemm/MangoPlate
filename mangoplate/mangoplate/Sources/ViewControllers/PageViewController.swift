@@ -3,6 +3,7 @@ import UIKit
 
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    
     let identifiers: NSArray = ["RegionSelectItem1ViewController", "RegionSelectItem2ViewController", "RegionSelectItem3ViewController", "RegionSelectItem4ViewController"]
     
     lazy var VCArray: [UIViewController] = {

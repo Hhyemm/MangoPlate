@@ -3,6 +3,7 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController {
 
+    @IBOutlet weak var navigationBar: UIView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var roadSearchView: UIView!
     @IBOutlet weak var navigationView: UIView!
@@ -11,6 +12,10 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet weak var callView: UIView!
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
+    @IBOutlet weak var blogSearchView: UIView!
+    
+    let MaxTopHeight: CGFloat = 250
+    let MinTopHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +27,9 @@ class RestaurantDetailViewController: UIViewController {
         setViewDesign(adressView)
         callView.layer.borderWidth = 1
         callView.layer.borderColor = UIColor.mainDarkGrayColor.cgColor
+        blogSearchView.layer.borderWidth = 2
+        blogSearchView.layer.cornerRadius = blogSearchView.frame.height / 2
+        blogSearchView.layer.borderColor = UIColor.mainOrangeColor.cgColor
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {
@@ -45,6 +53,11 @@ class RestaurantDetailViewController: UIViewController {
         setView.layer.borderWidth = 1
         setView.layer.cornerRadius = roadSearchView.frame.width / 2
         setView.layer.borderColor = UIColor.mainDarkGrayColor.cgColor
+    }
+}
+
+extension RestaurantDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
     }
 }
 
@@ -77,6 +90,6 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
             return CGSize(width: (menuCollectionView.bounds.width)/5, height: menuCollectionView.bounds.height)
         }
         return CGSize(width: reviewCollectionView.frame.width, height: (reviewCollectionView.frame.height-10) / 3)
-
     }
 }
+
