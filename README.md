@@ -55,3 +55,13 @@
 <img width="300" alt="스크린샷 2022-05-24 오후 9 56 41" src="https://user-images.githubusercontent.com/98953443/170040236-2f9eaedd-bf83-4a8b-9c42-287ba517bf36.png">
 
 </br>
+
+# 2022-05-25 진행상황
+
+## 1. 맛집 상세 화면
+
+<img src="https://user-images.githubusercontent.com/98953443/170399669-79d6bbe8-abc3-4a66-918c-3199906812c0.gif" width=300>
+
+-> UI만 구현
+
+</br>
