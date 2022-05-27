@@ -11,8 +11,6 @@ class LocationAgreeViewController: UIViewController {
         
         label.lineBreakMode = .byCharWrapping
         agreeButton.layer.cornerRadius = agreeButton.frame.height / 2
-        
-        print("/restaurants&long=&lat=&dist=")
     }
     
     @IBAction func pressAgreeButton(_ sender: UIButton) {

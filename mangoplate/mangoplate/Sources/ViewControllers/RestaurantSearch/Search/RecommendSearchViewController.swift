@@ -15,7 +15,6 @@ class RecommendSearchViewController: UIViewController {
         
         let nib = UINib(nibName: "SearchCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "SearchCell")
-
     }
 }
 
@@ -31,6 +30,11 @@ extension RecommendSearchViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let SRVC = self.storyboard?.instantiateViewController(identifier: "SearchResultViewController") as? SearchResultViewController else { return }
+        SRVC.search = list[indexPath.item]
+        SRVC.modalPresentationStyle = .fullScreen
+        self.present(SRVC, animated: false, completion: nil)
     }
+
 }

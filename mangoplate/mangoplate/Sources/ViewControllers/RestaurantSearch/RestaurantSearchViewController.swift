@@ -22,15 +22,6 @@ extension RestaurantSearchViewController: SendDelegate, ClickStarDelegate {
     }
 }
 
-extension RestaurantSearchViewController {
-    func fetchData() {
-        let request = AF.request("http://3.39.170.0/restaurants/1")
-        request.responseJSON { (data) in
-          print(data)
-        }
-    }
-}
-
 class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegate {
 
     var locationManager = CLLocationManager()
@@ -52,8 +43,8 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
         super.viewDidLoad()
         
         //fetchData()
-        self.setupLocation()
-        setPageControl()
+        
+        //setPageControl()
         moveBannerImage()
         
         filterView.layer.borderWidth = 1
@@ -69,6 +60,7 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
         if regionTitle.count > 0 {
             nowRegionTitle.text = regionTitle.count == 1 ? "\(regionTitle.first!)" : "\(regionTitle.first!) 외 \(regionTitle.count-1)곳"
         }
+        setupLocation()
     }
     
     @IBAction func pressRegionButton(_ sender: UIButton) {
