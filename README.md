@@ -44,24 +44,38 @@
 
 </br>
 
-# 2022-05-24 진행상황
+## 2022-05-24 진행상황
 
-## 1. 메인화면 내 주변창
+### 1. 메인화면 내 주변창
 
 <img width="300" alt="스크린샷 2022-05-24 오후 9 56 33" src="https://user-images.githubusercontent.com/98953443/170040149-48bcf876-aae7-4d9c-b07d-db646c190760.png">
 
-## 2. 메인화면 필터창
+### 2. 메인화면 필터창
 
 <img width="300" alt="스크린샷 2022-05-24 오후 9 56 41" src="https://user-images.githubusercontent.com/98953443/170040236-2f9eaedd-bf83-4a8b-9c42-287ba517bf36.png">
 
 </br>
 
-# 2022-05-25 진행상황
+## 2022-05-25 진행상황
 
-## 1. 맛집 상세 화면
+### 1.맛집 상세 화면
 
 <img src="https://user-images.githubusercontent.com/98953443/170399669-79d6bbe8-abc3-4a66-918c-3199906812c0.gif" width=300>
 
 -> UI만 구현
+
+</br>
+
+## 2022-05-26 진행상황
+
+### 1. 지역선택 화면
+
+<img width="300" alt="스크린샷 2022-05-27 오후 1 53 29" src="https://user-images.githubusercontent.com/98953443/170631804-7cb8765e-dc7f-4fa9-88cd-0c62b91cf0c7.png">
+
+</br>
+
+### 2. 메인화면 배너 자동 슬라이드
+
+<img width="300" alt="스크린샷 2022-05-27 오후 1 55 08" src="https://user-images.githubusercontent.com/98953443/170631928-b55b385c-91f3-4a44-a452-81c855bf42ad.png">
 
 </br>
