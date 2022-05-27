@@ -79,3 +79,19 @@
 <img width="300" alt="스크린샷 2022-05-27 오후 1 55 08" src="https://user-images.githubusercontent.com/98953443/170631928-b55b385c-91f3-4a44-a452-81c855bf42ad.png">
 
 </br>
+
+## 2022-05-27 진행상황
+
+### 1. 메인화면 맛집 리스트
+
+<img width="300" alt="스크린샷 2022-05-28 오전 2 30 39" src="https://user-images.githubusercontent.com/98953443/170761732-9408921e-a60b-49be-9f64-eb8044ecdbaa.png">
+
+-> API 적용 X
+
+### 2. 내 위치 받아오기
+
+<img width="300" alt="스크린샷 2022-05-28 오전 2 39 23" src="https://user-images.githubusercontent.com/98953443/170763089-2fd159e7-565f-4b14-a6f7-34004132eac5.png">
+
+### 3. 맛집 상세화면 스크롤시 네비게이션 바 색상 변경
+
+<img src="https://user-images.githubusercontent.com/98953443/170762123-996403ca-c469-4312-8c5a-b74b1f8aa44b.gif" width = 300>
