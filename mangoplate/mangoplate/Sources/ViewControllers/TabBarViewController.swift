@@ -28,6 +28,8 @@ class TabBarViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+    var regionTitle = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,6 +94,7 @@ class TabBarViewController: UIViewController {
         self.addChild(RSVC)
         RSVC.view.frame = containerView.frame
         containerView.addSubview(RSVC.view)
+        RSVC.regionTitle = regionTitle
         RSVC.didMove(toParent: self)
     }
 }

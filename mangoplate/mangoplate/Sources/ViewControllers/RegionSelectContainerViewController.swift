@@ -11,13 +11,16 @@ class RegionSelectContainerViewController: UIViewController {
     
     var selectCategoryIndex = 0
     var pressedRegionCount = 0
+    var pressedRegion = [String]()
     
-    var categoryList = ["인기지역", "서울-강남", "서울-강북", "경기도", "인천", "대구", "부산", "제주"]
-    var regionList = [["홍대", "이태원/한남동", "신촌/이대", "강남역", "평택시", "방배/반포/잠원"],["전체", "강남역", "강동구", "개포/수서/일원", "관악구", "교대/서초", "구로구"], ["전체", "건대/군자/광진", "노원구", "대학로/혜화", "동대문구", "동부이촌동", "마포/공덕", "명동/남산", "삼청/인사"],["전체", "가평동", "고양시", "과천시", "광명시"],[],[],[]]
+    var categoryList = ["서울-강남", "서울-강북", "경기도", "인천", "대구", "부산", "제주"]
+    var regionList = [["전체", "강동구", "개포동", "관악구", "구로구", "금천구", "논현동", "대치동", "도곡동", "방이동", "삼성동", "양재동", "청담동"],["전체", "노원구", "동대문구", "동부이촌동", "서대문구", "성북구", "연남동", "은평구", "한남동", "중구", "중랑구"], ["가평군", "고양시", "과천시", "광명시", "광주시", "구리시", "군포시", "김포시", "남양주시", "동두천시", "부천시", "성남시", "수원시", "시흥시", "안산시"],["전체", "인천 강화군", "인천 계양구", "인천 남동구", "인천 동구", "인천 미주홀구", "인천 부평구", "인천 서구", "인천 연수구", "인천 옹진군", "인천 중구"],["전체", "대구 남구", "대구 달서구", "대구 달성군", "대구 동구", "대구 북구", "대구 서구", "대구 수성구"],["전체", "부산 강서구", "부산 금정구", "부산 기장군", "부산 남구"],["전체"]]
     var selectRegions = [Int:[Int]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2)
         
         setCollectionView()
         setContainRegionDic()
@@ -44,14 +47,18 @@ class RegionSelectContainerViewController: UIViewController {
     
     @IBAction func pressApplyButton(_ sender: UIButton) {
         if pressedRegionCount > 0 {
-            guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
-            RSVC.modalPresentationStyle = .fullScreen
-            self.present(RSVC, animated: false, completion: nil)
+            guard let TBVC = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController else { return }
+            TBVC.modalPresentationStyle = .fullScreen
+            TBVC.regionTitle = pressedRegion.sorted(by: <)
+            self.present(TBVC, animated: false, completion: nil)
         }
     }
     
     @IBAction func pressRemoveButton(_ sender: UIButton) {
         setContainRegionDic()
+        pressedRegion = []
+        applyView.backgroundColor = .mainLightGrayColor
+        removeButton.tintColor = .mainLightGrayColor
         categoryCollectionView.reloadData()
         regionCollectionView.reloadData()
     }
@@ -104,12 +111,12 @@ extension RegionSelectContainerViewController: UICollectionViewDelegate, UIColle
         if collectionView == categoryCollectionView {
             return 0
         }
-        return 25
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == categoryCollectionView {
-            return CGSize(width: collectionView.frame.width / 3.5, height: collectionView.frame.height)
+            return CGSize(width: collectionView.frame.width / 4, height: collectionView.frame.height)
         }
         return CGSize(width: collectionView.frame.width / 2 - 15, height: 50)
     }
@@ -123,6 +130,7 @@ extension RegionSelectContainerViewController: UICollectionViewDelegate, UIColle
             let regionCell = collectionView.cellForItem(at: indexPath) as! RegionSelectCell
             if selectRegions[selectCategoryIndex]!.contains(indexPath.last!) {
                 pressedRegionCount -= 1
+                pressedRegion.remove(at: pressedRegion.firstIndex(of: regionList[selectCategoryIndex][indexPath.last!])!)
                 collectionView.deselectItem(at: indexPath, animated: true)
                 var values = selectRegions[selectCategoryIndex]!.map{$0}
                 values.remove(at: values.firstIndex(of: indexPath.last!)!)
@@ -137,6 +145,7 @@ extension RegionSelectContainerViewController: UICollectionViewDelegate, UIColle
                 }
            } else {
                pressedRegionCount += 1
+               pressedRegion.append(regionList[selectCategoryIndex][indexPath.last!])
                selectRegions[selectCategoryIndex]!.append(indexPath.last!)
                regionCell.regionName.textColor = .mainOrangeColor
                regionCell.regionView.layer.borderColor = UIColor.mainOrangeColor.cgColor

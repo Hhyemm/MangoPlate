@@ -11,6 +11,14 @@ class LocationAgreeViewController: UIViewController {
         
         label.lineBreakMode = .byCharWrapping
         agreeButton.layer.cornerRadius = agreeButton.frame.height / 2
+        
+        print("/restaurants&long=&lat=&dist=")
+    }
+    
+    @IBAction func pressAgreeButton(_ sender: UIButton) {
+        guard let TBVC = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController else { return }
+        TBVC.modalPresentationStyle = .fullScreen
+        self.present(TBVC, animated: false, completion: nil)
     }
     
     @IBAction func pressDifferButton(_ sender: UIButton) {

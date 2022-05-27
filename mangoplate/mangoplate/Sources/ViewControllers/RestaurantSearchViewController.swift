@@ -1,22 +1,45 @@
 
 import UIKit
+import Alamofire
+import CoreLocation
 
 protocol SendDelegate: AnyObject {
     func send(title: String, tag: Int)
 }
 
-extension RestaurantSearchViewController: SendDelegate {
+extension RestaurantSearchViewController: SendDelegate, ClickStarDelegate {
     func send(title: String, tag: Int) {
         self.sortTitleLabel.text = title
         sortTag = tag
     }
+    
+    func clickStarButton(for index: Int, like: Bool) {
+        if like {
+            print("가고싶다 취소")
+        } else {
+            print("가고싶다")
+        }
+    }
 }
 
-class RestaurantSearchViewController: UIViewController {
+extension RestaurantSearchViewController {
+    func fetchData() {
+        let request = AF.request("http://3.39.170.0/restaurants/1")
+        request.responseJSON { (data) in
+          print(data)
+        }
+    }
+}
 
+class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegate {
+
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
     var images = ["bannerImage1", "bannerImage2", "bannerImage3", "bannerImage4", "bannerImage5"]
     var sortTag = 1
+    var regionTitle = [String]()
     
+    @IBOutlet weak var nowRegionTitle: UILabel!
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var surroundView: UIView!
@@ -28,18 +51,32 @@ class RestaurantSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //fetchData()
+        self.setupLocation()
         setPageControl()
+        moveBannerImage()
+        
         filterView.layer.borderWidth = 1
         filterView.layer.borderColor = UIColor.mainDarkGrayColor.cgColor
         filterView.layer.cornerRadius = filterView.frame.height / 2
         
         surroundView.layer.cornerRadius = surroundView.frame.height / 2
         
-        self.restaurantCollectionView.delegate = self
-        self.restaurantCollectionView.dataSource = self
-        
-        restaurantCollectionView.register(UINib(nibName: "RestaurantCell", bundle: nil), forCellWithReuseIdentifier: "RestaurantCell")
+        setCollectionView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if regionTitle.count > 0 {
+            nowRegionTitle.text = regionTitle.count == 1 ? "\(regionTitle.first!)" : "\(regionTitle.first!) 외 \(regionTitle.count-1)곳"
+        }
+    }
+    
+    @IBAction func pressRegionButton(_ sender: UIButton) {
+        guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RegionSelectContainerViewController") as? RegionSelectContainerViewController else { return }
+        RSVC.modalPresentationStyle = .overCurrentContext
+        self.present(RSVC, animated: false, completion: nil)
+    }
+    
     
     @IBAction func pressSearchButton(_ sender: UIButton) {
         guard let SearchVC = self.storyboard?.instantiateViewController(identifier: "SearchViewController") as? SearchViewController else { return }
@@ -48,7 +85,17 @@ class RestaurantSearchViewController: UIViewController {
     }
     
     func moveBannerImage() {
-        
+        DispatchQueue.main.async {
+            let _: Timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (Timer) in
+                if self.pageControl.currentPage >= self.images.count-1 {
+                    self.bannerImageView.image = UIImage(named: self.images[0])
+                    self.pageControl.currentPage = 0
+                } else {
+                    self.pageControl.currentPage += 1
+                    self.bannerImageView.image = UIImage(named: self.images[self.pageControl.currentPage])
+                }
+            }
+        }
     }
     
     func setPageControl() {
@@ -105,6 +152,15 @@ class RestaurantSearchViewController: UIViewController {
         FilterVC.modalPresentationStyle = .overCurrentContext
         self.present(FilterVC, animated: false, completion: nil)
     }
+    
+    func setCollectionView() {
+        self.restaurantCollectionView.delegate = self
+        self.restaurantCollectionView.dataSource = self
+        
+        restaurantCollectionView.register(UINib(nibName: "RestaurantCell", bundle: nil), forCellWithReuseIdentifier: "RestaurantCell")
+        
+        restaurantCollectionView.isScrollEnabled = false
+    }
 }
 
 extension RestaurantSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -114,16 +170,34 @@ extension RestaurantSearchViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        cell.delegate = self
+        cell.index = indexPath.item
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: (restaurantCollectionView.bounds.width - 10)/2, height: 300)
+        return CGSize(width: (restaurantCollectionView.bounds.width - 10)/2, height: restaurantCollectionView.bounds.width/2 + 70)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let RDVC = storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else { return }
         RDVC.modalPresentationStyle = .fullScreen
         self.present(RDVC, animated: false, completion: nil)
+    }
+}
+
+extension RestaurantSearchViewController {
+    func setupLocation(){
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !locations.isEmpty, currentLocation == nil{
+            currentLocation = locations.first
+            locationManager.stopUpdatingLocation()
+            print(currentLocation)
+        }
     }
 }
