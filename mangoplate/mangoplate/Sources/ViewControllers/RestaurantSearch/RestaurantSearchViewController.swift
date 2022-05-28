@@ -44,15 +44,9 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
         
         //fetchData()
         
-        //setPageControl()
+        setPageControl()
         moveBannerImage()
-        
-        filterView.layer.borderWidth = 1
-        filterView.layer.borderColor = UIColor.mainDarkGrayColor.cgColor
-        filterView.layer.cornerRadius = filterView.frame.height / 2
-        
-        surroundView.layer.cornerRadius = surroundView.frame.height / 2
-        
+        setViewDesign()
         setCollectionView()
     }
     
@@ -75,6 +69,13 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
         SearchVC.modalPresentationStyle = .fullScreen
         self.present(SearchVC, animated: false, completion: nil)
     }
+    
+    @IBAction func pressMapButton(_ sender: UIButton) {
+        guard let MapVC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as? MapViewController else { return }
+        MapVC.modalPresentationStyle = .fullScreen
+        self.present(MapVC, animated: false, completion: nil)
+    }
+    
     
     func moveBannerImage() {
         DispatchQueue.main.async {
@@ -131,6 +132,14 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
         SortVC.delegate = self
         SortVC.sortTag = sortTag
         self.present(SortVC, animated: false, completion: nil)
+    }
+    
+    func setViewDesign() {
+        filterView.layer.borderWidth = 1
+        filterView.layer.borderColor = UIColor.mainDarkGrayColor.cgColor
+        filterView.layer.cornerRadius = filterView.frame.height / 2
+        
+        surroundView.layer.cornerRadius = surroundView.frame.height / 2
     }
     
     @IBAction func pressSurroundButton(_ sender: UIButton) {

@@ -25,6 +25,13 @@ class SearchResultViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func pressMapButton(_ sender: UIButton) {
+        guard let MapVC = self.storyboard?.instantiateViewController(identifier: "MapViewController") as? MapViewController else { return }
+        MapVC.modalPresentationStyle = .fullScreen
+        self.present(MapVC, animated: false, completion: nil)
+    }
+    
+    
     @IBAction func pressRegionButton(_ sender: UIButton) {
         guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RegionSelectContainerViewController") as? RegionSelectContainerViewController else { return }
         RSVC.modalPresentationStyle = .overCurrentContext

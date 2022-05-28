@@ -47,7 +47,7 @@ class RegionSelectContainerViewController: UIViewController {
     }
     
     @IBAction func pressApplyButton(_ sender: UIButton) {
-        if nowView == "search" {
+        if nowView == "search" || nowView == "map" {
             dismiss(animated: false, completion: nil)
         } else {
             if pressedRegionCount > 0 {
