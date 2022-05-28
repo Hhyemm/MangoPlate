@@ -53,6 +53,16 @@ class RegionSelectContainerViewController: UIViewController {
             if pressedRegionCount > 0 {
                 guard let TBVC = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController else { return }
                 TBVC.modalPresentationStyle = .fullScreen
+                for key in selectRegions.keys {
+                   for value in selectRegions[key]!.sorted(by: <) {
+                       if value == 0 {
+                           pressedRegion.append(categoryList[key])
+                           break
+                       } else {
+                           pressedRegion.append(regionList[key][value])
+                       }
+                   }
+               }
                 TBVC.regionTitle = pressedRegion.sorted(by: <)
                 self.present(TBVC, animated: false, completion: nil)
             }
@@ -134,16 +144,15 @@ extension RegionSelectContainerViewController: UICollectionViewDelegate, UIColle
         } else if collectionView == regionCollectionView {
             let regionCell = collectionView.cellForItem(at: indexPath) as! RegionSelectCell
             if selectRegions[selectCategoryIndex]!.contains(indexPath.last!) {
+                collectionView.deselectItem(at: indexPath, animated: true)
                 pressedRegionCount -= 1
                 if indexPath.last! == 0 {
-                    pressedRegion.remove(at: pressedRegion.firstIndex(of: categoryList[selectCategoryIndex])!)
+                    selectRegions[selectCategoryIndex]! = []
                 } else {
-                    pressedRegion.remove(at: pressedRegion.firstIndex(of: regionList[selectCategoryIndex][indexPath.last!])!)
+                    var values = selectRegions[selectCategoryIndex]!.map{$0}
+                    values.remove(at: values.firstIndex(of: indexPath.last!)!)
+                    selectRegions[selectCategoryIndex]! = values
                 }
-                collectionView.deselectItem(at: indexPath, animated: true)
-                var values = selectRegions[selectCategoryIndex]!.map{$0}
-                values.remove(at: values.firstIndex(of: indexPath.last!)!)
-                selectRegions[selectCategoryIndex]! = values
                 regionCell.regionName.textColor = .mainLightGrayColor
                 regionCell.regionView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
                 regionCell.checkView.isHidden = true
@@ -155,11 +164,11 @@ extension RegionSelectContainerViewController: UICollectionViewDelegate, UIColle
            } else {
                pressedRegionCount += 1
                if indexPath.last! == 0 {
-                   pressedRegion.append(categoryList[selectCategoryIndex])
+                   selectRegions[selectCategoryIndex]! = []
+                   selectRegions[selectCategoryIndex] = [Int](0..<regionList[selectCategoryIndex].count)
                } else {
-                   pressedRegion.append(regionList[selectCategoryIndex][indexPath.last!])
+                   selectRegions[selectCategoryIndex]!.append(indexPath.last!)
                }
-               selectRegions[selectCategoryIndex]!.append(indexPath.last!)
                regionCell.regionName.textColor = .mainOrangeColor
                regionCell.regionView.layer.borderColor = UIColor.mainOrangeColor.cgColor
                regionCell.checkView.isHidden = false

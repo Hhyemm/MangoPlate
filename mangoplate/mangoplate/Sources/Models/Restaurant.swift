@@ -12,6 +12,7 @@ struct Restuarant: Codable {
 struct RestuarantInfo: Codable{
     let name: String
     let view: Int
+    let wishCnt: Int
     let score: Double
     let address: String
     let latitude: Double
@@ -20,6 +21,7 @@ struct RestuarantInfo: Codable{
     let openHour: String
     let closeHour: String
     let breakTime: String?
+    let updatedAt: String
     let minPrice: Int
     let maxPrice: Int
     let parkInfo: String
@@ -27,9 +29,20 @@ struct RestuarantInfo: Codable{
     let foodCategoryId: Int
     let foodCategoryName: String
     let imgUrls: [String]
-    //let reviews: [String]
+    let reviews: [Reviews]
+    let menus: [Menus]
 }
 
 struct Reviews: Codable {
-    
+    let userName: String
+    let profileImgUrl: String?
+    let content: String
+    let score: Int
+    let restaurantName: String
+    let imgUrls: [String]
+}
+
+struct Menus: Codable {
+    let name: String
+    let price: Int
 }

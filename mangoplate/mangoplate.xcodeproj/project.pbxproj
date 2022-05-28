@@ -46,6 +46,10 @@
 		92B1CFC228412E1700223987 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFC128412E1700223987 /* SearchResultViewController.swift */; };
 		92B1CFD328415CCF00223987 /* SearchBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFD228415CCF00223987 /* SearchBannerCell.swift */; };
 		92B1CFD528415CFE00223987 /* SearchBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CFD428415CFE00223987 /* SearchBannerCell.xib */; };
+		92B1CFDA284169DF00223987 /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFD9284169DF00223987 /* ReviewWriteViewController.swift */; };
+		92B1CFDC28416AE400223987 /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */; };
+		92B1CFE02841E8FC00223987 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CFDE2841E8FB00223987 /* CommentCell.xib */; };
+		92B1CFE22841F30800223987 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFE12841F30800223987 /* CommentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +94,10 @@
 		92B1CFC128412E1700223987 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultViewController.swift; path = mangoplate/Sources/ViewControllers/RestaurantSearch/Search/SearchResultViewController.swift; sourceTree = SOURCE_ROOT; };
 		92B1CFD228415CCF00223987 /* SearchBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBannerCell.swift; sourceTree = "<group>"; };
 		92B1CFD428415CFE00223987 /* SearchBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBannerCell.xib; sourceTree = "<group>"; };
+		92B1CFD9284169DF00223987 /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
+		92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewDetailViewController.swift; path = mangoplate/Sources/ViewControllers/RestaurantSearch/Detail/ReviewDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		92B1CFDE2841E8FB00223987 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommentCell.xib; path = mangoplate/Resources/RestaurantSearch/Detail/CommentCell.xib; sourceTree = SOURCE_ROOT; };
+		92B1CFE12841F30800223987 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +190,7 @@
 				92B1CFC628414AFA00223987 /* RestaurtantSearch */,
 				92B1CF6C283A132A00223987 /* RegionSelectCell.swift */,
 				92B1CF85283B71B800223987 /* RegionCategoryCell.swift */,
+				92B1CFE12841F30800223987 /* CommentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -201,9 +210,10 @@
 		92B1CFBD28412C0400223987 /* RestaurantSearch */ = {
 			isa = PBXGroup;
 			children = (
-				92B1CFBE28412C5E00223987 /* Search */,
 				92B1CF5D283951D800223987 /* RestaurantSearchViewController.swift */,
 				92B1CF81283AA34600223987 /* SortViewController.swift */,
+				92B1CFD82841695500223987 /* Detail */,
+				92B1CFBE28412C5E00223987 /* Search */,
 				92B1CF8A283C729500223987 /* SurroundViewController.swift */,
 				92B1CF8C283C7D2C00223987 /* FilterViewController.swift */,
 				92B1CF98283DDCBC00223987 /* RestaurantDetailViewController.swift */,
@@ -241,6 +251,7 @@
 				92B1CF9B283DEA9A00223987 /* DetailImageCell.xib */,
 				92B1CF9F283E385500223987 /* MenuImageCell.xib */,
 				92B1CFA9283E523500223987 /* ReviewCell.xib */,
+				92B1CFDE2841E8FB00223987 /* CommentCell.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -263,6 +274,15 @@
 				92B1CFA8283E523500223987 /* ReviewCell.swift */,
 				92B1CF9E283E385500223987 /* MenuImageCell.swift */,
 				92B1CF9A283DEA9A00223987 /* DetailImageCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		92B1CFD82841695500223987 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				92B1CFD9284169DF00223987 /* ReviewWriteViewController.swift */,
+				92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -346,6 +366,7 @@
 				92B1CF97283DA20500223987 /* RestaurantCell.xib in Resources */,
 				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
+				92B1CFE02841E8FC00223987 /* CommentCell.xib in Resources */,
 				92B1CF51283925A700223987 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +434,7 @@
 				92B1CF96283DA20500223987 /* RestaurantCell.swift in Sources */,
 				92B1CF82283AA34600223987 /* SortViewController.swift in Sources */,
 				92B1CFBB2840C4C900223987 /* Restaurant.swift in Sources */,
+				92B1CFDA284169DF00223987 /* ReviewWriteViewController.swift in Sources */,
 				92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */,
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
 				92B1CF6B2839D6C800223987 /* RegionSelectContainerViewController.swift in Sources */,
@@ -421,9 +443,11 @@
 				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
 				92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */,
+				92B1CFE22841F30800223987 /* CommentCell.swift in Sources */,
 				92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */,
 				92B1CF8B283C729500223987 /* SurroundViewController.swift in Sources */,
 				92B1CF80283A6FC800223987 /* RecentSearchViewController.swift in Sources */,
+				92B1CFDC28416AE400223987 /* ReviewDetailViewController.swift in Sources */,
 				92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@ class LocationAgreeViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var agreeButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

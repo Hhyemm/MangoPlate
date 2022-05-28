@@ -70,6 +70,7 @@ class RestaurantDetailViewController: UIViewController {
                             let getInstanceData = try JSONDecoder().decode(Restuarant.self, from: dataJSON)
                             if let results = getInstanceData.result {
                                 self.restuarantInfoList = getInstanceData.result
+                                
                                 self.navigationBarName.text = self.restuarantInfoList.name
                                 self.restaurantName.text = self.restuarantInfoList.name
                                 self.restaurantView.text = "\(self.restuarantInfoList.view)"
@@ -147,9 +148,14 @@ class RestaurantDetailViewController: UIViewController {
             wishImage.image = UIImage(named: "star3")
             wish = true
         }
-        
     }
     
+    @IBAction func pressWriteReviewButton(_ sender: UIButton) {
+        guard let RWVC = self.storyboard?.instantiateViewController(identifier: "ReviewWriteViewController") as? ReviewWriteViewController else { return }
+        RWVC.modalPresentationStyle = .fullScreen
+        self.present(RWVC, animated: false, completion: nil)
+        
+    }
 }
 
 extension RestaurantDetailViewController: UIScrollViewDelegate {
@@ -168,7 +174,6 @@ extension RestaurantDetailViewController: UIScrollViewDelegate {
             navigationBarPictureButton.tintColor = .mainOrangeColor
             navigationBarShareButton.tintColor = .mainOrangeColor
         }
-        
     }
 }
 
@@ -202,6 +207,14 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
             return CGSize(width: (menuCollectionView.bounds.width)/5, height: menuCollectionView.bounds.height)
         }
         return CGSize(width: reviewCollectionView.frame.width, height: (reviewCollectionView.frame.height-10) / 3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == reviewCollectionView {
+            guard let RDVC = self.storyboard?.instantiateViewController(identifier: "ReviewDetailViewController") as? ReviewDetailViewController else { return }
+            RDVC.modalPresentationStyle = .fullScreen
+            self.present(RDVC, animated: false, completion: nil)
+        }
     }
 }
 
