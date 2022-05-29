@@ -1,16 +1,9 @@
-//
-//  AppDelegate.swift
-//  mangoplate
-//
-//  Created by hyemi on 2022/05/21.
-//
 
 import UIKit
+import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

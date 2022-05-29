@@ -8,5 +8,6 @@ target 'mangoplate' do
   # Pods for mangoplate
   pod 'Tabman', '~> 2.11'
   pod 'Alamofire', '~> 5.4'
+  pod 'Kingfisher', '~> 7.0'
 
 end

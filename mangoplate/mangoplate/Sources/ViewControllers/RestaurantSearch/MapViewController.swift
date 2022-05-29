@@ -1,20 +1,26 @@
 
 import UIKit
+import MapKit
+import CoreLocation
 
+class MapViewController: UIViewController, CLLocationManagerDelegate {
 
-class MapViewController: UIViewController {
-
+    let locationManager = CLLocationManager()
+    
+    @IBOutlet weak var nowRegionTitle: UILabel!
     @IBOutlet weak var surroundView: UIView!
     @IBOutlet weak var filterView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nowMap: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setViewDesign()
         setCollectionView()
+        setNowLocation()
     }
-    
+
     @IBAction func pressRegionButton(_ sender: UIButton) {
         guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RegionSelectContainerViewController") as? RegionSelectContainerViewController else { return }
         RSVC.modalPresentationStyle = .overCurrentContext
@@ -58,6 +64,50 @@ class MapViewController: UIViewController {
         FilterVC.modalPresentationStyle = .overCurrentContext
         self.present(FilterVC, animated: false, completion: nil)
     }
+    
+    func setNowLocation() {
+        if locationAgree == true {
+            findLocation()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            goLocation(latitudeValue: myLocation.0, longtudeValue: myLocation.1, delta: 0.01)
+            nowMap.showsUserLocation = true
+        }
+    }
+    
+    func setAnnotation(latitudeValue: CLLocationDegrees,
+                           longitudeValue: CLLocationDegrees,
+                           delta span :Double){
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = goLocation(latitudeValue: latitudeValue, longtudeValue: longitudeValue, delta: span)
+            nowMap.addAnnotation(annotation)
+        }
+    
+    func findLocation(){
+        let findLoc = CLLocation(latitude: myLocation.0, longitude: myLocation.1)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        geocoder.reverseGeocodeLocation(findLoc, preferredLocale: locale) { (placemarks, error) in
+            if let address: [CLPlacemark] = placemarks {
+                if let name = address.last?.name {
+                    if locationAgree == true {
+                        var loc = name.filter{$0.isLetter}
+                        self.nowRegionTitle.text = loc
+                    }
+                }
+            }
+        }
+    }
+    
+    func goLocation(latitudeValue: CLLocationDegrees,
+                        longtudeValue: CLLocationDegrees,
+                        delta span: Double) -> CLLocationCoordinate2D {
+            let pLocation = CLLocationCoordinate2DMake(latitudeValue, longtudeValue)
+            let spanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
+            let pRegion = MKCoordinateRegion(center: pLocation, span: spanValue)
+            nowMap.setRegion(pRegion, animated: true)
+            return pLocation
+        }
     
     func setCollectionView() {
         self.collectionView.delegate = self

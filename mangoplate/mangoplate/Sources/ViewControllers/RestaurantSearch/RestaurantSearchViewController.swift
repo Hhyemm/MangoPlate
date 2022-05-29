@@ -1,6 +1,8 @@
 
 import UIKit
 import Alamofire
+import Tabman
+import Kingfisher
 import CoreLocation
 
 protocol SendDelegate: AnyObject {
@@ -22,13 +24,13 @@ extension RestaurantSearchViewController: SendDelegate, ClickStarDelegate {
     }
 }
 
-class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegate {
-
-    var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
+class RestaurantSearchViewController: UIViewController {
+    
     var images = ["bannerImage1", "bannerImage2", "bannerImage3", "bannerImage4", "bannerImage5"]
     var sortTag = 1
     var regionTitle = [String]()
+    
+    var restuarantInfoList: [RestuarantInfo]?
     
     @IBOutlet weak var nowRegionTitle: UILabel!
     @IBOutlet weak var bannerImageView: UIImageView!
@@ -42,19 +44,19 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //fetchData()
-        
         setPageControl()
         moveBannerImage()
         setViewDesign()
         setCollectionView()
+        
+        self.fetchData()
+        findLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if regionTitle.count > 0 {
             nowRegionTitle.text = regionTitle.count == 1 ? "\(regionTitle.first!)" : "\(regionTitle.first!) 외 \(regionTitle.count-1)곳"
         }
-        setupLocation()
     }
     
     @IBAction func pressRegionButton(_ sender: UIButton) {
@@ -166,13 +168,22 @@ class RestaurantSearchViewController: UIViewController, CLLocationManagerDelegat
 
 extension RestaurantSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.restuarantInfoList?.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
         cell.delegate = self
         cell.index = indexPath.item
+        cell.resIndex?.text = String(indexPath.item+1)+"."
+        cell.resTitle?.text = restuarantInfoList?[indexPath.item].name
+        cell.resLoc?.text = restuarantInfoList?[indexPath.item].regionName
+        cell.resReview?.text = String(restuarantInfoList?[indexPath.item].numReviews ?? 0)
+        cell.resRate?.text = String(restuarantInfoList?[indexPath.item].ratingsAvg ?? 0)
+        cell.starImage.tintColor = restuarantInfoList?[indexPath.item].isWishes == 0 ? .mainOrangeColor : .clear
+        let url = URL(string: restuarantInfoList![indexPath.item].imgUrl)!
+        //cell.resImage.kf.setImage(with: url)
         return cell
     }
     
@@ -187,18 +198,47 @@ extension RestaurantSearchViewController: UICollectionViewDelegate, UICollection
     }
 }
 
+
 extension RestaurantSearchViewController {
-    func setupLocation(){
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+    func findLocation(){
+        let findLoc = CLLocation(latitude: myLocation.0, longitude: myLocation.1)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        geocoder.reverseGeocodeLocation(findLoc, preferredLocale: locale) { (placemarks, error) in
+            if let address: [CLPlacemark] = placemarks {
+                if let name = address.last?.name {
+                    if locationAgree == true {
+                        var loc = name.filter{$0.isLetter}
+                        self.nowRegionTitle.text = loc
+                    }
+                }
+            }
+        }
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if !locations.isEmpty, currentLocation == nil{
-            currentLocation = locations.first
-            locationManager.stopUpdatingLocation()
-            print(currentLocation)
+    
+    
+    func fetchData() {
+        let url = AF.request("http://3.39.170.0/restaurants?lat=\(myLocation.0)&long=\(myLocation.1)")
+        url.responseJSON { (response) in
+            switch response.result {
+            case .success(let obj) :
+                if let nsDiectionary = obj as? NSDictionary {
+                    do {
+                        let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                        let getInstanceData = try JSONDecoder().decode(Restuarant.self, from: dataJSON)
+                        if let results = getInstanceData.result {
+                            self.restuarantInfoList = results
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                self.restaurantCollectionView.reloadData()
+            case .failure(_):
+                print("실패")
+            }
         }
     }
 }
+

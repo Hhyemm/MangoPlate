@@ -2,10 +2,9 @@
 import UIKit
 
 class LocationAgreeViewController: UIViewController {
-
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var agreeButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,9 +14,9 @@ class LocationAgreeViewController: UIViewController {
     }
     
     @IBAction func pressAgreeButton(_ sender: UIButton) {
-        guard let TBVC = self.storyboard?.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController else { return }
-        TBVC.modalPresentationStyle = .fullScreen
-        self.present(TBVC, animated: false, completion: nil)
+        guard let LAMVC = self.storyboard?.instantiateViewController(identifier: "LocationAgreeMessageViewController") as? LocationAgreeMessageViewController else { return }
+        LAMVC.modalPresentationStyle = .fullScreen
+        self.present(LAMVC, animated: false)
     }
     
     @IBAction func pressDifferButton(_ sender: UIButton) {

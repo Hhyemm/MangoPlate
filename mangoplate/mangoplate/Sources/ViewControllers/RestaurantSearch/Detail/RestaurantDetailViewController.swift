@@ -21,6 +21,7 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet weak var adressView: UIView!
     
     @IBOutlet weak var callView: UIView!
+    @IBOutlet weak var testImg: UIImageView!
     
     @IBOutlet weak var menuCollectionView: UICollectionView!
     
@@ -40,7 +41,7 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet weak var restaurantMinPrice: UILabel!
     @IBOutlet weak var restaurantMaxPrice: UILabel!
     
-    var restuarantInfoList: RestuarantInfo!
+    var restuarantDetailInfoList: RestuarantDetailInfo!
     var wish: Bool?
     
     override func viewDidLoad() {
@@ -57,64 +58,7 @@ class RestaurantDetailViewController: UIViewController {
         blogSearchView.layer.cornerRadius = blogSearchView.frame.height / 2
         blogSearchView.layer.borderColor = UIColor.mainOrangeColor.cgColor
         fetchData()
-    }
-    
-    func fetchData() {
-        let url = AF.request("http://3.39.170.0/restaurants/1")
-            url.responseJSON { (response) in
-                switch response.result {
-                case .success(let obj) :
-                    if let nsDiectionary = obj as? NSDictionary {
-                        do {
-                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                            let getInstanceData = try JSONDecoder().decode(Restuarant.self, from: dataJSON)
-                            if let results = getInstanceData.result {
-                                self.restuarantInfoList = getInstanceData.result
-                                
-                                self.navigationBarName.text = self.restuarantInfoList.name
-                                self.restaurantName.text = self.restuarantInfoList.name
-                                self.restaurantView.text = "\(self.restuarantInfoList.view)"
-                                self.restaurantScore.text = "\(self.restuarantInfoList.score)"
-                                self.restaurantAddress.text = self.restuarantInfoList.address
-                                self.restaurantOpenHour.text = self.restuarantInfoList.openHour
-                                self.restaurantCloseHour.text = self.restuarantInfoList.closeHour
-                                self.restaurantBreakTime.text = self.restuarantInfoList.breakTime
-                                switch self.restuarantInfoList.minPrice {
-                                case 0..<10000 :
-                                    self.restaurantMinPrice.text = "만원 미만"
-                                case 10000..<20000 :
-                                    self.restaurantMinPrice.text = "만원"
-                                case 20000..<30000 :
-                                    self.restaurantMinPrice.text = "2만원"
-                                case 30000..<40000 :
-                                    self.restaurantMinPrice.text = "3만원"
-                                default :
-                                    self.restaurantMinPrice.text = ""
-                                }
-                                switch self.restuarantInfoList.maxPrice {
-                                case 0..<10000 :
-                                    self.restaurantMaxPrice.text = ""
-                                case 10000..<20000 :
-                                    self.restaurantMaxPrice.text = "만원"
-                                case 20000..<30000 :
-                                    self.restaurantMaxPrice.text = "2만원"
-                                case 30000..<40000 :
-                                    self.restaurantMaxPrice.text = "3만원"
-                                default :
-                                    self.restaurantMaxPrice.text = "4만원 이상"
-                                }
-                                //print(self.restuarantInfoList)
-                            }
-                           
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                        
-                    }
-                case .failure(_):
-                    print("실패")
-            }
-        }
+        
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {
@@ -218,3 +162,58 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
     }
 }
 
+extension RestaurantDetailViewController {
+    func fetchData() {
+        let url = AF.request("http://3.39.170.0/restaurants/1")
+        url.responseJSON { (response) in
+            switch response.result {
+            case .success(let obj) :
+                if let nsDiectionary = obj as? NSDictionary {
+                    do {
+                        let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                        let getInstanceData = try JSONDecoder().decode(RestuarantDetail.self, from: dataJSON)
+                        if let results = getInstanceData.result {
+                            self.restuarantDetailInfoList = getInstanceData.result
+                            self.navigationBarName.text = self.restuarantDetailInfoList.name
+                            self.restaurantName.text = self.restuarantDetailInfoList.name
+                            self.restaurantView.text = "\(self.restuarantDetailInfoList.view)"
+                            self.restaurantScore.text = "\(self.restuarantDetailInfoList.score)"
+                            self.restaurantAddress.text = self.restuarantDetailInfoList.address
+                            self.restaurantOpenHour.text = self.restuarantDetailInfoList.openHour
+                            self.restaurantCloseHour.text = self.restuarantDetailInfoList.closeHour
+                            self.restaurantBreakTime.text = self.restuarantDetailInfoList.breakTime
+                            switch self.restuarantDetailInfoList.minPrice {
+                            case 0..<10000 :
+                                self.restaurantMinPrice.text = "만원 미만"
+                            case 10000..<20000 :
+                                self.restaurantMinPrice.text = "만원"
+                            case 20000..<30000 :
+                                self.restaurantMinPrice.text = "2만원"
+                            case 30000..<40000 :
+                                self.restaurantMinPrice.text = "3만원"
+                            default :
+                                self.restaurantMinPrice.text = ""
+                            }
+                            switch self.restuarantDetailInfoList.maxPrice {
+                            case 0..<10000 :
+                                self.restaurantMaxPrice.text = ""
+                            case 10000..<20000 :
+                                self.restaurantMaxPrice.text = "만원"
+                            case 20000..<30000 :
+                                self.restaurantMaxPrice.text = "2만원"
+                            case 30000..<40000 :
+                                self.restaurantMaxPrice.text = "3만원"
+                            default :
+                                self.restaurantMaxPrice.text = "4만원 이상"
+                            }
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
+}
