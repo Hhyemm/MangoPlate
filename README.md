@@ -102,15 +102,55 @@
 
 ### 1. 검색 결과 화면
 
+<img width="300" alt="스크린샷 2022-05-30 오후 10 11 58" src="https://user-images.githubusercontent.com/98953443/170999682-d43de640-b219-4f2d-8927-e587b2c53736.png">
+
+-> UI만 구성
+
 ### 2. 리뷰 상세 화면
 
+<img width="300" alt="스크린샷 2022-05-30 오후 10 15 34" src="https://user-images.githubusercontent.com/98953443/171000074-19e364a5-075d-4dee-9da6-d5dc1329d261.png">
+
+-> UI만 구성
+
 ### 3. 지도 화면
+
+<img width="300" alt="스크린샷 2022-05-30 오후 10 18 53" src="https://user-images.githubusercontent.com/98953443/171000629-eb1d6024-09c6-4372-a668-0c25983cd6ea.png">
+
+-> UI만 구성
 
 </br>
 
 ## 2022-05-29 진행상황
 
+### 1. 로그인 화면
 
+<img width="300" alt="스크린샷 2022-05-30 오후 10 20 36" src="https://user-images.githubusercontent.com/98953443/171001120-59a290d1-b563-491d-9d66-7ca4fd418a0c.png">
 
+### 2. 이메일 로그인 화면
 
+<img width="300" alt="스크린샷 2022-05-30 오후 10 21 30" src="https://user-images.githubusercontent.com/98953443/171001148-3d628a5b-fffe-45f3-8ec1-9c2dd44e3be0.png">
+
+### 3. 이메일 회원가입 화면
+
+<img width="300" alt="스크린샷 2022-05-30 오후 10 21 42" src="https://user-images.githubusercontent.com/98953443/171001156-e408b9be-8a45-4cd3-9082-bb13563f461a.png">
+
+</br>
+
+## 2022-05-30 진행상황
+
+### 1. 이메일 가입 API 연동
+
+### 2. 이메일 로그인 API 연동
+
+### 3. 카카오 로그인 API 연동
+
+### 4. 내 위치 메인화면 API 연동
+
+<img width="300" alt="스크린샷 2022-05-30 오후 10 24 59" src="https://user-images.githubusercontent.com/98953443/171001649-059239ac-c2b8-4e72-a842-2021dfbea603.png"> 
+
+### 5. 식당 상세화면 API 연동
+
+<img width="300" alt="스크린샷 2022-05-30 오후 10 35 42" src="https://user-images.githubusercontent.com/98953443/171003694-b8bf3748-d198-48b0-b47f-eb030219594b.png">
+
+</br>
 
