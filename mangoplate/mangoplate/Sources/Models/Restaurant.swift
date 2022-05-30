@@ -9,6 +9,7 @@ struct Restuarant: Codable {
 }
 
 struct RestuarantInfo: Codable {
+    var id: Int
     var name: String
     var regionName: String
     var foodCategory: String

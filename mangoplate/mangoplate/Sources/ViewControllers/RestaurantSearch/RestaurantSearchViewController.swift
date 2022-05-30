@@ -2,7 +2,6 @@
 import UIKit
 import Alamofire
 import Tabman
-import Kingfisher
 import CoreLocation
 
 protocol SendDelegate: AnyObject {
@@ -183,7 +182,7 @@ extension RestaurantSearchViewController: UICollectionViewDelegate, UICollection
         cell.resRate?.text = String(restuarantInfoList?[indexPath.item].ratingsAvg ?? 0)
         cell.starImage.tintColor = restuarantInfoList?[indexPath.item].isWishes == 0 ? .mainOrangeColor : .clear
         let url = URL(string: restuarantInfoList![indexPath.item].imgUrl)!
-        //cell.resImage.kf.setImage(with: url)
+        cell.resImage.load(url: url)
         return cell
     }
     
@@ -194,6 +193,7 @@ extension RestaurantSearchViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let RDVC = storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else { return }
         RDVC.modalPresentationStyle = .fullScreen
+        RDVC.id = restuarantInfoList?[indexPath.item].id
         self.present(RDVC, animated: false, completion: nil)
     }
 }
@@ -228,15 +228,31 @@ extension RestaurantSearchViewController {
                         let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                         let getInstanceData = try JSONDecoder().decode(Restuarant.self, from: dataJSON)
                         if let results = getInstanceData.result {
-                            self.restuarantInfoList = results
+                            DispatchQueue.main.async {
+                                self.restuarantInfoList = results
+                                self.restaurantCollectionView.reloadData()
+                            }
                         }
                     } catch {
                         print(error.localizedDescription)
                     }
                 }
-                self.restaurantCollectionView.reloadData()
             case .failure(_):
                 print("실패")
+            }
+        }
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
             }
         }
     }

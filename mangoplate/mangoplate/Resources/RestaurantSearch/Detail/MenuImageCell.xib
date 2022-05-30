@@ -29,6 +29,9 @@
                 <constraint firstAttribute="trailing" secondItem="m9s-eR-Mla" secondAttribute="trailing" id="nyZ-Ar-FyU"/>
             </constraints>
             <size key="customSize" width="167" height="155"/>
+            <connections>
+                <outlet property="menuImage" destination="m9s-eR-Mla" id="b5i-ah-I3C"/>
+            </connections>
             <point key="canvasLocation" x="222.46376811594206" y="106.13839285714285"/>
         </collectionViewCell>
     </objects>

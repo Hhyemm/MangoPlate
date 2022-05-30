@@ -47,6 +47,7 @@ extension LocationAgreeMessageViewController {
         if !locations.isEmpty, currentLocation == nil{
             currentLocation = locations.first
             locationManager.stopUpdatingLocation()
+            print(currentLocation)
         }
     }
 }
