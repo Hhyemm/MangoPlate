@@ -91,6 +91,9 @@
 		92D2E0E02846740500A9EDE1 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */; };
 		92D2E0E5284685DB00A9EDE1 /* EatDealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */; };
 		92D2E0E6284685DB00A9EDE1 /* EatDealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */; };
+		92D2E0E828468BD800A9EDE1 /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0E728468BD800A9EDE1 /* TopListViewController.swift */; };
+		92D2E0EB28468C1700A9EDE1 /* TopListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0E928468C1700A9EDE1 /* TopListCell.swift */; };
+		92D2E0EC28468C1700A9EDE1 /* TopListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0EA28468C1700A9EDE1 /* TopListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +183,9 @@
 		92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDealCell.swift; sourceTree = "<group>"; };
 		92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EatDealCell.xib; sourceTree = "<group>"; };
+		92D2E0E728468BD800A9EDE1 /* TopListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewController.swift; sourceTree = "<group>"; };
+		92D2E0E928468C1700A9EDE1 /* TopListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListCell.swift; sourceTree = "<group>"; };
+		92D2E0EA28468C1700A9EDE1 /* TopListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopListCell.xib; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -466,6 +472,7 @@
 			children = (
 				92D2E09728450CB300A9EDE1 /* MangoPickViewController.swift */,
 				92D2E0BC2846300E00A9EDE1 /* EatDealViewController.swift */,
+				92D2E0E728468BD800A9EDE1 /* TopListViewController.swift */,
 			);
 			path = MangoPick;
 			sourceTree = "<group>";
@@ -504,6 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */,
+				92D2E0E928468C1700A9EDE1 /* TopListCell.swift */,
 			);
 			path = MangoPick;
 			sourceTree = "<group>";
@@ -512,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */,
+				92D2E0EA28468C1700A9EDE1 /* TopListCell.xib */,
 			);
 			path = MangoPick;
 			sourceTree = "<group>";
@@ -615,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D2E0D12846517A00A9EDE1 /* TimeLineCell.xib in Resources */,
+				92D2E0EC28468C1700A9EDE1 /* TopListCell.xib in Resources */,
 				92B1CFA1283E385500223987 /* MenuImageCell.xib in Resources */,
 				92B1CFD528415CFE00223987 /* SearchBannerCell.xib in Resources */,
 				92B1CF7C283A6AAC00223987 /* SearchCell.xib in Resources */,
@@ -690,6 +700,7 @@
 				92B1CF76283A601500223987 /* SearchViewController.swift in Sources */,
 				92D2E06A2844AFC900A9EDE1 /* EmailLoginInput.swift in Sources */,
 				92B1CFAA283E523500223987 /* ReviewCell.swift in Sources */,
+				92D2E0E828468BD800A9EDE1 /* TopListViewController.swift in Sources */,
 				92D2E0682844AF5900A9EDE1 /* EmailLoginViewModel.swift in Sources */,
 				92B1CF7B283A6AAC00223987 /* SearchCell.swift in Sources */,
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
@@ -734,6 +745,7 @@
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
 				92D2E0B928461B0100A9EDE1 /* ReviewWriteViewController.swift in Sources */,
 				92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */,
+				92D2E0EB28468C1700A9EDE1 /* TopListCell.swift in Sources */,
 				92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */,
 				92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */,
 				92B1CFF72843786E00223987 /* LoginViewController.swift in Sources */,
