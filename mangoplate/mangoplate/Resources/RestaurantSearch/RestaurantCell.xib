@@ -119,6 +119,7 @@
                 <constraint firstItem="Gae-Uo-6wO" firstAttribute="top" secondItem="X32-nQ-GAL" secondAttribute="bottom" constant="10" id="rEb-X5-s6E"/>
                 <constraint firstItem="AzH-XX-mwV" firstAttribute="centerY" secondItem="HFg-l8-BR0" secondAttribute="centerY" id="rIE-NS-ZOQ"/>
                 <constraint firstItem="AzH-XX-mwV" firstAttribute="leading" secondItem="HFg-l8-BR0" secondAttribute="trailing" constant="4" id="t9v-ER-WIg"/>
+                <constraint firstItem="FHP-Mp-UNv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="24R-wh-6cQ" secondAttribute="trailing" constant="30" id="zQQ-bf-HNT"/>
                 <constraint firstItem="iaV-hh-j1q" firstAttribute="centerX" secondItem="Awp-4n-X39" secondAttribute="centerX" id="zkh-Cm-Aem"/>
             </constraints>
             <size key="customSize" width="301" height="389"/>

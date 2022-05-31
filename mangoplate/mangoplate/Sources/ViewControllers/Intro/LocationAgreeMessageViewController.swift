@@ -12,6 +12,7 @@ class LocationAgreeMessageViewController: UIViewController, CLLocationManagerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

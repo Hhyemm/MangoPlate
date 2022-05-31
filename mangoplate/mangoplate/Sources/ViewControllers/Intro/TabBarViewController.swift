@@ -39,7 +39,13 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
         
         animationView.backgroundColor = .mainOrangeColor
-        presentViewController()
+        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
+        self.addChild(VC)
+        VC.view.frame = containerView.frame
+        containerView.addSubview(VC.view)
+        VC.regionTitle = regionTitle
+        VC.didMove(toParent: self)
     }
 
     func pressTabBarItemButton(_ image: UIImageView, _ label: UILabel, _ aniView: UIView) {
@@ -60,7 +66,13 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
-        presentViewController()
+        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
+        self.addChild(VC)
+        VC.view.frame = containerView.frame
+        containerView.addSubview(VC.view)
+        VC.regionTitle = regionTitle
+        VC.didMove(toParent: self)
         
     }
     
@@ -69,6 +81,12 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(restaurantSearchImage, restaurantSearchLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
+        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "MangoPickViewController") as? MangoPickViewController else { return }
+        self.addChild(VC)
+        VC.view.frame = containerView.frame
+        containerView.addSubview(VC.view)
+        VC.didMove(toParent: self)
     }
     
     @IBAction func pressPlusButton(_ sender: UIButton) {
@@ -80,6 +98,12 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(restaurantSearchImage, restaurantSearchLabel)
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(myInfoImage, myInfoLabel)
+        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "NewsViewController") as? NewsViewController else { return }
+        self.addChild(VC)
+        VC.view.frame = containerView.frame
+        containerView.addSubview(VC.view)
+        VC.didMove(toParent: self)
     }
     
     @IBAction func pressMyInfoButton(_ sender: UIButton) {
@@ -87,15 +111,6 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(restaurantSearchImage, restaurantSearchLabel)
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
-    }
-    
-    func presentViewController() {
-        guard let RSVC = self.storyboard?.instantiateViewController(identifier: "RestaurantSearchViewController") as? RestaurantSearchViewController else { return }
-        self.addChild(RSVC)
-        RSVC.view.frame = containerView.frame
-        containerView.addSubview(RSVC.view)
-        RSVC.regionTitle = regionTitle
-        RSVC.didMove(toParent: self)
     }
 }
 

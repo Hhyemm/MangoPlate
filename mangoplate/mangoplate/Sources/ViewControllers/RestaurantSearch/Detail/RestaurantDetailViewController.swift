@@ -62,6 +62,8 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var review2Count: UILabel!
     @IBOutlet weak var review3Count: UILabel!
     
+    @IBOutlet weak var reviewCollectionViewHeight: NSLayoutConstraint!
+    
     var restuarantDetailInfoList: RestuarantDetailInfo!
     let locationManager = CLLocationManager()
     var wish: Bool?
@@ -84,6 +86,8 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
         blogSearchView.layer.borderColor = UIColor.mainOrangeColor.cgColor
         
         fetchData()
+        
+    
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {
@@ -98,6 +102,8 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
         
         imageCollectionView.register(UINib(nibName: "DetailImageCell", bundle: nil), forCellWithReuseIdentifier: "DetailImageCell")
         reviewCollectionView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
+        
+        reviewCollectionView.isScrollEnabled = false
     }
     
     func setViewDesign(_ setView: UIView) {
@@ -166,7 +172,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         if collectionView == imageCollectionView {
             return restuarantDetailInfoList?.imgUrls.count ?? 0
         }
-        return restuarantDetailInfoList?.reviews.count ?? 0
+        return (restuarantDetailInfoList?.reviews.count) ?? 0 > 3 ? 3 : restuarantDetailInfoList?.reviews.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -195,8 +201,13 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         default :
             break
         }
-//        let url = URL(string: restuarantDetailInfoList.reviews[indexPath.item].imgUrls[3])!
-     //   cell.image.load(url: url)
+        //print(restuarantDetailInfoList.reviews[indexPath.item])
+        //let url = URL(string: restuarantDetailInfoList.reviews[indexPath.item].imgUrls[0])!
+        //print(url)
+       // cell.image.load(url: url)
+        cell.reviewCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].reviewCnt!)개"
+        cell.followCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].followCnt!)개"
+        cell.updatedAt.text = restuarantDetailInfoList.reviews[indexPath.item].updatedAt
         return cell
     }
     
@@ -204,12 +215,21 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         if collectionView == imageCollectionView {
             return CGSize(width: (imageCollectionView.bounds.width)/2.5, height: imageCollectionView.bounds.height)
         }
-        return CGSize(width: reviewCollectionView.frame.width, height: (reviewCollectionView.frame.height))
+        guard let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else {
+                    return .zero
+                }
+             
+        cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content
+        cell.content.sizeToFit()
+        let cellheight = cell.content.frame.height + 250
+       
+        return CGSize(width: reviewCollectionView.bounds.width, height: (cellheight))
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == reviewCollectionView {
             guard let RDVC = self.storyboard?.instantiateViewController(identifier: "ReviewDetailViewController") as? ReviewDetailViewController else { return }
+            RDVC.id = restuarantDetailInfoList.reviews[indexPath.item].id
             RDVC.modalPresentationStyle = .fullScreen
             self.present(RDVC, animated: false, completion: nil)
         }
@@ -218,7 +238,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
 
 extension RestaurantDetailViewController {
     func fetchData() {
-        let url = AF.request("http://3.39.170.0/restaurants/\(id!)")
+        let url = AF.request("\(Constant.BASE_URL1)/restaurants/\(id!)")
         url.responseJSON { (response) in
             switch response.result {
             case .success(let obj) :

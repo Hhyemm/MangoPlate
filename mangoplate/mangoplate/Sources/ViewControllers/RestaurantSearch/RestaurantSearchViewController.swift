@@ -8,7 +8,7 @@ protocol SendDelegate: AnyObject {
     func send(title: String, tag: Int)
 }
 
-extension RestaurantSearchViewController: SendDelegate, ClickStarDelegate {
+extension RestaurantSearchViewController: SendDelegate, ClickWishDelegate {
     func send(title: String, tag: Int) {
         self.sortTitleLabel.text = title
         sortTag = tag
@@ -30,6 +30,7 @@ class RestaurantSearchViewController: UIViewController {
     var regionTitle = [String]()
     
     var restuarantInfoList: [RestuarantInfo]?
+    var isWish: Bool?
     
     @IBOutlet weak var nowRegionTitle: UILabel!
     @IBOutlet weak var bannerImageView: UIImageView!
@@ -50,6 +51,7 @@ class RestaurantSearchViewController: UIViewController {
         
         self.fetchData()
         findLocation()
+        self.wishRestaurantData("1")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -180,7 +182,8 @@ extension RestaurantSearchViewController: UICollectionViewDelegate, UICollection
         cell.resLoc?.text = restuarantInfoList?[indexPath.item].regionName
         cell.resReview?.text = String(restuarantInfoList?[indexPath.item].numReviews ?? 0)
         cell.resRate?.text = String(restuarantInfoList?[indexPath.item].ratingsAvg ?? 0)
-        cell.starImage.tintColor = restuarantInfoList?[indexPath.item].isWishes == 0 ? .mainOrangeColor : .clear
+        cell.starImage.tintColor = restuarantInfoList?[indexPath.item].isWishes == 1 ? .mainOrangeColor : .clear
+        cell.resRead.text = String(restuarantInfoList?[indexPath.item].view ?? 0)
         let url = URL(string: restuarantInfoList![indexPath.item].imgUrl)!
         cell.resImage.load(url: url)
         return cell
@@ -215,30 +218,59 @@ extension RestaurantSearchViewController {
             }
         }
     }
-    
-    
-    
     func fetchData() {
-        let url = AF.request("http://3.39.170.0/restaurants?lat=\(myLocation.0)&long=\(myLocation.1)")
-        url.responseJSON { (response) in
-            switch response.result {
-            case .success(let obj) :
-                if let nsDiectionary = obj as? NSDictionary {
-                    do {
-                        let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                        let getInstanceData = try JSONDecoder().decode(Restuarant.self, from: dataJSON)
-                        if let results = getInstanceData.result {
-                            DispatchQueue.main.async {
-                                self.restuarantInfoList = results
-                                self.restaurantCollectionView.reloadData()
+        let url = "\(Constant.BASE_URL1)/restaurants?lat=\(myLocation.0)&long=\(myLocation.1)"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                            let getInstanceData = try JSONDecoder().decode(Restuarant.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                DispatchQueue.main.async {
+                                    self.restuarantInfoList = results
+                                    self.restaurantCollectionView.reloadData()
+                                }
                             }
+                        } catch {
+                            print(error.localizedDescription)
                         }
-                    } catch {
-                        print(error.localizedDescription)
                     }
-                }
-            case .failure(_):
-                print("실패")
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
+    
+    func wishRestaurantData(_ id: String) {
+        let url = "\(Constant.BASE_URL2)/wishes/\(id)"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        print(nsDiectionary)
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                           // print(dataJSON)
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                case .failure(_):
+                    print("실패")
             }
         }
     }

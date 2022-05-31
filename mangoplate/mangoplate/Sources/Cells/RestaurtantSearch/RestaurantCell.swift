@@ -1,13 +1,13 @@
 
 import UIKit
 
-protocol ClickStarDelegate: AnyObject {
+protocol ClickWishDelegate: AnyObject {
     func clickStarButton(for index: Int, like: Bool)
 }
 
 class RestaurantCell: UICollectionViewCell {
 
-    var delegate: ClickStarDelegate?
+    var delegate: ClickWishDelegate?
     var index: Int?
     
     @IBOutlet weak var resImage: UIImageView!

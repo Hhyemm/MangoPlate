@@ -1,6 +1,10 @@
 
 import UIKit
 
+protocol SendHashDelegate: AnyObject {
+    func pressHashButton()
+}
+
 class ReviewCell: UICollectionViewCell {
 
     @IBOutlet weak var userImage: UIImageView!
@@ -11,6 +15,12 @@ class ReviewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var hashView: UIView!
     @IBOutlet weak var commentsCount: UILabel!
+    @IBOutlet weak var reviewCount: UILabel!
+    @IBOutlet weak var followCount: UILabel!
+    @IBOutlet weak var updatedAt: UILabel!
+    @IBOutlet weak var resName: UILabel!
+    
+    var delegate: SendHashDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,4 +28,7 @@ class ReviewCell: UICollectionViewCell {
         userImage.layer.cornerRadius = userImage.frame.width / 2
     }
 
+    @IBAction func pressResButton(_ sender: UIButton) {
+        delegate?.pressHashButton()
+    }
 }

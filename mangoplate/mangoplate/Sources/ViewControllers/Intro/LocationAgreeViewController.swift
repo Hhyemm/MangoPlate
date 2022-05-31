@@ -14,9 +14,9 @@ class LocationAgreeViewController: UIViewController {
     }
     
     @IBAction func pressAgreeButton(_ sender: UIButton) {
-        guard let LAMVC = self.storyboard?.instantiateViewController(identifier: "LocationAgreeMessageViewController") as? LocationAgreeMessageViewController else { return }
-        LAMVC.modalPresentationStyle = .fullScreen
-        self.present(LAMVC, animated: false)
+        guard let LAVC = self.storyboard?.instantiateViewController(identifier: "LocationAgreeMessageViewController") as? LocationAgreeMessageViewController else { return }
+        LAVC.modalPresentationStyle = .fullScreen
+        self.present(LAVC, animated: false)
     }
     
     @IBAction func pressDifferButton(_ sender: UIButton) {
