@@ -77,8 +77,6 @@
 		92D2E0B7284614A900A9EDE1 /* ReviewImageSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */; };
 		92D2E0B928461B0100A9EDE1 /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */; };
 		92D2E0BD2846300E00A9EDE1 /* EatDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0BC2846300E00A9EDE1 /* EatDealViewController.swift */; };
-		92D2E0C22846325200A9EDE1 /* EatDealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0C02846325200A9EDE1 /* EatDealCell.swift */; };
-		92D2E0C32846325200A9EDE1 /* EatDealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0C12846325200A9EDE1 /* EatDealCell.xib */; };
 		92D2E0C52846344F00A9EDE1 /* NewsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0C42846344F00A9EDE1 /* NewsContainerViewController.swift */; };
 		92D2E0C72846391A00A9EDE1 /* ALLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0C62846391900A9EDE1 /* ALLViewController.swift */; };
 		92D2E0CC2846514600A9EDE1 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0CA2846514600A9EDE1 /* ProfileCell.swift */; };
@@ -91,6 +89,8 @@
 		92D2E0D928466BD500A9EDE1 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0D728466BD500A9EDE1 /* SettingCell.xib */; };
 		92D2E0DB28466D3F00A9EDE1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0DA28466D3F00A9EDE1 /* SettingViewController.swift */; };
 		92D2E0E02846740500A9EDE1 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */; };
+		92D2E0E5284685DB00A9EDE1 /* EatDealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */; };
+		92D2E0E6284685DB00A9EDE1 /* EatDealCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,8 +166,6 @@
 		92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewImageSelectCell.swift; sourceTree = "<group>"; };
 		92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		92D2E0BC2846300E00A9EDE1 /* EatDealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDealViewController.swift; sourceTree = "<group>"; };
-		92D2E0C02846325200A9EDE1 /* EatDealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDealCell.swift; sourceTree = "<group>"; };
-		92D2E0C12846325200A9EDE1 /* EatDealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EatDealCell.xib; sourceTree = "<group>"; };
 		92D2E0C42846344F00A9EDE1 /* NewsContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContainerViewController.swift; sourceTree = "<group>"; };
 		92D2E0C62846391900A9EDE1 /* ALLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALLViewController.swift; sourceTree = "<group>"; };
 		92D2E0CA2846514600A9EDE1 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
@@ -180,6 +178,8 @@
 		92D2E0D728466BD500A9EDE1 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		92D2E0DA28466D3F00A9EDE1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
+		92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatDealCell.swift; sourceTree = "<group>"; };
+		92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EatDealCell.xib; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -503,7 +503,7 @@
 		92D2E0BE2846321B00A9EDE1 /* MangoPick */ = {
 			isa = PBXGroup;
 			children = (
-				92D2E0C02846325200A9EDE1 /* EatDealCell.swift */,
+				92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */,
 			);
 			path = MangoPick;
 			sourceTree = "<group>";
@@ -511,7 +511,7 @@
 		92D2E0BF2846323700A9EDE1 /* MangoPick */ = {
 			isa = PBXGroup;
 			children = (
-				92D2E0C12846325200A9EDE1 /* EatDealCell.xib */,
+				92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */,
 			);
 			path = MangoPick;
 			sourceTree = "<group>";
@@ -615,7 +615,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D2E0D12846517A00A9EDE1 /* TimeLineCell.xib in Resources */,
-				92D2E0C32846325200A9EDE1 /* EatDealCell.xib in Resources */,
 				92B1CFA1283E385500223987 /* MenuImageCell.xib in Resources */,
 				92B1CFD528415CFE00223987 /* SearchBannerCell.xib in Resources */,
 				92B1CF7C283A6AAC00223987 /* SearchCell.xib in Resources */,
@@ -631,6 +630,7 @@
 				92B1CFEA284209C100223987 /* MapRestaurantCell.xib in Resources */,
 				92D2E0CD2846514600A9EDE1 /* ProfileCell.xib in Resources */,
 				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
+				92D2E0E6284685DB00A9EDE1 /* EatDealCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
 				92B1CFE02841E8FC00223987 /* CommentCell.xib in Resources */,
 				92B1CF51283925A700223987 /* Main.storyboard in Resources */,
@@ -741,13 +741,13 @@
 				92B1CFE22841F30800223987 /* CommentCell.swift in Sources */,
 				92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */,
 				92D2E0D02846517A00A9EDE1 /* TimeLineCell.swift in Sources */,
+				92D2E0E5284685DB00A9EDE1 /* EatDealCell.swift in Sources */,
 				92B1CF8B283C729500223987 /* SurroundViewController.swift in Sources */,
 				92B1CF80283A6FC800223987 /* RecentSearchViewController.swift in Sources */,
 				92B1CFDC28416AE400223987 /* ReviewDetailViewController.swift in Sources */,
 				92D2E0DB28466D3F00A9EDE1 /* SettingViewController.swift in Sources */,
 				92D2E0822844D99C00A9EDE1 /* JoinInput.swift in Sources */,
 				92D2E0962844E82000A9EDE1 /* KakaoInput.swift in Sources */,
-				92D2E0C22846325200A9EDE1 /* EatDealCell.swift in Sources */,
 				92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
