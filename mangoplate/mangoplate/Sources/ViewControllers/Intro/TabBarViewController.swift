@@ -111,6 +111,12 @@ class TabBarViewController: UIViewController {
         unPressTabBarItemButton(restaurantSearchImage, restaurantSearchLabel)
         unPressTabBarItemButton(mangoPickImage, mangoPickLabel)
         unPressTabBarItemButton(newsImage, newsLabel)
+        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "MyInfoViewController") as? MyInfoViewController else { return }
+        self.addChild(VC)
+        VC.view.frame = containerView.frame
+        containerView.addSubview(VC.view)
+        VC.didMove(toParent: self)
     }
 }
 

@@ -47,7 +47,11 @@ class ReviewWriteImageSelectViewController: UIViewController {
             }
         })
     }
-
+    
+    @IBAction func pressXButton(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func pressPassButton(_ sender: UIButton) {
         guard let VC = self.storyboard?.instantiateViewController(identifier: "ReviewWriteViewController") as? ReviewWriteViewController else { return }
         VC.modalPresentationStyle = .fullScreen

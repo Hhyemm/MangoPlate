@@ -19,6 +19,11 @@ class ReviewWriteViewController: UIViewController {
         textField.tintColor = .mainOrangeColor
     }
     
+    @IBAction func pressBackButton(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    
     @IBAction func select5Button(_ sender: UIButton) {
         select5Image.image = UIImage(named: "reviewImage1")
         select3Image.image = UIImage(named: "reviewImage22")

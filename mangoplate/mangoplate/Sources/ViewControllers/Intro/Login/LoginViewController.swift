@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func pressEmailLoginButton(_ sender: UIButton) {
-        guard let LEVC = self.storyboard?.instantiateViewController(identifier: "LoginEmailViewController") as? LoginEmailViewController else { return }
-           LEVC.modalPresentationStyle = .fullScreen
-           self.present(LEVC, animated: false)
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "LoginEmailViewController") as? LoginEmailViewController else { return }
+           VC.modalPresentationStyle = .fullScreen
+           self.present(VC, animated: false)
     }
     
     func setUserInfo() {
@@ -65,4 +65,11 @@ class LoginViewController: UIViewController {
     func failedToKakao(message: String) {
         print("실패")
     }
+    
+    @IBAction func pressPassButton(_ sender: UIButton) {
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "LocationAgreeViewController") as? LocationAgreeViewController else { return }
+           VC.modalPresentationStyle = .fullScreen
+           self.present(VC, animated: false)
+    }
+    
 }
