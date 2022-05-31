@@ -142,15 +142,30 @@
 
 ### 2. 이메일 로그인 API 연동
 
-### 3. 카카오 로그인 API 연동
-
-### 4. 내 위치 메인화면 API 연동
+### 3. 내 위치 메인화면 API 연동
 
 <img width="300" alt="스크린샷 2022-05-30 오후 10 24 59" src="https://user-images.githubusercontent.com/98953443/171001649-059239ac-c2b8-4e72-a842-2021dfbea603.png"> 
 
-### 5. 식당 상세화면 API 연동
+### 4. 식당 상세화면 API 연동
 
 <img width="300" alt="스크린샷 2022-05-30 오후 10 35 42" src="https://user-images.githubusercontent.com/98953443/171003694-b8bf3748-d198-48b0-b47f-eb030219594b.png">
 
 </br>
 
+## 2022-05-31 진행상황
+
+### 1. 가고싶다 API 가져오기 / 추가 / 삭제
+
+- 메인화면 및 맛집 상세화면에서 가고싶다 버튼 API 연동
+
+<img width="300" alt="스크린샷 2022-05-31 오후 7 32 40" src="https://user-images.githubusercontent.com/98953443/171154297-1e0286f4-153a-40dd-a314-3f5c6df18c4c.png">
+<img width="300" alt="스크린샷 2022-05-31 오후 7 33 05" src="https://user-images.githubusercontent.com/98953443/171154299-dd805244-8485-48a8-8694-e2e7a49732d8.png">
+
+### 2. 리뷰 작성 화면
+
+<img width="300" alt="스크린샷 2022-05-31 오후 7 36 30" src="https://user-images.githubusercontent.com/98953443/171154828-5e9e402e-a2c9-42a2-a9e3-2d9ea8956711.png">
+<img width="300" alt="스크린샷 2022-05-31 오후 7 36 40" src="https://user-images.githubusercontent.com/98953443/171154842-f68ab947-7a27-4324-a4ff-2ddc3c41a541.png">
+<img width="300" alt="스크린샷 2022-05-31 오후 7 36 49" src="https://user-images.githubusercontent.com/98953443/171154855-87433e93-59ba-4dc8-91cf-7f6034b815f5.png">
+<img width="300" alt="스크린샷 2022-05-31 오후 7 36 56" src="https://user-images.githubusercontent.com/98953443/171154862-23e229d1-d25e-4e1f-956a-1551d08e89e0.png">
+
+</br>
