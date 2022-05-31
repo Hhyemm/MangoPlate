@@ -1311,6 +1311,78 @@
             </objects>
             <point key="canvasLocation" x="1477" y="2788"/>
         </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="xAY-MG-5YC">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O4F-Ps-FwG" customClass="SettingViewController" customModule="mangoplate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AZ7-Jt-rLS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7G-T6-BP8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsJ-Ku-8Ic">
+                                        <rect key="frame" x="5" y="12.5" width="50" height="40"/>
+                                        <color key="tintColor" red="0.93333339689999995" green="0.47450977560000002" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="back"/>
+                                        <connections>
+                                            <action selector="pressBackButton:" destination="O4F-Ps-FwG" eventType="touchUpInside" id="xiu-Pq-h2O"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKH-Ll-vVt">
+                                        <rect key="frame" x="60" y="21" width="33" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <color key="textColor" red="0.93333339689999995" green="0.47450977560000002" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="YsJ-Ku-8Ic" firstAttribute="leading" secondItem="g7G-T6-BP8" secondAttribute="leading" constant="5" id="AhA-fp-6bM"/>
+                                    <constraint firstItem="KKH-Ll-vVt" firstAttribute="leading" secondItem="YsJ-Ku-8Ic" secondAttribute="trailing" constant="5" id="LDp-fG-l2t"/>
+                                    <constraint firstItem="YsJ-Ku-8Ic" firstAttribute="centerY" secondItem="g7G-T6-BP8" secondAttribute="centerY" id="XsH-o4-FES"/>
+                                    <constraint firstItem="KKH-Ll-vVt" firstAttribute="centerY" secondItem="YsJ-Ku-8Ic" secondAttribute="centerY" id="YPV-o5-7Lq"/>
+                                    <constraint firstAttribute="height" constant="65" id="cHp-IL-C8j"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="qHb-MI-xwN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQu-tj-uef">
+                                <rect key="frame" x="0.0" y="109" width="414" height="1"/>
+                                <color key="backgroundColor" red="0.8078432083" green="0.8078432083" blue="0.8078432083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="AIz-ZD-etJ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pek-en-cIi">
+                                <rect key="frame" x="0.0" y="110" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eBK-4f-KDr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VQu-tj-uef" firstAttribute="leading" secondItem="AZ7-Jt-rLS" secondAttribute="leading" id="8Dv-Sw-UD8"/>
+                            <constraint firstItem="pek-en-cIi" firstAttribute="top" secondItem="VQu-tj-uef" secondAttribute="bottom" id="CUA-nm-w6V"/>
+                            <constraint firstItem="eBK-4f-KDr" firstAttribute="trailing" secondItem="pek-en-cIi" secondAttribute="trailing" id="DAx-Oy-UL0"/>
+                            <constraint firstItem="g7G-T6-BP8" firstAttribute="leading" secondItem="eBK-4f-KDr" secondAttribute="leading" id="Fnp-u6-Xsi"/>
+                            <constraint firstItem="g7G-T6-BP8" firstAttribute="top" secondItem="eBK-4f-KDr" secondAttribute="top" id="T88-l5-pgW"/>
+                            <constraint firstAttribute="trailing" secondItem="g7G-T6-BP8" secondAttribute="trailing" id="YDM-Fw-3fh"/>
+                            <constraint firstItem="pek-en-cIi" firstAttribute="leading" secondItem="eBK-4f-KDr" secondAttribute="leading" id="Yas-4q-4jG"/>
+                            <constraint firstAttribute="trailing" secondItem="VQu-tj-uef" secondAttribute="trailing" id="mr7-Gl-ipm"/>
+                            <constraint firstItem="VQu-tj-uef" firstAttribute="top" secondItem="g7G-T6-BP8" secondAttribute="bottom" id="nIJ-gd-iQY"/>
+                            <constraint firstItem="eBK-4f-KDr" firstAttribute="bottom" secondItem="pek-en-cIi" secondAttribute="bottom" id="nWs-V1-4l7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pek-en-cIi" id="Z9e-wX-9mf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MPL-4r-8W3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2209" y="2788"/>
+        </scene>
         <!--Restaurant Search View Controller-->
         <scene sceneID="5ie-Ms-jbU">
             <objects>

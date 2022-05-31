@@ -68,7 +68,11 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath == [4, 0] {
+            guard let VC = self.storyboard?.instantiateViewController(identifier: "SettingViewController") as? SettingViewController else { return }
+            VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: false)
+        }
     }
-    
 }
