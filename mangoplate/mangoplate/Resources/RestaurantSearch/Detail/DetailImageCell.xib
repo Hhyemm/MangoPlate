@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="101" height="96"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bannerImage2" translatesAutoresizingMaskIntoConstraints="NO" id="MD4-xz-cMP">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="MD4-xz-cMP">
                         <rect key="frame" x="0.0" y="0.0" width="101" height="96"/>
                     </imageView>
                 </subviews>
@@ -36,6 +36,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="bannerImage2" width="673" height="260"/>
+        <image name="testImage" width="600" height="439"/>
     </resources>
 </document>

@@ -46,7 +46,7 @@
 		92B1CFC228412E1700223987 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFC128412E1700223987 /* SearchResultViewController.swift */; };
 		92B1CFD328415CCF00223987 /* SearchBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFD228415CCF00223987 /* SearchBannerCell.swift */; };
 		92B1CFD528415CFE00223987 /* SearchBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CFD428415CFE00223987 /* SearchBannerCell.xib */; };
-		92B1CFDA284169DF00223987 /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFD9284169DF00223987 /* ReviewWriteViewController.swift */; };
+		92B1CFDA284169DF00223987 /* ReviewWriteImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFD9284169DF00223987 /* ReviewWriteImageSelectViewController.swift */; };
 		92B1CFDC28416AE400223987 /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */; };
 		92B1CFE02841E8FC00223987 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1CFDE2841E8FB00223987 /* CommentCell.xib */; };
 		92B1CFE22841F30800223987 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CFE12841F30800223987 /* CommentCell.swift */; };
@@ -73,6 +73,9 @@
 		92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09D28450DF700A9EDE1 /* MyInfoViewController.swift */; };
 		92D2E0A42845AC2400A9EDE1 /* ReviewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0A32845AC2400A9EDE1 /* ReviewDetail.swift */; };
 		92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0A62845C99E00A9EDE1 /* Wish.swift */; };
+		92D2E0AD284611B400A9EDE1 /* ReviewImageSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0AB284611B400A9EDE1 /* ReviewImageSelectCell.xib */; };
+		92D2E0B7284614A900A9EDE1 /* ReviewImageSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */; };
+		92D2E0B928461B0100A9EDE1 /* ReviewWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,7 +120,7 @@
 		92B1CFC128412E1700223987 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchResultViewController.swift; path = mangoplate/Sources/ViewControllers/RestaurantSearch/Search/SearchResultViewController.swift; sourceTree = SOURCE_ROOT; };
 		92B1CFD228415CCF00223987 /* SearchBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBannerCell.swift; sourceTree = "<group>"; };
 		92B1CFD428415CFE00223987 /* SearchBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBannerCell.xib; sourceTree = "<group>"; };
-		92B1CFD9284169DF00223987 /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
+		92B1CFD9284169DF00223987 /* ReviewWriteImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteImageSelectViewController.swift; sourceTree = "<group>"; };
 		92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewDetailViewController.swift; path = mangoplate/Sources/ViewControllers/RestaurantSearch/Detail/ReviewDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		92B1CFDE2841E8FB00223987 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommentCell.xib; path = mangoplate/Resources/RestaurantSearch/Detail/CommentCell.xib; sourceTree = SOURCE_ROOT; };
 		92B1CFE12841F30800223987 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -144,6 +147,9 @@
 		92D2E09D28450DF700A9EDE1 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		92D2E0A32845AC2400A9EDE1 /* ReviewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetail.swift; sourceTree = "<group>"; };
 		92D2E0A62845C99E00A9EDE1 /* Wish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
+		92D2E0AB284611B400A9EDE1 /* ReviewImageSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReviewImageSelectCell.xib; path = mangoplate/Resources/RestaurantSearch/Detail/ReviewImageSelectCell.xib; sourceTree = SOURCE_ROOT; };
+		92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewImageSelectCell.swift; sourceTree = "<group>"; };
+		92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWriteViewController.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,6 +305,8 @@
 				92B1CF9F283E385500223987 /* MenuImageCell.xib */,
 				92B1CFA9283E523500223987 /* ReviewCell.xib */,
 				92B1CFDE2841E8FB00223987 /* CommentCell.xib */,
+				92D2E0AB284611B400A9EDE1 /* ReviewImageSelectCell.xib */,
+				92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -331,8 +339,9 @@
 			isa = PBXGroup;
 			children = (
 				92B1CF98283DDCBC00223987 /* RestaurantDetailViewController.swift */,
-				92B1CFD9284169DF00223987 /* ReviewWriteViewController.swift */,
+				92B1CFD9284169DF00223987 /* ReviewWriteImageSelectViewController.swift */,
 				92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */,
+				92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -529,6 +538,7 @@
 				92B1CFAB283E523500223987 /* ReviewCell.xib in Resources */,
 				92B1CF91283CA31600223987 /* FilterFoodCell.xib in Resources */,
 				92B1CF97283DA20500223987 /* RestaurantCell.xib in Resources */,
+				92D2E0AD284611B400A9EDE1 /* ReviewImageSelectCell.xib in Resources */,
 				92B1CFEA284209C100223987 /* MapRestaurantCell.xib in Resources */,
 				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
@@ -612,7 +622,7 @@
 				92B1CFE52841F9E500223987 /* MapViewController.swift in Sources */,
 				92B1CFBB2840C4C900223987 /* RestaurantDetail.swift in Sources */,
 				92D2E09828450CB300A9EDE1 /* MangoPickViewController.swift in Sources */,
-				92B1CFDA284169DF00223987 /* ReviewWriteViewController.swift in Sources */,
+				92B1CFDA284169DF00223987 /* ReviewWriteImageSelectViewController.swift in Sources */,
 				92B1CF672839689A00223987 /* LocationAgreeViewController.swift in Sources */,
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
 				92B1CFFB28438A0D00223987 /* JoinEmailViewController.swift in Sources */,
@@ -625,10 +635,12 @@
 				92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */,
 				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
+				92D2E0B928461B0100A9EDE1 /* ReviewWriteViewController.swift in Sources */,
 				92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */,
 				92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */,
 				92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */,
 				92B1CFF72843786E00223987 /* LoginViewController.swift in Sources */,
+				92D2E0B7284614A900A9EDE1 /* ReviewImageSelectCell.swift in Sources */,
 				92B1CFE22841F30800223987 /* CommentCell.swift in Sources */,
 				92B1CF6928396CEB00223987 /* RegionSelectViewController.swift in Sources */,
 				92B1CF8B283C729500223987 /* SurroundViewController.swift in Sources */,

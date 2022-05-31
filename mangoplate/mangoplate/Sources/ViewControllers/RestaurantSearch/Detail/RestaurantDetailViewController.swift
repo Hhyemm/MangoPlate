@@ -142,11 +142,11 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     
     
     @IBAction func pressWriteReviewButton(_ sender: UIButton) {
-        guard let RWVC = self.storyboard?.instantiateViewController(identifier: "ReviewWriteViewController") as? ReviewWriteViewController else { return }
-        RWVC.modalPresentationStyle = .fullScreen
-        self.present(RWVC, animated: false, completion: nil)
-        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "ReviewWriteImageSelectViewController") as? ReviewWriteImageSelectViewController else { return }
+        VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: false, completion: nil)
     }
+    
 }
 
 extension RestaurantDetailViewController: UIScrollViewDelegate {

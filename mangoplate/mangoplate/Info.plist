@@ -13,6 +13,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera permissions for taking photos and videos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Album permissions to save videos</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
