@@ -90,6 +90,7 @@
 		92D2E0D828466BD500A9EDE1 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0D628466BD500A9EDE1 /* SettingCell.swift */; };
 		92D2E0D928466BD500A9EDE1 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0D728466BD500A9EDE1 /* SettingCell.xib */; };
 		92D2E0DB28466D3F00A9EDE1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0DA28466D3F00A9EDE1 /* SettingViewController.swift */; };
+		92D2E0E02846740500A9EDE1 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,7 @@
 		92D2E0D628466BD500A9EDE1 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		92D2E0D728466BD500A9EDE1 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		92D2E0DA28466D3F00A9EDE1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,6 +287,7 @@
 				92B1CFED28424DBE00223987 /* Intro */,
 				92B1CFBD28412C0400223987 /* RestaurantSearch */,
 				92D2E09928450CC700A9EDE1 /* MangoPick */,
+				92D2E0DE284672D800A9EDE1 /* Plus */,
 				92D2E09C28450D9100A9EDE1 /* News */,
 				92D2E09F28450E0200A9EDE1 /* MyInfo */,
 			);
@@ -535,6 +538,14 @@
 			path = MyInfo;
 			sourceTree = "<group>";
 		};
+		92D2E0DE284672D800A9EDE1 /* Plus */ = {
+			isa = PBXGroup;
+			children = (
+				92D2E0DF2846740500A9EDE1 /* PlusViewController.swift */,
+			);
+			path = Plus;
+			sourceTree = "<group>";
+		};
 		D11F6C4696A2336BF1B24CE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +721,7 @@
 				92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */,
 				92D2E0BD2846300E00A9EDE1 /* EatDealViewController.swift in Sources */,
 				92B1CFFB28438A0D00223987 /* JoinEmailViewController.swift in Sources */,
+				92D2E0E02846740500A9EDE1 /* PlusViewController.swift in Sources */,
 				92B1CF6B2839D6C800223987 /* RegionSelectContainerViewController.swift in Sources */,
 				92D2E06C2844AFFE00A9EDE1 /* EmailLogin.swift in Sources */,
 				92B1CF9C283DEA9A00223987 /* DetailImageCell.swift in Sources */,

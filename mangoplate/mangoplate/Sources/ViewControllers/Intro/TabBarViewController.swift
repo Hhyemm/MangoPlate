@@ -90,7 +90,9 @@ class TabBarViewController: UIViewController {
     }
     
     @IBAction func pressPlusButton(_ sender: UIButton) {
-        
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "PlusViewController") as? PlusViewController else { return }
+        VC.modalPresentationStyle = .fullScreen
+        self.present(VC, animated: false)
     }
     
     @IBAction func pressNewsButton(_ sender: UIButton) {

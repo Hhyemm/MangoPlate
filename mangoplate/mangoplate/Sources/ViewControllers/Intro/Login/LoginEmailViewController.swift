@@ -16,7 +16,11 @@ class LoginEmailViewController: UIViewController {
         loginView.layer.cornerRadius = loginView.frame.height / 2
         
     }
-
+    
+    @IBAction func pressBackButton(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func pressLoginButton(_ sender: UIButton) {
         let input = EmailLoginInput(email: emailTextField.text, password: passwordTextField.text)
         emailLogin.postEmailLogin(input, delegate: self)
