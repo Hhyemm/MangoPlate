@@ -14,11 +14,17 @@ extension RestaurantSearchViewController: SendDelegate, ClickWishDelegate {
         sortTag = tag
     }
     
-    func clickStarButton(for index: Int, like: Bool) {
-        if like {
+    func clickWishButton(for index: Int, id : Int?) {
+        if wishList[index] == 1 {
             print("가고싶다 취소")
+            wishDeleteData(id!)
+            wishList[index] = 0
+            restaurantCollectionView.reloadData()
         } else {
             print("가고싶다")
+            wishPostData(id!)
+            wishList[index] = 1
+            restaurantCollectionView.reloadData()
         }
     }
 }
@@ -30,6 +36,7 @@ class RestaurantSearchViewController: UIViewController {
     var regionTitle = [String]()
     
     var restuarantInfoList: [RestuarantInfo]?
+    var wishList = [Int]()
     var isWish: Bool?
     
     @IBOutlet weak var nowRegionTitle: UILabel!
@@ -49,15 +56,14 @@ class RestaurantSearchViewController: UIViewController {
         setViewDesign()
         setCollectionView()
         
-        self.fetchData()
         findLocation()
-        self.wishRestaurantData("1")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if regionTitle.count > 0 {
             nowRegionTitle.text = regionTitle.count == 1 ? "\(regionTitle.first!)" : "\(regionTitle.first!) 외 \(regionTitle.count-1)곳"
         }
+        self.fetchData()
     }
     
     @IBAction func pressRegionButton(_ sender: UIButton) {
@@ -177,12 +183,15 @@ extension RestaurantSearchViewController: UICollectionViewDelegate, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
         cell.delegate = self
         cell.index = indexPath.item
+        cell.id = restuarantInfoList?[indexPath.item].id
         cell.resIndex?.text = String(indexPath.item+1)+"."
         cell.resTitle?.text = restuarantInfoList?[indexPath.item].name
         cell.resLoc?.text = restuarantInfoList?[indexPath.item].regionName
         cell.resReview?.text = String(restuarantInfoList?[indexPath.item].numReviews ?? 0)
         cell.resRate?.text = String(restuarantInfoList?[indexPath.item].ratingsAvg ?? 0)
-        cell.starImage.tintColor = restuarantInfoList?[indexPath.item].isWishes == 1 ? .mainOrangeColor : .clear
+        if wishList.count > indexPath.item {
+            cell.wishImage.tintColor = (wishList[indexPath.item]) == 0 ? .clear : .mainOrangeColor
+        }
         cell.resRead.text = String(restuarantInfoList?[indexPath.item].view ?? 0)
         let url = URL(string: restuarantInfoList![indexPath.item].imgUrl)!
         cell.resImage.load(url: url)
@@ -219,7 +228,7 @@ extension RestaurantSearchViewController {
         }
     }
     func fetchData() {
-        let url = "\(Constant.BASE_URL1)/restaurants?lat=\(myLocation.0)&long=\(myLocation.1)"
+        let url = "\(Constant.BASE_URL2)/restaurants?lat=\(myLocation.0)&long=\(myLocation.1)"
         AF.request(url,
                    method: .get,
                    parameters: nil,
@@ -236,6 +245,9 @@ extension RestaurantSearchViewController {
                             if let results = getInstanceData.result {
                                 DispatchQueue.main.async {
                                     self.restuarantInfoList = results
+                                    for i in self.restuarantInfoList!.map({$0.id}) {
+                                        self.wishGetData(i)
+                                    }
                                     self.restaurantCollectionView.reloadData()
                                 }
                             }
@@ -249,7 +261,7 @@ extension RestaurantSearchViewController {
         }
     }
     
-    func wishRestaurantData(_ id: String) {
+    func wishGetData(_ id: Int) {
         let url = "\(Constant.BASE_URL2)/wishes/\(id)"
         AF.request(url,
                    method: .get,
@@ -261,16 +273,60 @@ extension RestaurantSearchViewController {
                 switch response.result {
                 case .success(let obj) :
                     if let nsDiectionary = obj as? NSDictionary {
-                        print(nsDiectionary)
                         do {
                             let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                           // print(dataJSON)
+                            let getInstanceData = try JSONDecoder().decode(Wish.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                DispatchQueue.main.async {
+                                    var x = results.isWishes
+                                    self.wishList.append(x!)
+                                    self.restaurantCollectionView.reloadData()
+                                }
+                            }
                         } catch {
                             print(error.localizedDescription)
                         }
                     }
                 case .failure(_):
                     print("실패")
+            }
+        }
+    }
+    
+    func wishDeleteData(_ id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+        AF.request("\(Constant.BASE_URL2)/wishes/\(id)", method: .delete, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+            .validate()
+            .responseDecodable(of: Wish.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess, let result = response.result {
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
+            }
+        }
+    }
+    
+    func wishPostData(_ id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+        AF.request("\(Constant.BASE_URL2)/wishes/\(id)", method: .post, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+            .validate()
+            .responseDecodable(of: Wish.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess, let result = response.result {
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
             }
         }
     }

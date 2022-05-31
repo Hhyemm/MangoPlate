@@ -10,6 +10,7 @@ struct RestuarantDetail: Codable {
 
 
 struct RestuarantDetailInfo: Codable{
+    let id: Int
     let name: String
     let view: Int
     let wishCnt: Int

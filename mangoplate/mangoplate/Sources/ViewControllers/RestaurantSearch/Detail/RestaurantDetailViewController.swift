@@ -66,8 +66,8 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     
     var restuarantDetailInfoList: RestuarantDetailInfo!
     let locationManager = CLLocationManager()
-    var wish: Bool?
     var id: Int?
+    var isWish: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,8 +86,8 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
         blogSearchView.layer.borderColor = UIColor.mainOrangeColor.cgColor
         
         fetchData()
-        
-    
+        wishGetData(id!)
+
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {
@@ -113,12 +113,14 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     }
     
     @IBAction func pressWishButton(_ sender: UIButton) {
-        if wish == true {
+        if isWish == true {
             wishImage.image = UIImage(named: "star-1")
-            wish = false
+            wishDeleteData(id!)
+            isWish = false
         } else {
             wishImage.image = UIImage(named: "star3")
-            wish = true
+            wishPostData(id!)
+            isWish = true
         }
     }
     
@@ -238,7 +240,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
 
 extension RestaurantDetailViewController {
     func fetchData() {
-        let url = AF.request("\(Constant.BASE_URL1)/restaurants/\(id!)")
+        let url = AF.request("\(Constant.BASE_URL2)/restaurants/\(id!)")
         url.responseJSON { (response) in
             switch response.result {
             case .success(let obj) :
@@ -305,6 +307,76 @@ extension RestaurantDetailViewController {
                 }
                 case .failure(_):
                     print("실패")
+            }
+        }
+    }
+    
+    func wishGetData(_ id: Int) {
+        let url = "\(Constant.BASE_URL2)/wishes/\(id)"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                            let getInstanceData = try JSONDecoder().decode(Wish.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                DispatchQueue.main.async {
+                                    var x = results.isWishes
+                                    self.wishImage.image = x == 0 ? UIImage(named: "star-1") : UIImage(named: "star3")
+                                    self.isWish = x == 0 ? false : true
+                                }
+                            }
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
+    
+    func wishDeleteData(_ id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+        AF.request("\(Constant.BASE_URL2)/wishes/\(id)", method: .delete, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+            .validate()
+            .responseDecodable(of: Wish.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess, let result = response.result {
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
+            }
+        }
+    }
+    
+    func wishPostData(_ id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+        AF.request("\(Constant.BASE_URL2)/wishes/\(id)", method: .post, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+            .validate()
+            .responseDecodable(of: Wish.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess, let result = response.result {
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
             }
         }
     }

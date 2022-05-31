@@ -2,13 +2,15 @@
 import UIKit
 
 protocol ClickWishDelegate: AnyObject {
-    func clickStarButton(for index: Int, like: Bool)
+    func clickWishButton(for index: Int, id: Int?)
 }
 
 class RestaurantCell: UICollectionViewCell {
 
     var delegate: ClickWishDelegate?
     var index: Int?
+    var id: Int?
+    var touch: Bool?
     
     @IBOutlet weak var resImage: UIImageView!
     @IBOutlet weak var resIndex: UILabel!
@@ -17,8 +19,8 @@ class RestaurantCell: UICollectionViewCell {
     @IBOutlet weak var resRead: UILabel!
     @IBOutlet weak var resReview: UILabel!
     @IBOutlet weak var resRate: UILabel!
-    @IBOutlet weak var starButton: UIButton!
-    @IBOutlet weak var starImage: UIImageView!
+    @IBOutlet weak var wishButton: UIButton!
+    @IBOutlet weak var wishImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,10 +31,10 @@ class RestaurantCell: UICollectionViewCell {
         guard let idx = index else { return }
         if sender.isSelected {
             isTouched = true
-            delegate?.clickStarButton(for: idx, like: true)
+            delegate?.clickWishButton(for: idx, id:id)
         } else {
             isTouched = false
-            delegate?.clickStarButton(for: idx, like: false)
+            delegate?.clickWishButton(for: idx, id:id)
         }
         sender.isSelected = !sender.isSelected
     }
@@ -40,9 +42,9 @@ class RestaurantCell: UICollectionViewCell {
     var isTouched: Bool? {
         didSet {
             if isTouched == true {
-                starImage.tintColor = .clear
+               // wishImage.tintColor = .clear
             } else {
-                starImage.tintColor = .mainOrangeColor
+               // wishImage.tintColor = .mainOrangeColor
             }
         }
     }

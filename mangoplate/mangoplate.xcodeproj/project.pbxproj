@@ -72,6 +72,7 @@
 		92D2E09B28450D8800A9EDE1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */; };
 		92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09D28450DF700A9EDE1 /* MyInfoViewController.swift */; };
 		92D2E0A42845AC2400A9EDE1 /* ReviewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0A32845AC2400A9EDE1 /* ReviewDetail.swift */; };
+		92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0A62845C99E00A9EDE1 /* Wish.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		92D2E09D28450DF700A9EDE1 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		92D2E0A32845AC2400A9EDE1 /* ReviewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetail.swift; sourceTree = "<group>"; };
+		92D2E0A62845C99E00A9EDE1 /* Wish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -445,6 +447,7 @@
 				92B1CFBA2840C4C900223987 /* RestaurantDetail.swift */,
 				92B1CFF22842906300223987 /* Restaurant.swift */,
 				92D2E0A32845AC2400A9EDE1 /* ReviewDetail.swift */,
+				92D2E0A62845C99E00A9EDE1 /* Wish.swift */,
 			);
 			path = RestaurantSearch;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
 				92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */,
+				92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */,
 				92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */,
 				92B1CFF72843786E00223987 /* LoginViewController.swift in Sources */,
 				92B1CFE22841F30800223987 /* CommentCell.swift in Sources */,

@@ -131,8 +131,8 @@
                 <outlet property="resRead" destination="6KZ-MX-IjJ" id="F3t-1j-paf"/>
                 <outlet property="resReview" destination="AzH-XX-mwV" id="7Y9-js-JF4"/>
                 <outlet property="resTitle" destination="24R-wh-6cQ" id="5nl-QQ-83r"/>
-                <outlet property="starButton" destination="Awp-4n-X39" id="8PZ-kV-rhE"/>
-                <outlet property="starImage" destination="iaV-hh-j1q" id="7oU-1v-pev"/>
+                <outlet property="wishButton" destination="Awp-4n-X39" id="t6C-Nr-HWC"/>
+                <outlet property="wishImage" destination="iaV-hh-j1q" id="Kcx-Bg-NOE"/>
             </connections>
             <point key="canvasLocation" x="313.768115942029" y="153.01339285714286"/>
         </collectionViewCell>
