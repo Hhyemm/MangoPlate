@@ -105,6 +105,10 @@
 		92D2E11128470D9F00A9EDE1 /* HolicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E10F28470D9F00A9EDE1 /* HolicCell.swift */; };
 		92D2E11228470D9F00A9EDE1 /* HolicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E11028470D9F00A9EDE1 /* HolicCell.xib */; };
 		92D2E11428470EC200A9EDE1 /* HolicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11328470EC100A9EDE1 /* HolicViewController.swift */; };
+		92D2E11628471FAF00A9EDE1 /* ClearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11528471FAF00A9EDE1 /* ClearViewController.swift */; };
+		92D2E11A2847335000A9EDE1 /* TodayReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E1182847335000A9EDE1 /* TodayReviewCell.xib */; };
+		92D2E11C284733AF00A9EDE1 /* TodayReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11B284733AF00A9EDE1 /* TodayReviewCell.swift */; };
+		92D2E11F2847431300A9EDE1 /* TodayReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11E2847431300A9EDE1 /* TodayReview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +212,10 @@
 		92D2E10F28470D9F00A9EDE1 /* HolicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolicCell.swift; sourceTree = "<group>"; };
 		92D2E11028470D9F00A9EDE1 /* HolicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolicCell.xib; sourceTree = "<group>"; };
 		92D2E11328470EC100A9EDE1 /* HolicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolicViewController.swift; sourceTree = "<group>"; };
+		92D2E11528471FAF00A9EDE1 /* ClearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearViewController.swift; sourceTree = "<group>"; };
+		92D2E1182847335000A9EDE1 /* TodayReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayReviewCell.xib; sourceTree = "<group>"; };
+		92D2E11B284733AF00A9EDE1 /* TodayReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayReviewCell.swift; sourceTree = "<group>"; };
+		92D2E11E2847431300A9EDE1 /* TodayReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayReview.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,8 +301,9 @@
 		92B1CF6328395C8200223987 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				92D2E0A52845AC2B00A9EDE1 /* RestaurantSearch */,
 				92D2E0872844DCF900A9EDE1 /* Intro */,
+				92D2E0A52845AC2B00A9EDE1 /* RestaurantSearch */,
+				92D2E11D284742EB00A9EDE1 /* MangoPick */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -510,6 +519,7 @@
 				92D2E0C62846391900A9EDE1 /* AllViewController.swift */,
 				92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */,
 				92D2E11328470EC100A9EDE1 /* HolicViewController.swift */,
+				92D2E11528471FAF00A9EDE1 /* ClearViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -590,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				92D2E1092846EF8600A9EDE1 /* NewsCell.swift */,
+				92D2E11B284733AF00A9EDE1 /* TodayReviewCell.swift */,
 				92D2E10F28470D9F00A9EDE1 /* HolicCell.swift */,
 			);
 			path = News;
@@ -599,9 +610,18 @@
 			isa = PBXGroup;
 			children = (
 				92D2E1042846EEA400A9EDE1 /* NewsCell.xib */,
+				92D2E1182847335000A9EDE1 /* TodayReviewCell.xib */,
 				92D2E11028470D9F00A9EDE1 /* HolicCell.xib */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		92D2E11D284742EB00A9EDE1 /* MangoPick */ = {
+			isa = PBXGroup;
+			children = (
+				92D2E11E2847431300A9EDE1 /* TodayReview.swift */,
+			);
+			path = MangoPick;
 			sourceTree = "<group>";
 		};
 		D11F6C4696A2336BF1B24CE4 /* Frameworks */ = {
@@ -691,6 +711,7 @@
 				92D2E0F42846990400A9EDE1 /* StoryBannerCell.xib in Resources */,
 				92D2E0CD2846514600A9EDE1 /* ProfileCell.xib in Resources */,
 				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
+				92D2E11A2847335000A9EDE1 /* TodayReviewCell.xib in Resources */,
 				92D2E0E6284685DB00A9EDE1 /* EatDealCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
 				92D2E0FA28469A0400A9EDE1 /* StoryCell.xib in Resources */,
@@ -781,6 +802,7 @@
 				92D2E0942844E76300A9EDE1 /* Kakao.swift in Sources */,
 				92B1CF82283AA34600223987 /* SortViewController.swift in Sources */,
 				92B1CFE52841F9E500223987 /* MapViewController.swift in Sources */,
+				92D2E11628471FAF00A9EDE1 /* ClearViewController.swift in Sources */,
 				92B1CFBB2840C4C900223987 /* RestaurantDetail.swift in Sources */,
 				92D2E09828450CB300A9EDE1 /* MangoPickViewController.swift in Sources */,
 				92D2E0CC2846514600A9EDE1 /* ProfileCell.swift in Sources */,
@@ -795,6 +817,7 @@
 				92D2E06C2844AFFE00A9EDE1 /* EmailLogin.swift in Sources */,
 				92B1CF9C283DEA9A00223987 /* DetailImageCell.swift in Sources */,
 				92D2E0912844E65200A9EDE1 /* KakaoViewModel.swift in Sources */,
+				92D2E11C284733AF00A9EDE1 /* TodayReviewCell.swift in Sources */,
 				92B1CF78283A64C400223987 /* SearchTabBarViewController.swift in Sources */,
 				92D2E0C52846344F00A9EDE1 /* NewsContainerViewController.swift in Sources */,
 				92D2E0F32846990400A9EDE1 /* StoryBannerCell.swift in Sources */,
@@ -819,6 +842,7 @@
 				92B1CFDC28416AE400223987 /* ReviewDetailViewController.swift in Sources */,
 				92D2E0DB28466D3F00A9EDE1 /* SettingViewController.swift in Sources */,
 				92D2E0822844D99C00A9EDE1 /* JoinInput.swift in Sources */,
+				92D2E11F2847431300A9EDE1 /* TodayReview.swift in Sources */,
 				92D2E0962844E82000A9EDE1 /* KakaoInput.swift in Sources */,
 				92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */,
 			);

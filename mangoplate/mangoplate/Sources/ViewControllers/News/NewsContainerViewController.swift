@@ -59,7 +59,6 @@ extension NewsContainerViewController: PageboyViewControllerDataSource, TMBarDat
             return TMBarItem(title: "홀릭")
         }
     }
-  
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
