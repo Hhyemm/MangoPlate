@@ -102,6 +102,9 @@
 		92D2E1062846EEA400A9EDE1 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E1042846EEA400A9EDE1 /* NewsCell.xib */; };
 		92D2E10A2846EF8600A9EDE1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E1092846EF8600A9EDE1 /* NewsCell.swift */; };
 		92D2E10E28470A5100A9EDE1 /* FollwingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */; };
+		92D2E11128470D9F00A9EDE1 /* HolicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E10F28470D9F00A9EDE1 /* HolicCell.swift */; };
+		92D2E11228470D9F00A9EDE1 /* HolicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E11028470D9F00A9EDE1 /* HolicCell.xib */; };
+		92D2E11428470EC200A9EDE1 /* HolicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11328470EC100A9EDE1 /* HolicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +205,9 @@
 		92D2E1042846EEA400A9EDE1 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		92D2E1092846EF8600A9EDE1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollwingViewController.swift; sourceTree = "<group>"; };
+		92D2E10F28470D9F00A9EDE1 /* HolicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolicCell.swift; sourceTree = "<group>"; };
+		92D2E11028470D9F00A9EDE1 /* HolicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HolicCell.xib; sourceTree = "<group>"; };
+		92D2E11328470EC100A9EDE1 /* HolicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolicViewController.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -503,6 +509,7 @@
 				92D2E0C42846344F00A9EDE1 /* NewsContainerViewController.swift */,
 				92D2E0C62846391900A9EDE1 /* AllViewController.swift */,
 				92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */,
+				92D2E11328470EC100A9EDE1 /* HolicViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -583,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				92D2E1092846EF8600A9EDE1 /* NewsCell.swift */,
+				92D2E10F28470D9F00A9EDE1 /* HolicCell.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -591,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				92D2E1042846EEA400A9EDE1 /* NewsCell.xib */,
+				92D2E11028470D9F00A9EDE1 /* HolicCell.xib */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -671,6 +680,7 @@
 				92B1CF88283B71B800223987 /* RegionCategoryCell.xib in Resources */,
 				92D2E0D928466BD500A9EDE1 /* SettingCell.xib in Resources */,
 				92D2E0D5284651A800A9EDE1 /* InfoCell.xib in Resources */,
+				92D2E11228470D9F00A9EDE1 /* HolicCell.xib in Resources */,
 				92B1CF56283925A700223987 /* LaunchScreen.storyboard in Resources */,
 				92B1CF9D283DEA9A00223987 /* DetailImageCell.xib in Resources */,
 				92B1CFAB283E523500223987 /* ReviewCell.xib in Resources */,
@@ -749,6 +759,7 @@
 				92B1CF7B283A6AAC00223987 /* SearchCell.swift in Sources */,
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
 				92D2E0D828466BD500A9EDE1 /* SettingCell.swift in Sources */,
+				92D2E11428470EC200A9EDE1 /* HolicViewController.swift in Sources */,
 				92B1CFEC28424D9F00223987 /* LocationAgreeMessageViewController.swift in Sources */,
 				92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */,
 				92D2E10E28470A5100A9EDE1 /* FollwingViewController.swift in Sources */,
@@ -788,6 +799,7 @@
 				92D2E0C52846344F00A9EDE1 /* NewsContainerViewController.swift in Sources */,
 				92D2E0F32846990400A9EDE1 /* StoryBannerCell.swift in Sources */,
 				92D2E0A42845AC2400A9EDE1 /* ReviewDetail.swift in Sources */,
+				92D2E11128470D9F00A9EDE1 /* HolicCell.swift in Sources */,
 				92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */,
 				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
