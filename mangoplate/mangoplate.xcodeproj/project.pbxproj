@@ -63,7 +63,6 @@
 		92D2E06C2844AFFE00A9EDE1 /* EmailLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E06B2844AFFE00A9EDE1 /* EmailLogin.swift */; };
 		92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0762844C93B00A9EDE1 /* JoinViewModel.swift */; };
 		92D2E07B2844C9A300A9EDE1 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E07A2844C9A300A9EDE1 /* Join.swift */; };
-		92D2E0802844D82500A9EDE1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E07F2844D82500A9EDE1 /* Constant.swift */; };
 		92D2E0822844D99C00A9EDE1 /* JoinInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0812844D99C00A9EDE1 /* JoinInput.swift */; };
 		92D2E0912844E65200A9EDE1 /* KakaoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */; };
 		92D2E0942844E76300A9EDE1 /* Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0932844E76300A9EDE1 /* Kakao.swift */; };
@@ -94,6 +93,12 @@
 		92D2E0E828468BD800A9EDE1 /* TopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0E728468BD800A9EDE1 /* TopListViewController.swift */; };
 		92D2E0EB28468C1700A9EDE1 /* TopListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0E928468C1700A9EDE1 /* TopListCell.swift */; };
 		92D2E0EC28468C1700A9EDE1 /* TopListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0EA28468C1700A9EDE1 /* TopListCell.xib */; };
+		92D2E0EE284693E200A9EDE1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0ED284693E200A9EDE1 /* Constant.swift */; };
+		92D2E0F32846990400A9EDE1 /* StoryBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0F12846990400A9EDE1 /* StoryBannerCell.swift */; };
+		92D2E0F42846990400A9EDE1 /* StoryBannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0F22846990400A9EDE1 /* StoryBannerCell.xib */; };
+		92D2E0FA28469A0400A9EDE1 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E0F828469A0400A9EDE1 /* StoryCell.xib */; };
+		92D2E10028469AE500A9EDE1 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0FF28469AE500A9EDE1 /* StoryCell.swift */; };
+		92D2E10228469CDC00A9EDE1 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E10128469CDC00A9EDE1 /* StoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,7 +160,6 @@
 		92D2E06B2844AFFE00A9EDE1 /* EmailLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLogin.swift; sourceTree = "<group>"; };
 		92D2E0762844C93B00A9EDE1 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinViewModel.swift; path = mangoplate/Sources/ViewModels/Intro/JoinViewModel.swift; sourceTree = SOURCE_ROOT; };
 		92D2E07A2844C9A300A9EDE1 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
-		92D2E07F2844D82500A9EDE1 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = SOURCE_ROOT; };
 		92D2E0812844D99C00A9EDE1 /* JoinInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinInput.swift; sourceTree = "<group>"; };
 		92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoViewModel.swift; sourceTree = "<group>"; };
 		92D2E0932844E76300A9EDE1 /* Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kakao.swift; sourceTree = "<group>"; };
@@ -186,6 +190,12 @@
 		92D2E0E728468BD800A9EDE1 /* TopListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListViewController.swift; sourceTree = "<group>"; };
 		92D2E0E928468C1700A9EDE1 /* TopListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopListCell.swift; sourceTree = "<group>"; };
 		92D2E0EA28468C1700A9EDE1 /* TopListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopListCell.xib; sourceTree = "<group>"; };
+		92D2E0ED284693E200A9EDE1 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		92D2E0F12846990400A9EDE1 /* StoryBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBannerCell.swift; sourceTree = "<group>"; };
+		92D2E0F22846990400A9EDE1 /* StoryBannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryBannerCell.xib; sourceTree = "<group>"; };
+		92D2E0F828469A0400A9EDE1 /* StoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCell.xib; sourceTree = "<group>"; };
+		92D2E0FF28469AE500A9EDE1 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoryCell.swift; path = mangoplate/Sources/Cells/MangoPick/StoryCell.swift; sourceTree = SOURCE_ROOT; };
+		92D2E10128469CDC00A9EDE1 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,7 +224,6 @@
 		92B1CF3D283925A700223987 = {
 			isa = PBXGroup;
 			children = (
-				92D2E07F2844D82500A9EDE1 /* Constant.swift */,
 				92B1CF48283925A700223987 /* mangoplate */,
 				92B1CF47283925A700223987 /* Products */,
 				089F5AD1606D3015E5565536 /* Pods */,
@@ -233,6 +242,7 @@
 		92B1CF48283925A700223987 /* mangoplate */ = {
 			isa = PBXGroup;
 			children = (
+				92D2E0ED284693E200A9EDE1 /* Constant.swift */,
 				92B1CF6128395C3900223987 /* Resources */,
 				92B1CF6228395C7500223987 /* Sources */,
 				92B1CF57283925A700223987 /* Info.plist */,
@@ -347,7 +357,6 @@
 				92B1CFA9283E523500223987 /* ReviewCell.xib */,
 				92B1CFDE2841E8FB00223987 /* CommentCell.xib */,
 				92D2E0AB284611B400A9EDE1 /* ReviewImageSelectCell.xib */,
-				92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 				92B1CF9E283E385500223987 /* MenuImageCell.swift */,
 				92B1CF9A283DEA9A00223987 /* DetailImageCell.swift */,
 				92B1CFE12841F30800223987 /* CommentCell.swift */,
+				92D2E0B6284614A900A9EDE1 /* ReviewImageSelectCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -472,6 +482,7 @@
 			children = (
 				92D2E09728450CB300A9EDE1 /* MangoPickViewController.swift */,
 				92D2E0BC2846300E00A9EDE1 /* EatDealViewController.swift */,
+				92D2E10128469CDC00A9EDE1 /* StoryViewController.swift */,
 				92D2E0E728468BD800A9EDE1 /* TopListViewController.swift */,
 			);
 			path = MangoPick;
@@ -511,6 +522,8 @@
 			isa = PBXGroup;
 			children = (
 				92D2E0E3284685DA00A9EDE1 /* EatDealCell.swift */,
+				92D2E0F12846990400A9EDE1 /* StoryBannerCell.swift */,
+				92D2E0FF28469AE500A9EDE1 /* StoryCell.swift */,
 				92D2E0E928468C1700A9EDE1 /* TopListCell.swift */,
 			);
 			path = MangoPick;
@@ -520,6 +533,8 @@
 			isa = PBXGroup;
 			children = (
 				92D2E0E4284685DA00A9EDE1 /* EatDealCell.xib */,
+				92D2E0F22846990400A9EDE1 /* StoryBannerCell.xib */,
+				92D2E0F828469A0400A9EDE1 /* StoryCell.xib */,
 				92D2E0EA28468C1700A9EDE1 /* TopListCell.xib */,
 			);
 			path = MangoPick;
@@ -638,10 +653,12 @@
 				92B1CF97283DA20500223987 /* RestaurantCell.xib in Resources */,
 				92D2E0AD284611B400A9EDE1 /* ReviewImageSelectCell.xib in Resources */,
 				92B1CFEA284209C100223987 /* MapRestaurantCell.xib in Resources */,
+				92D2E0F42846990400A9EDE1 /* StoryBannerCell.xib in Resources */,
 				92D2E0CD2846514600A9EDE1 /* ProfileCell.xib in Resources */,
 				92B1CF6F283A132A00223987 /* RegionSelectCell.xib in Resources */,
 				92D2E0E6284685DB00A9EDE1 /* EatDealCell.xib in Resources */,
 				92B1CF53283925A700223987 /* Assets.xcassets in Resources */,
+				92D2E0FA28469A0400A9EDE1 /* StoryCell.xib in Resources */,
 				92B1CFE02841E8FC00223987 /* CommentCell.xib in Resources */,
 				92B1CF51283925A700223987 /* Main.storyboard in Resources */,
 			);
@@ -712,14 +729,16 @@
 				92B1CFFD28438D9A00223987 /* LoginEmailViewController.swift in Sources */,
 				92B1CF87283B71B800223987 /* RegionCategoryCell.swift in Sources */,
 				92B1CFD328415CCF00223987 /* SearchBannerCell.swift in Sources */,
+				92D2E10228469CDC00A9EDE1 /* StoryViewController.swift in Sources */,
 				92B1CFE9284209C100223987 /* MapRestaurantCell.swift in Sources */,
 				92B1CFC228412E1700223987 /* SearchResultViewController.swift in Sources */,
 				92D2E09B28450D8800A9EDE1 /* NewsViewController.swift in Sources */,
 				92B1CFF32842906300223987 /* Restaurant.swift in Sources */,
 				92B1CFA0283E385500223987 /* MenuImageCell.swift in Sources */,
 				92B1CF99283DDCBC00223987 /* RestaurantDetailViewController.swift in Sources */,
+				92D2E10028469AE500A9EDE1 /* StoryCell.swift in Sources */,
+				92D2E0EE284693E200A9EDE1 /* Constant.swift in Sources */,
 				92B1CF96283DA20500223987 /* RestaurantCell.swift in Sources */,
-				92D2E0802844D82500A9EDE1 /* Constant.swift in Sources */,
 				92D2E0942844E76300A9EDE1 /* Kakao.swift in Sources */,
 				92B1CF82283AA34600223987 /* SortViewController.swift in Sources */,
 				92B1CFE52841F9E500223987 /* MapViewController.swift in Sources */,
@@ -739,6 +758,7 @@
 				92D2E0912844E65200A9EDE1 /* KakaoViewModel.swift in Sources */,
 				92B1CF78283A64C400223987 /* SearchTabBarViewController.swift in Sources */,
 				92D2E0C52846344F00A9EDE1 /* NewsContainerViewController.swift in Sources */,
+				92D2E0F32846990400A9EDE1 /* StoryBannerCell.swift in Sources */,
 				92D2E0A42845AC2400A9EDE1 /* ReviewDetail.swift in Sources */,
 				92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */,
 				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,

@@ -17,6 +17,7 @@ class TopListViewController: UIViewController {
 
         let nib = UINib(nibName: "TopListCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "TopListCell")
+        
     }
 }
 
