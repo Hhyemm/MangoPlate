@@ -180,13 +180,11 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == imageCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailImageCell", for: indexPath) as! DetailImageCell
-            let url = URL(string: (restuarantDetailInfoList.imgUrls[indexPath.item]))!
-            cell.detailImage.load(url: url)
+           // let url = URL(string: (restuarantDetailInfoList.imgUrls[indexPath.item]))!
+           // cell.detailImage.load(url: url)
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
-        cell.hashView.isHidden = true
-        cell.hashView.bottomAnchor.constraint(equalTo: cell.content.topAnchor, constant: 20).isActive = true
         (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl!))!)
         cell.userName.text = restuarantDetailInfoList.reviews[indexPath.item].userName
         cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content
@@ -207,8 +205,8 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         //let url = URL(string: restuarantDetailInfoList.reviews[indexPath.item].imgUrls[0])!
         //print(url)
        // cell.image.load(url: url)
-        cell.reviewCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].reviewCnt!)개"
-        cell.followCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].followCnt!)개"
+        cell.reviewCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].reviewCnt!)"
+        cell.followCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].followCnt!)"
         cell.updatedAt.text = restuarantDetailInfoList.reviews[indexPath.item].updatedAt
         return cell
     }

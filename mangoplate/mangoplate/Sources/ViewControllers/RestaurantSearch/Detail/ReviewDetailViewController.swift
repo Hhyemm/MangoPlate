@@ -2,7 +2,7 @@
 import UIKit
 import Alamofire
 
-class ReviewDetailViewController: UIViewController, SendHashDelegate {
+class ReviewDetailViewController: UIViewController {
 
     @IBOutlet weak var reviewCollectionView: UICollectionView!
     
@@ -38,7 +38,7 @@ class ReviewDetailViewController: UIViewController, SendHashDelegate {
         self.reviewCollectionView.delegate = self
         self.reviewCollectionView.dataSource = self
         
-        reviewCollectionView.register(UINib(nibName: "ReviewCell", bundle: nil), forCellWithReuseIdentifier: "ReviewCell")
+        reviewCollectionView.register(UINib(nibName: "NewsCell", bundle: nil), forCellWithReuseIdentifier: "NewsCell")
         
         self.commentCollectionView.delegate = self
         self.commentCollectionView.dataSource = self
@@ -65,7 +65,7 @@ extension ReviewDetailViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == reviewCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCell
             cell.userName.text = reviewDetailInfoList?.userName ?? ""
             (reviewDetailInfoList?.profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (reviewDetailInfoList?.profileImgUrl) as! String )!)
             
@@ -84,12 +84,10 @@ extension ReviewDetailViewController: UICollectionViewDelegate, UICollectionView
             default :
                 break
             }
-            cell.resName.text = reviewDetailInfoList?.restaurantName ?? ""
             //((reviewDetailInfoList?.imgUrls.count) == 0 ) ? nil : cell.image.load(url: URL(string: (reviewDetailInfoList?.imgUrls[0]) ?? "")!)
            // print((reviewDetailInfoList?.imgUrls.count) ?? [])
-            cell.reviewCount.text = "\((reviewDetailInfoList?.reviewCnt) ?? 0)개"
-            cell.followCount.text = "\((reviewDetailInfoList?.followCnt) ?? 0)개"
-            cell.delegate = self
+            cell.reviewCount.text = "\((reviewDetailInfoList?.reviewCnt) ?? 0)"
+            cell.followCount.text = "\((reviewDetailInfoList?.followCnt) ?? 0)"
             return cell
 
         }

@@ -87,6 +87,4 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         }
         return CGSize(width: (restaurantCollectionView.frame.width-10)/2, height: restaurantCollectionView.frame.height/2)
     }
-    
-    
 }
