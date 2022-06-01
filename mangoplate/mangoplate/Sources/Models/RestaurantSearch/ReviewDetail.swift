@@ -22,5 +22,6 @@ struct ReviewDetailInfo: Codable{
     let comments: [String]
     let reviewCnt: Int
     let followCnt: Int
+    let isHolic: Bool
     let updatedAt: String
 }

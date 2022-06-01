@@ -2,6 +2,22 @@
 import UIKit
 import Alamofire
 
+extension ReviewDetailViewController: ClickLikeDelegate2 {
+    func clickLikeButton(for index: Int, id: Int?) {
+        if likeList[index] == 1 {
+            print("like 취소")
+            likeDeleteData(id!)
+            likeList[index] = 0
+            reviewCollectionView.reloadData()
+        } else {
+            print("like")
+            likePostData(id!)
+            likeList[index] = 1
+            reviewCollectionView.reloadData()
+        }
+    }
+}
+
 class ReviewDetailViewController: UIViewController {
 
     @IBOutlet weak var reviewCollectionView: UICollectionView!
@@ -13,6 +29,8 @@ class ReviewDetailViewController: UIViewController {
     
     var reviewDetailInfoList: ReviewDetailInfo!
     var id: Int?
+    var likeList = [Int]()
+    var isLike: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +38,7 @@ class ReviewDetailViewController: UIViewController {
         setCollectionView()
         setDesign()
         fetchData()
+        print(id)
     }
     
     func pressHashButton() {
@@ -66,11 +85,14 @@ extension ReviewDetailViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == reviewCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCell
+            cell.delegate = self
+            cell.index = indexPath.item
+            cell.id = reviewDetailInfoList?.id
             cell.userName.text = reviewDetailInfoList?.userName ?? ""
             (reviewDetailInfoList?.profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (reviewDetailInfoList?.profileImgUrl) as! String )!)
             
             cell.content.text = reviewDetailInfoList?.content ?? ""
-            
+
             switch reviewDetailInfoList?.score {
             case 5 :
                 cell.score.text = "맛있다!"
@@ -88,6 +110,17 @@ extension ReviewDetailViewController: UICollectionViewDelegate, UICollectionView
            // print((reviewDetailInfoList?.imgUrls.count) ?? [])
             cell.reviewCount.text = "\((reviewDetailInfoList?.reviewCnt) ?? 0)"
             cell.followCount.text = "\((reviewDetailInfoList?.followCnt) ?? 0)"
+            cell.isHolic.isHidden = reviewDetailInfoList?.isHolic == false
+            print(likeList)
+            if likeList.count > indexPath.item {
+                if likeList[indexPath.item] == 0 {
+                    cell.likeImage.image = UIImage(named: "heart")
+                    cell.likeImage.tintColor = .mainDarkGrayColor
+                } else {
+                    cell.likeImage.image = UIImage(named: "heart3")
+                    cell.likeImage.tintColor = .mainOrangeColor
+                }
+            }
             return cell
 
         }
@@ -97,7 +130,12 @@ extension ReviewDetailViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == reviewCollectionView {
-            return CGSize(width: reviewCollectionView.bounds.width, height: 300)
+            guard let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as? NewsCell else { return .zero }
+            cell.content.text = reviewDetailInfoList?.content
+            cell.content.sizeToFit()
+            let cellheight = cell.content.frame.height + cell.image.frame.height + 230
+           
+            return CGSize(width: reviewCollectionView.bounds.width, height: (cellheight))
         }
         return CGSize(width: reviewCollectionView.bounds.width-10, height: 100)
     }
@@ -116,10 +154,11 @@ extension ReviewDetailViewController {
                         let getInstanceData = try JSONDecoder().decode(ReviewDetail.self, from: dataJSON)
                         if let results = getInstanceData.result {
                             self.reviewDetailInfoList = results
+                            
+                            self.likeGetData(self.reviewDetailInfoList!.id)
+                            
                             self.reviewCollectionView.reloadData()
                             self.commentCollectionView.reloadData()
-                            //print(self.reviewDetailInfoList!)
-    
                         }
                     } catch {
                         print(error.localizedDescription)
@@ -130,4 +169,65 @@ extension ReviewDetailViewController {
             }
         }
     }
+    
+    func likeGetData(_ id: Int) {
+        let url = "\(Constant.BASE_URL2)/likes/\(id)"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        self.isLike = nsDiectionary["result"] as! Int
+                        self.likeList.append(self.isLike!)
+                        print(self.likeList)
+                        self.reviewCollectionView.reloadData()
+                    }
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
+    
+    func likePostData(_ id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+        AF.request("\(Constant.BASE_URL2)/likes/\(id)", method: .post, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+            .validate()
+            .responseDecodable(of: Model.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess, let result = response.result {
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
+            }
+        }
+    }
+    
+    func likeDeleteData(_ id: Int) {
+       let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+       AF.request("\(Constant.BASE_URL2)/likes/\(id)", method: .delete, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+           .validate()
+           .responseDecodable(of: Model.self) { response in
+               switch response.result {
+               case .success(let response):
+                   if response.isSuccess, let result = response.result {
+                       print("성공")
+                   } else {
+                       print("실패")
+                   }
+               case .failure(let error):
+                   print(error.localizedDescription)
+
+           }
+       }
+   }
 }

@@ -5,6 +5,24 @@ import CoreLocation
 import MapKit
 import SwiftUI
 
+extension RestaurantDetailViewController: ClickLikeDelegate {
+    func clickLikeButton(for index: Int, id: Int?) {
+        
+        if likeList[index] == 1 {
+            print("like 취소")
+            likeDeleteData(id!)
+            likeList[index] = 0
+            reviewCollectionView.reloadData()
+        } else {
+            print("like")
+            likePostData(id!)
+            likeList[index] = 1
+            reviewCollectionView.reloadData()
+        }
+    }
+}
+
+
 class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var navigationBar: UIView!
@@ -68,6 +86,8 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     let locationManager = CLLocationManager()
     var id: Int?
     var isWish: Bool?
+    var isLike: Int?
+    var likeList = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +107,10 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
         
         fetchData()
         wishGetData(id!)
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reviewCollectionView.reloadData()
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {
@@ -149,6 +172,7 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     
 }
 
+
 extension RestaurantDetailViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y >= imageCollectionView.frame.maxY+navigationBar.frame.height {
@@ -185,6 +209,9 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
+        cell.delegate = self
+        cell.index = indexPath.item
+        cell.id = restuarantDetailInfoList.reviews[indexPath.item].id
         (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl!))!)
         cell.userName.text = restuarantDetailInfoList.reviews[indexPath.item].userName
         cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content
@@ -208,6 +235,16 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         cell.reviewCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].reviewCnt!)"
         cell.followCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].followCnt!)"
         cell.updatedAt.text = restuarantDetailInfoList.reviews[indexPath.item].updatedAt
+        cell.isHolic.isHidden = restuarantDetailInfoList.reviews[indexPath.item].isHolic == false
+        if likeList.count > indexPath.item {
+            if likeList[indexPath.item] == 0 {
+                cell.likeImage.image = UIImage(named: "heart")
+                cell.likeImage.tintColor = .mainDarkGrayColor
+            } else {
+                cell.likeImage.image = UIImage(named: "heart3")
+                cell.likeImage.tintColor = .mainOrangeColor
+            }
+        }
         return cell
     }
     
@@ -215,10 +252,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         if collectionView == imageCollectionView {
             return CGSize(width: (imageCollectionView.bounds.width)/2.5, height: imageCollectionView.bounds.height)
         }
-        guard let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else {
-                    return .zero
-                }
-             
+        guard let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else { return .zero }
         cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content
         cell.content.sizeToFit()
         let cellheight = cell.content.frame.height + 250
@@ -250,6 +284,9 @@ extension RestaurantDetailViewController {
                             self.restuarantDetailInfoList = results
                             self.imageCollectionView.reloadData()
                             self.reviewCollectionView.reloadData()
+                            for i in self.restuarantDetailInfoList!.reviews.map{$0.id}{
+                                self.likeGetData(i)
+                            }
                             self.navigationBarName.text = self.restuarantDetailInfoList.name
                             self.restaurantName.text = self.restuarantDetailInfoList.name
                             self.restaurantView.text = "\(self.restuarantDetailInfoList.view)"
@@ -378,4 +415,65 @@ extension RestaurantDetailViewController {
             }
         }
     }
+    
+    func likeGetData(_ id: Int) {
+        let url = "\(Constant.BASE_URL2)/likes/\(id)"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        self.isLike = nsDiectionary["result"] as! Int
+                        self.likeList.append(self.isLike!)
+                        print(self.likeList)
+                        self.reviewCollectionView.reloadData()
+                    }
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
+    
+    func likePostData(_ id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+        AF.request("\(Constant.BASE_URL2)/likes/\(id)", method: .post, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+            .validate()
+            .responseDecodable(of: Model.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess, let result = response.result {
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+
+            }
+        }
+    }
+    
+    func likeDeleteData(_ id: Int) {
+       let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(Constant.token)"]
+       AF.request("\(Constant.BASE_URL2)/likes/\(id)", method: .delete, parameters: "", encoder: JSONParameterEncoder(), headers: header)
+           .validate()
+           .responseDecodable(of: Model.self) { response in
+               switch response.result {
+               case .success(let response):
+                   if response.isSuccess, let result = response.result {
+                       print("성공")
+                   } else {
+                       print("실패")
+                   }
+               case .failure(let error):
+                   print(error.localizedDescription)
+
+           }
+       }
+   }
 }

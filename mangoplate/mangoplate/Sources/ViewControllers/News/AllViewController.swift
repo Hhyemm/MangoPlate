@@ -21,6 +21,7 @@ class AllViewController: UIViewController {
     var selects = [5:true, 3:true, 1:true]
     
     var todayReveiw: TodayReviewResult?
+    var newsList: [NewsResult]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,8 @@ class AllViewController: UIViewController {
         
         setCollectionVieW()
         
-        fetchData()
+        todayReviewfetchData()
+        newsfetchData()
     }
     
     func setViewDesign(_ selectView: UIView) {
@@ -46,7 +48,7 @@ class AllViewController: UIViewController {
         switch tag {
         case 5:
             if selects[tag]! {
-                if selects.values.filter{$0}.count == 1 {
+                if selects.values.filter({$0}).count == 1 {
                     alartMessage()
                     break
                 }
@@ -58,7 +60,7 @@ class AllViewController: UIViewController {
             }
         case 3:
             if selects[tag]! {
-                if selects.values.filter{$0}.count == 1 {
+                if selects.values.filter({$0}).count == 1 {
                     alartMessage()
                     break
                 }
@@ -71,7 +73,7 @@ class AllViewController: UIViewController {
             }
         case 1:
             if selects[tag]! {
-                if selects.values.filter{$0}.count == 1 {
+                if selects.values.filter({$0}).count == 1 {
                     alartMessage()
                     break
                 }
@@ -86,6 +88,9 @@ class AllViewController: UIViewController {
             break
         }
         selects[tag]! = !selects[tag]!
+        var x = selects.filter{$0.value}.map{String($0.key)}.joined(separator: ",")
+       // print(x)
+       // newsfetchData(x)
     }
     
     func pressSelectButton(_ selectView: UIView, _ selectLabel: UILabel) {
@@ -94,7 +99,6 @@ class AllViewController: UIViewController {
     }
     
     func unPressSelectButton(_ selectView: UIView, _ selectLabel: UILabel) {
-  
         selectView.layer.borderColor = UIColor.mainLightGrayColor.cgColor
         selectLabel.textColor = .mainLightGrayColor
     }
@@ -130,8 +134,9 @@ class AllViewController: UIViewController {
 
 extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 1 + (newsList?.count ?? 0)
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodayReviewCell", for: indexPath) as! TodayReviewCell
@@ -173,7 +178,6 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             }
             cell.likeCount.text = "\(todayReveiw?.reviewLikeCnt ?? 0)"
             cell.commentsCount.text = "\(todayReveiw?.reviewCommentCnt ?? 0)"
-            
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCell
@@ -195,32 +199,63 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 }
 
 extension AllViewController {
-    func fetchData() {
-            let url = "\(Constant.BASE_URL2)/reviews/today"
-            AF.request(url,
-                       method: .get,
-                       parameters: nil,
-                       encoding: URLEncoding.default,
-                       headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
-                .validate(statusCode: 200..<300)
-                .responseJSON { (response) in
-                    switch response.result {
-                    case .success(let obj) :
-                        if let nsDiectionary = obj as? NSDictionary {
-                            do {
-                                let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                                let getInstanceData = try JSONDecoder().decode(TodayReview.self, from: dataJSON)
-                                if let results = getInstanceData.result {
-                                    self.todayReveiw = results
-                                    self.collectionView.reloadData()
-                                }
-                            } catch {
-                                print(error.localizedDescription)
+    func todayReviewfetchData() {
+        let url = "\(Constant.BASE_URL2)/reviews/today"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                            let getInstanceData = try JSONDecoder().decode(TodayReview.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                self.todayReveiw = results
+                                self.collectionView.reloadData()
                             }
+                        } catch {
+                            print(error.localizedDescription)
                         }
-                    case .failure(_):
-                        print("실패")
-                }
+                    }
+                case .failure(_):
+                    print("실패")
             }
         }
+    }
+    
+    func newsfetchData() {
+        let url = "\(Constant.BASE_URL2)/reviews?score=1,3,5"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        print(nsDiectionary)
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                            let getInstanceData = try JSONDecoder().decode(News.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                self.newsList = results
+                                print(self.newsList)
+                                self.collectionView.reloadData()
+                            }
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
 }

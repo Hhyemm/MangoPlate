@@ -46,6 +46,7 @@ struct Reviews: Codable {
     let comment: String?
     let reviewCnt: Int?
     let followCnt: Int?
+    let isHolic: Bool
     let updatedAt: String?
 }
 

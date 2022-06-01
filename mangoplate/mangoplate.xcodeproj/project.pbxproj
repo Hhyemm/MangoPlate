@@ -109,6 +109,8 @@
 		92D2E11A2847335000A9EDE1 /* TodayReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E1182847335000A9EDE1 /* TodayReviewCell.xib */; };
 		92D2E11C284733AF00A9EDE1 /* TodayReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11B284733AF00A9EDE1 /* TodayReviewCell.swift */; };
 		92D2E11F2847431300A9EDE1 /* TodayReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E11E2847431300A9EDE1 /* TodayReview.swift */; };
+		92D2E1212847617E00A9EDE1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E1202847617E00A9EDE1 /* News.swift */; };
+		92D2E1232847944B00A9EDE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E1222847944B00A9EDE1 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +218,8 @@
 		92D2E1182847335000A9EDE1 /* TodayReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayReviewCell.xib; sourceTree = "<group>"; };
 		92D2E11B284733AF00A9EDE1 /* TodayReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayReviewCell.swift; sourceTree = "<group>"; };
 		92D2E11E2847431300A9EDE1 /* TodayReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayReview.swift; sourceTree = "<group>"; };
+		92D2E1202847617E00A9EDE1 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = News.swift; path = mangoplate/Sources/Models/MangoPick/News.swift; sourceTree = SOURCE_ROOT; };
+		92D2E1222847944B00A9EDE1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,6 +476,7 @@
 		92D2E0892844E43E00A9EDE1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				92D2E1222847944B00A9EDE1 /* Model.swift */,
 				92D2E08A2844E45900A9EDE1 /* Intro */,
 			);
 			path = ViewModels;
@@ -620,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				92D2E11E2847431300A9EDE1 /* TodayReview.swift */,
+				92D2E1202847617E00A9EDE1 /* News.swift */,
 			);
 			path = MangoPick;
 			sourceTree = "<group>";
@@ -776,6 +782,7 @@
 				92B1CFAA283E523500223987 /* ReviewCell.swift in Sources */,
 				92D2E10A2846EF8600A9EDE1 /* NewsCell.swift in Sources */,
 				92D2E0E828468BD800A9EDE1 /* TopListViewController.swift in Sources */,
+				92D2E1212847617E00A9EDE1 /* News.swift in Sources */,
 				92D2E0682844AF5900A9EDE1 /* EmailLoginViewModel.swift in Sources */,
 				92B1CF7B283A6AAC00223987 /* SearchCell.swift in Sources */,
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
@@ -838,6 +845,7 @@
 				92D2E0D02846517A00A9EDE1 /* TimeLineCell.swift in Sources */,
 				92D2E0E5284685DB00A9EDE1 /* EatDealCell.swift in Sources */,
 				92B1CF8B283C729500223987 /* SurroundViewController.swift in Sources */,
+				92D2E1232847944B00A9EDE1 /* Model.swift in Sources */,
 				92B1CF80283A6FC800223987 /* RecentSearchViewController.swift in Sources */,
 				92B1CFDC28416AE400223987 /* ReviewDetailViewController.swift in Sources */,
 				92D2E0DB28466D3F00A9EDE1 /* SettingViewController.swift in Sources */,
