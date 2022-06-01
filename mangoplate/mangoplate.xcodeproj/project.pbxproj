@@ -101,6 +101,7 @@
 		92D2E10228469CDC00A9EDE1 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E10128469CDC00A9EDE1 /* StoryViewController.swift */; };
 		92D2E1062846EEA400A9EDE1 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2E1042846EEA400A9EDE1 /* NewsCell.xib */; };
 		92D2E10A2846EF8600A9EDE1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E1092846EF8600A9EDE1 /* NewsCell.swift */; };
+		92D2E10E28470A5100A9EDE1 /* FollwingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +201,7 @@
 		92D2E10128469CDC00A9EDE1 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		92D2E1042846EEA400A9EDE1 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		92D2E1092846EF8600A9EDE1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollwingViewController.swift; sourceTree = "<group>"; };
 		C5EF894695DF60D5205E8154 /* Pods-mangoplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.debug.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.debug.xcconfig"; sourceTree = "<group>"; };
 		C9567F2AF9D2E8E775776E54 /* Pods-mangoplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mangoplate.release.xcconfig"; path = "Target Support Files/Pods-mangoplate/Pods-mangoplate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -500,6 +502,7 @@
 				92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */,
 				92D2E0C42846344F00A9EDE1 /* NewsContainerViewController.swift */,
 				92D2E0C62846391900A9EDE1 /* AllViewController.swift */,
+				92D2E10D28470A5100A9EDE1 /* FollwingViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				92D2E0D828466BD500A9EDE1 /* SettingCell.swift in Sources */,
 				92B1CFEC28424D9F00223987 /* LocationAgreeMessageViewController.swift in Sources */,
 				92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */,
+				92D2E10E28470A5100A9EDE1 /* FollwingViewController.swift in Sources */,
 				92B1CF7E283A6C2A00223987 /* RecommendSearchViewController.swift in Sources */,
 				92D2E0C72846391A00A9EDE1 /* AllViewController.swift in Sources */,
 				92B1CFFD28438D9A00223987 /* LoginEmailViewController.swift in Sources */,
