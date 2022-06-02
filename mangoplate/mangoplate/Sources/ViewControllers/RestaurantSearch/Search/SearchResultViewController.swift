@@ -1,5 +1,6 @@
 
 import UIKit
+import Alamofire
 
 class SearchResultViewController: UIViewController {
 
@@ -8,6 +9,12 @@ class SearchResultViewController: UIViewController {
     
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var restaurantCollectionView: UICollectionView!
+    
+    let parma: Parameters = [
+        "search" : "세계음식",
+        "lat" : "37.5732",
+        "long" : "126.9891"
+    ]
     
     var images = ["searchImage2", "searchImage1", "searchImage3", "searchImage4", "searchImage5"]
     var titles = ["2022 올해의 키워드: 그릭요거트", "2022 올해의 키워드: 생면파스타", "2022 다이닝 맛집 TOP 30", "2022 떡볶이 맛집 TOP 20", "2022 돼지고기 인기 맛집 TOP 50"]
@@ -19,6 +26,8 @@ class SearchResultViewController: UIViewController {
         searchTitle.text = search
         setFilterButtonDesign()
         setCollectionView()
+        
+        fetchData()
     }
     
     @IBAction func pressBackButton(_ sender: UIButton) {
@@ -86,5 +95,45 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
             return CGSize(width: bannerCollectionView.frame.width, height: bannerCollectionView.frame.height)
         }
         return CGSize(width: (restaurantCollectionView.frame.width-10)/2, height: restaurantCollectionView.frame.height/2)
+    }
+}
+
+extension SearchResultViewController {
+    
+    func fetchData() {
+        let url = "\(Constant.BASE_URL2)/search?search=세계음식&lat=37.5732&long=126.9891"
+        
+        AF.request(url,
+                   method: .get,
+                   parameters: parma,
+                   encoding: URLEncoding.httpBody,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                print(response)
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        print(nsDiectionary)
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                           // let getInstanceData = try JSONDecoder().decode(Search.self, from: dataJSON)
+                            /*if let results = getInstanceData.result {
+                                DispatchQueue.main.async {
+                                    self.restuarantInfoList = results
+                                    for i in self.restuarantInfoList!.map({$0.id}) {
+                                        self.wishGetData(i)
+                                    }
+                                    self.restaurantCollectionView.reloadData()
+                                }
+                            }*/
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                case .failure(_):
+                    print("실패")
+            }
+        }
     }
 }

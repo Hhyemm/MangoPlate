@@ -121,7 +121,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="discountPrice" destination="Yjc-C4-0eV" id="2Ln-2D-UCy"/>
                 <outlet property="discountView" destination="U8S-az-m3s" id="fEL-KL-6Uj"/>
+                <outlet property="loc" destination="Z1m-I0-GEF" id="wbR-YU-Qtg"/>
+                <outlet property="menu" destination="xJk-Bx-COm" id="BLh-Y3-RGM"/>
+                <outlet property="name" destination="2cL-Hn-nZJ" id="Pmh-0P-klE"/>
+                <outlet property="price" destination="eow-oq-lSH" id="xnX-Ic-Xiq"/>
+                <outlet property="resImage" destination="BM2-FE-zly" id="AKA-L8-0h2"/>
             </connections>
             <point key="canvasLocation" x="-253.62318840579712" y="98.102678571428569"/>
         </tableViewCell>

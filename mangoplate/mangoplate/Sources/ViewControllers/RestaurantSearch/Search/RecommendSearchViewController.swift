@@ -5,7 +5,7 @@ class RecommendSearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var list = ["2022망고플레이트인기맛집", "용리단길", "유튜버추천", "신촌", "참치", "성수", "와인"]
+    var list = ["2022망고플레이트인기맛집", "세계음식", "유튜버추천", "신촌", "참치", "성수", "와인"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +15,7 @@ class RecommendSearchViewController: UIViewController {
         
         let nib = UINib(nibName: "SearchCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "SearchCell")
+
     }
 }
 
