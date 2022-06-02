@@ -17,6 +17,9 @@
 		92607481284904720093425D /* CommentPostInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607480284904720093425D /* CommentPostInput.swift */; };
 		92607485284918EB0093425D /* CommentPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607484284918EB0093425D /* CommentPopupViewController.swift */; };
 		92607489284929F00093425D /* CommentPutInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607488284929F00093425D /* CommentPutInput.swift */; };
+		9260748B28493B4F0093425D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260748A28493B4F0093425D /* ReportViewController.swift */; };
+		9260748D28493C460093425D /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260748C28493C460093425D /* ReportPopupViewController.swift */; };
+		9260748F284947AF0093425D /* ReportsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260748E284947AF0093425D /* ReportsInput.swift */; };
 		92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF49283925A700223987 /* AppDelegate.swift */; };
 		92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4B283925A700223987 /* SceneDelegate.swift */; };
 		92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4D283925A700223987 /* TabBarViewController.swift */; };
@@ -73,7 +76,6 @@
 		92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0762844C93B00A9EDE1 /* JoinViewModel.swift */; };
 		92D2E07B2844C9A300A9EDE1 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E07A2844C9A300A9EDE1 /* Join.swift */; };
 		92D2E0822844D99C00A9EDE1 /* JoinInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0812844D99C00A9EDE1 /* JoinInput.swift */; };
-		92D2E0912844E65200A9EDE1 /* KakaoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */; };
 		92D2E0942844E76300A9EDE1 /* Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0932844E76300A9EDE1 /* Kakao.swift */; };
 		92D2E09828450CB300A9EDE1 /* MangoPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09728450CB300A9EDE1 /* MangoPickViewController.swift */; };
 		92D2E09B28450D8800A9EDE1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */; };
@@ -132,6 +134,9 @@
 		92607480284904720093425D /* CommentPostInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostInput.swift; sourceTree = "<group>"; };
 		92607484284918EB0093425D /* CommentPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPopupViewController.swift; sourceTree = "<group>"; };
 		92607488284929F00093425D /* CommentPutInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPutInput.swift; sourceTree = "<group>"; };
+		9260748A28493B4F0093425D /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		9260748C28493C460093425D /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
+		9260748E284947AF0093425D /* ReportsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInput.swift; sourceTree = "<group>"; };
 		92B1CF46283925A700223987 /* mangoplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangoplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1CF49283925A700223987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B1CF4B283925A700223987 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,7 +195,6 @@
 		92D2E0762844C93B00A9EDE1 /* JoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinViewModel.swift; path = mangoplate/Sources/ViewModels/Intro/JoinViewModel.swift; sourceTree = SOURCE_ROOT; };
 		92D2E07A2844C9A300A9EDE1 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		92D2E0812844D99C00A9EDE1 /* JoinInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinInput.swift; sourceTree = "<group>"; };
-		92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoViewModel.swift; sourceTree = "<group>"; };
 		92D2E0932844E76300A9EDE1 /* Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kakao.swift; sourceTree = "<group>"; };
 		92D2E09728450CB300A9EDE1 /* MangoPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangoPickViewController.swift; sourceTree = "<group>"; };
 		92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				9260747A284861C70093425D /* Write.swift */,
 				92607480284904720093425D /* CommentPostInput.swift */,
 				92607488284929F00093425D /* CommentPutInput.swift */,
+				9260748E284947AF0093425D /* ReportsInput.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -463,6 +468,8 @@
 				92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */,
 				92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */,
 				92607484284918EB0093425D /* CommentPopupViewController.swift */,
+				9260748A28493B4F0093425D /* ReportViewController.swift */,
+				9260748C28493C460093425D /* ReportPopupViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -528,7 +535,6 @@
 			isa = PBXGroup;
 			children = (
 				92D2E0762844C93B00A9EDE1 /* JoinViewModel.swift */,
-				92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */,
 				92D2E0672844AF5900A9EDE1 /* EmailLoginViewModel.swift */,
 			);
 			path = Intro;
@@ -830,6 +836,7 @@
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
 				92D2E0D828466BD500A9EDE1 /* SettingCell.swift in Sources */,
 				92D2E11428470EC200A9EDE1 /* HolicViewController.swift in Sources */,
+				9260748F284947AF0093425D /* ReportsInput.swift in Sources */,
 				92B1CFEC28424D9F00223987 /* LocationAgreeMessageViewController.swift in Sources */,
 				92B1CF5F283951D800223987 /* RestaurantSearchViewController.swift in Sources */,
 				92D2E10E28470A5100A9EDE1 /* FollwingViewController.swift in Sources */,
@@ -868,19 +875,20 @@
 				92B1CF6B2839D6C800223987 /* RegionSelectContainerViewController.swift in Sources */,
 				92D2E06C2844AFFE00A9EDE1 /* EmailLogin.swift in Sources */,
 				92B1CF9C283DEA9A00223987 /* DetailImageCell.swift in Sources */,
-				92D2E0912844E65200A9EDE1 /* KakaoViewModel.swift in Sources */,
 				92D2E11C284733AF00A9EDE1 /* TodayReviewCell.swift in Sources */,
 				92B1CF78283A64C400223987 /* SearchTabBarViewController.swift in Sources */,
 				92D2E0C52846344F00A9EDE1 /* NewsContainerViewController.swift in Sources */,
 				92D2E0F32846990400A9EDE1 /* StoryBannerCell.swift in Sources */,
 				92607485284918EB0093425D /* CommentPopupViewController.swift in Sources */,
 				92D2E0A42845AC2400A9EDE1 /* ReviewDetail.swift in Sources */,
+				9260748B28493B4F0093425D /* ReportViewController.swift in Sources */,
 				92D2E11128470D9F00A9EDE1 /* HolicCell.swift in Sources */,
 				92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */,
 				92B1CF8D283C7D2C00223987 /* FilterViewController.swift in Sources */,
 				92B1CF6E283A132A00223987 /* RegionSelectCell.swift in Sources */,
 				92D2E0B928461B0100A9EDE1 /* ReviewWriteViewController.swift in Sources */,
 				9260747328482EBD0093425D /* EatDeal.swift in Sources */,
+				9260748D28493C460093425D /* ReportPopupViewController.swift in Sources */,
 				92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */,
 				92D2E0EB28468C1700A9EDE1 /* TopListCell.swift in Sources */,
 				92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */,

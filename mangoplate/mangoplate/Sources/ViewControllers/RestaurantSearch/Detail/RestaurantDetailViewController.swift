@@ -6,9 +6,17 @@ import MapKit
 import SwiftUI
 
 extension RestaurantDetailViewController: ClickLikeDelegate, ClickUpdateDeleteDelegate {
-    func clickUpdateDeleteButton(for index: Int, id: Int?) {
-        guard let VC = self.storyboard?.instantiateViewController(identifier: "UpdateDeletePopupViewController") as? UpdateDeletePopupViewController else { return }
-        VC.id = id
+    
+    func clickUpdateDeleteButton(for index: Int, reviewId: Int?, userId: Int?) {
+        if userId == Constant.userIdx {
+            guard let VC = self.storyboard?.instantiateViewController(identifier: "UpdateDeletePopupViewController") as? UpdateDeletePopupViewController else { return }
+            VC.id = id
+            VC.modalPresentationStyle = .overCurrentContext
+            self.present(VC, animated: false, completion: nil)
+        }
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "ReportPopupViewController") as? ReportPopupViewController else { return }
+        VC.reviewId = reviewId
+        VC.reviewUserId = userId
         VC.modalPresentationStyle = .overCurrentContext
         self.present(VC, animated: false, completion: nil)
     }
@@ -219,7 +227,8 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         cell.delegate = self
         cell.delegate2 = self
         cell.index = indexPath.item
-        cell.id = restuarantDetailInfoList.reviews[indexPath.item].id
+        cell.reviewId = restuarantDetailInfoList.reviews[indexPath.item].id
+        cell.userId = restuarantDetailInfoList.reviews[indexPath.item].userId
         (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "userBasicImage") : cell.userImage.load(url: URL(string: (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl!))!)
         cell.userName.text = restuarantDetailInfoList.reviews[indexPath.item].userName
         cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content

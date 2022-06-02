@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
                     
                 Constant.kakaoToken = accessToken!
                 print("토큰:\(Constant.kakaoToken)")
-                var kakao = KakaoViewModel()
-                kakao.postKakao( viewController: self, kakao: Constant.kakaoToken)
+                //var kakao = KakaoViewModel()
+                //kakao.postKakao( viewController: self, kakao: Constant.kakaoToken)
                 self.setUserInfo()
             }
         }
@@ -56,14 +56,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    func didSuccessKakao(_ result: KakaoResult) {
-        Constant.kakaoToken = result.jwt!
-        print("성공")
-    }
-    func failedToKakao(message: String) {
-        print("실패")
     }
     
     @IBAction func pressPassButton(_ sender: UIButton) {

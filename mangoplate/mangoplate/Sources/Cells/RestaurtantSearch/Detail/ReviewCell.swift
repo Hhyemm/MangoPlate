@@ -6,7 +6,7 @@ protocol ClickLikeDelegate: AnyObject {
 }
 
 protocol ClickUpdateDeleteDelegate: AnyObject {
-    func clickUpdateDeleteButton(for index: Int, id: Int?)
+    func clickUpdateDeleteButton(for index: Int, reviewId: Int?, userId: Int?)
 }
 
 class ReviewCell: UICollectionViewCell {
@@ -14,7 +14,8 @@ class ReviewCell: UICollectionViewCell {
     var delegate: ClickLikeDelegate?
     var delegate2: ClickUpdateDeleteDelegate?
     var index: Int?
-    var id: Int?
+    var reviewId: Int?
+    var userId: Int?
     var touch: Bool?
 
     @IBOutlet weak var userImage: UIImageView!
@@ -43,10 +44,10 @@ class ReviewCell: UICollectionViewCell {
         guard let idx = index else { return }
         if sender.isSelected {
            // isTouched = true
-            delegate?.clickLikeButton(for: idx, id:id)
+            delegate?.clickLikeButton(for: idx, id:reviewId)
         } else {
            // isTouched = false
-            delegate?.clickLikeButton(for: idx, id:id)
+            delegate?.clickLikeButton(for: idx, id:reviewId)
         }
         sender.isSelected = !sender.isSelected
     }
@@ -55,10 +56,10 @@ class ReviewCell: UICollectionViewCell {
         guard let idx = index else { return }
         if sender.isSelected {
            // isTouched = true
-            delegate2?.clickUpdateDeleteButton(for: idx, id:id)
+            delegate2?.clickUpdateDeleteButton(for: idx, reviewId: reviewId, userId: userId)
         } else {
            // isTouched = false
-            delegate2?.clickUpdateDeleteButton(for: idx, id:id)
+            delegate2?.clickUpdateDeleteButton(for: idx, reviewId: reviewId, userId: userId)
         }
         sender.isSelected = !sender.isSelected
     }

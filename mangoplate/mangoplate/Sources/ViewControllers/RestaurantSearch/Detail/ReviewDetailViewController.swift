@@ -68,7 +68,6 @@ class ReviewDetailViewController: UIViewController {
         guard let RDVC = storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else { return }
         RDVC.modalPresentationStyle = .fullScreen
         RDVC.id = reviewDetailInfoList?.restaurantId
-        
         self.present(RDVC, animated: false, completion: nil)
     }
     
