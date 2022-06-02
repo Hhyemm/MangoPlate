@@ -20,6 +20,7 @@
 		9260748B28493B4F0093425D /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260748A28493B4F0093425D /* ReportViewController.swift */; };
 		9260748D28493C460093425D /* ReportPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260748C28493C460093425D /* ReportPopupViewController.swift */; };
 		9260748F284947AF0093425D /* ReportsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260748E284947AF0093425D /* ReportsInput.swift */; };
+		9260749128494DD90093425D /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260749028494DD90093425D /* Users.swift */; };
 		92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF49283925A700223987 /* AppDelegate.swift */; };
 		92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4B283925A700223987 /* SceneDelegate.swift */; };
 		92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4D283925A700223987 /* TabBarViewController.swift */; };
@@ -137,6 +138,7 @@
 		9260748A28493B4F0093425D /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		9260748C28493C460093425D /* ReportPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupViewController.swift; sourceTree = "<group>"; };
 		9260748E284947AF0093425D /* ReportsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInput.swift; sourceTree = "<group>"; };
+		9260749028494DD90093425D /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		92B1CF46283925A700223987 /* mangoplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangoplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1CF49283925A700223987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B1CF4B283925A700223987 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +291,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		9260749228494DE90093425D /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9260749028494DD90093425D /* Users.swift */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
 		92B1CF3D283925A700223987 = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +352,7 @@
 				92B1CF6528395CE600223987 /* ViewControllers */,
 				92B1CF6428395CDD00223987 /* Cells */,
 				92B1CF6328395C8200223987 /* Models */,
+				9260749228494DE90093425D /* MyInfo */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -854,6 +865,7 @@
 				92B1CFA0283E385500223987 /* MenuImageCell.swift in Sources */,
 				92B1CF99283DDCBC00223987 /* RestaurantDetailViewController.swift in Sources */,
 				92D2E10028469AE500A9EDE1 /* StoryCell.swift in Sources */,
+				9260749128494DD90093425D /* Users.swift in Sources */,
 				92D2E0EE284693E200A9EDE1 /* Constant.swift in Sources */,
 				92B1CF96283DA20500223987 /* RestaurantCell.swift in Sources */,
 				92D2E0942844E76300A9EDE1 /* Kakao.swift in Sources */,

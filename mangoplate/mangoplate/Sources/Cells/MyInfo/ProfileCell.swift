@@ -5,6 +5,9 @@ class ProfileCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var updateView: UIView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var followers: UILabel!
+    @IBOutlet weak var followings: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

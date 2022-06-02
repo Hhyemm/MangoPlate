@@ -1,16 +1,19 @@
 
 import UIKit
+import Alamofire
 
 class MyInfoViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var titles = [["이벤트"],["구매한 EAT딜", "EAT딜 입고알림"],["가고싶다","마이리스트","북마크","내가 등록한 식당"],["설정"]]
+    var userInfo: UserInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTableView()
+        fetchData()
     }
     
     func setTableView() {
@@ -27,11 +30,38 @@ class MyInfoViewController: UIViewController {
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: CGFloat.leastNonzeroMagnitude))
     }
     
+    func fetchData() {
+        let url = "\(Constant.BASE_URL2)/users"
+        AF.request(url,
+                   method: .get,
+                   parameters: nil,
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+                switch response.result {
+                case .success(let obj) :
+                    if let nsDiectionary = obj as? NSDictionary {
+                        do {
+                            let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+                            let getInstanceData = try JSONDecoder().decode(Users.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                self.userInfo = results
+                                self.tableView.reloadData()
+                            }
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                case .failure(_):
+                    print("실패")
+            }
+        }
+    }
+    
 }
 
 extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
@@ -52,6 +82,9 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell") as! ProfileCell
+            cell.userName.text = userInfo?.userName
+            cell.followers.text = "\(userInfo?.followers?.count ?? 0)"
+            cell.followings.text = "\(userInfo?.followings?.count ?? 0)"
             return cell
         } else if indexPath.section == 3 {
             if indexPath.row == 0 {

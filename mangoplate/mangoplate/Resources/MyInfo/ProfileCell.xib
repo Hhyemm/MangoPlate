@@ -25,7 +25,7 @@
                             <constraint firstAttribute="height" constant="25" id="efA-Yg-41e"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cookie" translatesAutoresizingMaskIntoConstraints="NO" id="Rkq-LD-7Ug">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userBasicImage" translatesAutoresizingMaskIntoConstraints="NO" id="Rkq-LD-7Ug">
                         <rect key="frame" x="20" y="70" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="Ist-S4-9Aq"/>
@@ -127,16 +127,19 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="followers" destination="1wB-iL-KBU" id="JeZ-Yl-M1f"/>
+                <outlet property="followings" destination="Klj-B3-5oS" id="F17-qm-PlL"/>
                 <outlet property="profileImage" destination="Rkq-LD-7Ug" id="ppd-OT-zr6"/>
                 <outlet property="updateView" destination="H8c-Ky-DEx" id="fBP-9Y-2I1"/>
+                <outlet property="userName" destination="b0k-2V-RDi" id="5OJ-Gg-GkW"/>
             </connections>
             <point key="canvasLocation" x="215.21739130434784" y="140.95982142857142"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bell" width="512" height="512"/>
-        <image name="cookie" width="800" height="451"/>
         <image name="pencil2" width="512" height="512"/>
+        <image name="userBasicImage" width="448" height="448"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
