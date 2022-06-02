@@ -252,6 +252,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
                 cell.likeImage.tintColor = .mainOrangeColor
             }
         }
+//        cell.commentsCount.text = restuarantDetailInfoList.c
         return cell
     }
     

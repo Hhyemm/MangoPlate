@@ -16,6 +16,11 @@ class ReviewWriteViewController: UIViewController {
     var nowSocre = 5
     var id: Int?
     
+    let params: Dictionary<String, Any> = [
+        "content" : "넘 맛나용",
+        "score" : 5
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,20 +85,20 @@ extension ReviewWriteViewController {
         let header: HTTPHeaders = [ "Content-Type":"multipart/form-data",
                                     "X-ACCESS-TOKEN":"\(Constant.token)"]
         
-            AF.request("\(Constant.BASE_URL2)/reviews/\(id)", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
-                .validate()
-                .responseDecodable(of: Write.self) { response in
-                    switch response.result {
-                    case .success(let response):
-                        if response.isSuccess{
-                            print("성공")
-                        } else {
-                            print("실패")
-                        }
-                    case .failure(let error):
-                        print(error.localizedDescription)
+        AF.request("\(Constant.BASE_URL2)/reviews/\(id)", method: .post, parameters: params, encoding: JSONEncoding.default, headers: header)
+            .validate()
+            .responseDecodable(of: Write.self) { response in
+                switch response.result {
+                case .success(let response):
+                    if response.isSuccess{
+                        print("성공")
+                    } else {
+                        print("실패")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
 
-                }
             }
+        }
     }
 }

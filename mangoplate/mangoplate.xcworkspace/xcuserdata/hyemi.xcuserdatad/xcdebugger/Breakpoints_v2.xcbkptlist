@@ -30,8 +30,8 @@
             filePath = "mangoplate/Sources/ViewControllers/RestaurantSearch/Detail/RestaurantDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,32 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6DF8B67F-995E-43F4-957F-72FE69E0285E"
+            uuid = "CC816153-1F91-4D23-A087-05BFB20F32DB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mangoplate/Sources/ViewControllers/RestaurantSearch/Detail/ReviewDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "likeGetData(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A7ADA3AA-832B-4497-9CEB-3F2444A26B01"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "mangoplate/Sources/ViewControllers/RestaurantSearch/Detail/ReviewDetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+            landmarkName = "putComment(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

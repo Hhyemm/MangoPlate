@@ -43,7 +43,7 @@ struct Reviews: Codable {
     let score: Int
     let restaurantName: String
     let imgUrls: [String]
-    let comment: String?
+    let comments: String?
     let reviewCnt: Int?
     let followCnt: Int?
     let isHolic: Bool

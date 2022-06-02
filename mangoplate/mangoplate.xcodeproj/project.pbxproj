@@ -14,6 +14,9 @@
 		9260747B284861C70093425D /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260747A284861C70093425D /* Write.swift */; };
 		9260747D28488AA50093425D /* UpdateDeletePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260747C28488AA50093425D /* UpdateDeletePopupViewController.swift */; };
 		9260747F2848DEE00093425D /* Holic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260747E2848DEE00093425D /* Holic.swift */; };
+		92607481284904720093425D /* CommentPostInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607480284904720093425D /* CommentPostInput.swift */; };
+		92607485284918EB0093425D /* CommentPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607484284918EB0093425D /* CommentPopupViewController.swift */; };
+		92607489284929F00093425D /* CommentPutInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607488284929F00093425D /* CommentPutInput.swift */; };
 		92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF49283925A700223987 /* AppDelegate.swift */; };
 		92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4B283925A700223987 /* SceneDelegate.swift */; };
 		92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4D283925A700223987 /* TabBarViewController.swift */; };
@@ -126,6 +129,9 @@
 		9260747A284861C70093425D /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
 		9260747C28488AA50093425D /* UpdateDeletePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeletePopupViewController.swift; sourceTree = "<group>"; };
 		9260747E2848DEE00093425D /* Holic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Holic.swift; path = mangoplate/Sources/Models/News/Holic.swift; sourceTree = SOURCE_ROOT; };
+		92607480284904720093425D /* CommentPostInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostInput.swift; sourceTree = "<group>"; };
+		92607484284918EB0093425D /* CommentPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPopupViewController.swift; sourceTree = "<group>"; };
+		92607488284929F00093425D /* CommentPutInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPutInput.swift; sourceTree = "<group>"; };
 		92B1CF46283925A700223987 /* mangoplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangoplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1CF49283925A700223987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B1CF4B283925A700223987 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +278,8 @@
 				92D2E0A32845AC2400A9EDE1 /* ReviewDetail.swift */,
 				92607477284860A50093425D /* WriteInput.swift */,
 				9260747A284861C70093425D /* Write.swift */,
+				92607480284904720093425D /* CommentPostInput.swift */,
+				92607488284929F00093425D /* CommentPutInput.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -454,6 +462,7 @@
 				92B1CFD9284169DF00223987 /* ReviewWriteImageSelectViewController.swift */,
 				92B1CFDB28416AE400223987 /* ReviewDetailViewController.swift */,
 				92D2E0B828461B0100A9EDE1 /* ReviewWriteViewController.swift */,
+				92607484284918EB0093425D /* CommentPopupViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -817,6 +826,7 @@
 				92D2E0E828468BD800A9EDE1 /* TopListViewController.swift in Sources */,
 				92D2E0682844AF5900A9EDE1 /* EmailLoginViewModel.swift in Sources */,
 				92B1CF7B283A6AAC00223987 /* SearchCell.swift in Sources */,
+				92607489284929F00093425D /* CommentPutInput.swift in Sources */,
 				92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */,
 				92D2E0D828466BD500A9EDE1 /* SettingCell.swift in Sources */,
 				92D2E11428470EC200A9EDE1 /* HolicViewController.swift in Sources */,
@@ -863,6 +873,7 @@
 				92B1CF78283A64C400223987 /* SearchTabBarViewController.swift in Sources */,
 				92D2E0C52846344F00A9EDE1 /* NewsContainerViewController.swift in Sources */,
 				92D2E0F32846990400A9EDE1 /* StoryBannerCell.swift in Sources */,
+				92607485284918EB0093425D /* CommentPopupViewController.swift in Sources */,
 				92D2E0A42845AC2400A9EDE1 /* ReviewDetail.swift in Sources */,
 				92D2E11128470D9F00A9EDE1 /* HolicCell.swift in Sources */,
 				92D2E0772844C93B00A9EDE1 /* JoinViewModel.swift in Sources */,
@@ -875,6 +886,7 @@
 				92D2E0A72845C99E00A9EDE1 /* Wish.swift in Sources */,
 				92B1CF90283CA31600223987 /* FilterFoodCell.swift in Sources */,
 				92B1CFF72843786E00223987 /* LoginViewController.swift in Sources */,
+				92607481284904720093425D /* CommentPostInput.swift in Sources */,
 				9260747D28488AA50093425D /* UpdateDeletePopupViewController.swift in Sources */,
 				92D2E0B7284614A900A9EDE1 /* ReviewImageSelectCell.swift in Sources */,
 				92B1CFE22841F30800223987 /* CommentCell.swift in Sources */,
