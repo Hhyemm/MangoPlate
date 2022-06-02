@@ -89,7 +89,7 @@ extension ReviewDetailViewController: UICollectionViewDelegate, UICollectionView
             cell.index = indexPath.item
             cell.id = reviewDetailInfoList?.id
             cell.userName.text = reviewDetailInfoList?.userName ?? ""
-            (reviewDetailInfoList?.profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (reviewDetailInfoList?.profileImgUrl) as! String )!)
+            (reviewDetailInfoList?.profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "userBasicImage") : cell.userImage.load(url: URL(string: (reviewDetailInfoList?.profileImgUrl) as! String )!)
             
             cell.content.text = reviewDetailInfoList?.content ?? ""
 

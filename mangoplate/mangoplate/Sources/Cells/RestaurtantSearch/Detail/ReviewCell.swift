@@ -36,8 +36,7 @@ class ReviewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         userImage.layer.cornerRadius = userImage.frame.width / 2
-        updateDeleteImage.isHidden = true
-        updateDeleteButton.isHidden = true
+        
     }
     
     @IBAction func pressLikeButton(_ sender: UIButton) {

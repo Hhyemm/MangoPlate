@@ -25,11 +25,11 @@ class LoginViewController: UIViewController {
                 _ = oauthToken
                         
                 let accessToken = oauthToken?.accessToken
-                    print("토큰:\(accessToken)")
- 
+                    
                 Constant.kakaoToken = accessToken!
+                print("토큰:\(Constant.kakaoToken)")
                 var kakao = KakaoViewModel()
-                kakao.postKakao( request: KakaoRequest(), viewController: self, kakao: Constant.kakaoToken)
+                kakao.postKakao( viewController: self, kakao: Constant.kakaoToken)
                 self.setUserInfo()
             }
         }

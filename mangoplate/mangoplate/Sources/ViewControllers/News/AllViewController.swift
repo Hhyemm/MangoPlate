@@ -224,10 +224,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as? NewsCell else {
                 return .zero }
-            
-        //let cellheight = cell.content.frame.height + cell.image.frame.height + 100
         return CGSize(width: collectionView.frame.width, height: cell.content.frame.height + cell.image.frame.height + 300)
-
     }
 }
 
@@ -248,8 +245,10 @@ extension AllViewController {
                             let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                             let getInstanceData = try JSONDecoder().decode(TodayReview.self, from: dataJSON)
                             if let results = getInstanceData.result {
-                                self.todayReveiw = results
-                                self.collectionView.reloadData()
+                                DispatchQueue.main.async {
+                                    self.todayReveiw = results
+                                    self.collectionView.reloadData()
+                                }
                             }
                         } catch {
                             print(error.localizedDescription)
@@ -277,9 +276,10 @@ extension AllViewController {
                             let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                             let getInstanceData = try JSONDecoder().decode(News.self, from: dataJSON)
                             if let results = getInstanceData.result {
-                                self.newsList = results
-                              //  self.newsList! = self.newsList!.filter{$0.imgUrls! != []}
-                                self.collectionView.reloadData()
+                                DispatchQueue.main.async {
+                                    self.newsList = results
+                                    self.collectionView.reloadData()
+                                }
                             }
                         } catch {
                             print(error.localizedDescription)

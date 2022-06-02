@@ -220,7 +220,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         cell.delegate2 = self
         cell.index = indexPath.item
         cell.id = restuarantDetailInfoList.reviews[indexPath.item].id
-        (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl!))!)
+        (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "userBasicImage") : cell.userImage.load(url: URL(string: (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl!))!)
         cell.userName.text = restuarantDetailInfoList.reviews[indexPath.item].userName
         cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content
         switch restuarantDetailInfoList.reviews[indexPath.item].score  {
@@ -237,8 +237,7 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
             break
         }
         if restuarantDetailInfoList.reviews[indexPath.item].userId == Constant.userIdx {
-            cell.updateDeleteButton.isHidden = false
-            cell.updateDeleteImage.isHidden = false
+            
         }
         cell.reviewCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].reviewCnt!)"
         cell.followCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].followCnt!)"

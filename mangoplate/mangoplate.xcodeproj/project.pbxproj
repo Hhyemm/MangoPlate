@@ -13,6 +13,7 @@
 		92607478284860A50093425D /* WriteInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92607477284860A50093425D /* WriteInput.swift */; };
 		9260747B284861C70093425D /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260747A284861C70093425D /* Write.swift */; };
 		9260747D28488AA50093425D /* UpdateDeletePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260747C28488AA50093425D /* UpdateDeletePopupViewController.swift */; };
+		9260747F2848DEE00093425D /* Holic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9260747E2848DEE00093425D /* Holic.swift */; };
 		92B1CF4A283925A700223987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF49283925A700223987 /* AppDelegate.swift */; };
 		92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4B283925A700223987 /* SceneDelegate.swift */; };
 		92B1CF4E283925A700223987 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B1CF4D283925A700223987 /* TabBarViewController.swift */; };
@@ -71,7 +72,6 @@
 		92D2E0822844D99C00A9EDE1 /* JoinInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0812844D99C00A9EDE1 /* JoinInput.swift */; };
 		92D2E0912844E65200A9EDE1 /* KakaoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */; };
 		92D2E0942844E76300A9EDE1 /* Kakao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0932844E76300A9EDE1 /* Kakao.swift */; };
-		92D2E0962844E82000A9EDE1 /* KakaoInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E0952844E82000A9EDE1 /* KakaoInput.swift */; };
 		92D2E09828450CB300A9EDE1 /* MangoPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09728450CB300A9EDE1 /* MangoPickViewController.swift */; };
 		92D2E09B28450D8800A9EDE1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */; };
 		92D2E09E28450DF700A9EDE1 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D2E09D28450DF700A9EDE1 /* MyInfoViewController.swift */; };
@@ -125,6 +125,7 @@
 		92607477284860A50093425D /* WriteInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteInput.swift; sourceTree = "<group>"; };
 		9260747A284861C70093425D /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
 		9260747C28488AA50093425D /* UpdateDeletePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeletePopupViewController.swift; sourceTree = "<group>"; };
+		9260747E2848DEE00093425D /* Holic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Holic.swift; path = mangoplate/Sources/Models/News/Holic.swift; sourceTree = SOURCE_ROOT; };
 		92B1CF46283925A700223987 /* mangoplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mangoplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1CF49283925A700223987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92B1CF4B283925A700223987 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,7 +186,6 @@
 		92D2E0812844D99C00A9EDE1 /* JoinInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinInput.swift; sourceTree = "<group>"; };
 		92D2E0902844E65200A9EDE1 /* KakaoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoViewModel.swift; sourceTree = "<group>"; };
 		92D2E0932844E76300A9EDE1 /* Kakao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kakao.swift; sourceTree = "<group>"; };
-		92D2E0952844E82000A9EDE1 /* KakaoInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoInput.swift; sourceTree = "<group>"; };
 		92D2E09728450CB300A9EDE1 /* MangoPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangoPickViewController.swift; sourceTree = "<group>"; };
 		92D2E09A28450D8800A9EDE1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		92D2E09D28450DF700A9EDE1 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +260,7 @@
 			children = (
 				9260747528482F5C0093425D /* News.swift */,
 				92D2E11E2847431300A9EDE1 /* TodayReview.swift */,
+				9260747E2848DEE00093425D /* Holic.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -528,7 +529,6 @@
 			isa = PBXGroup;
 			children = (
 				92D2E0812844D99C00A9EDE1 /* JoinInput.swift */,
-				92D2E0952844E82000A9EDE1 /* KakaoInput.swift */,
 				92D2E07A2844C9A300A9EDE1 /* Join.swift */,
 				92D2E0692844AFC900A9EDE1 /* EmailLoginInput.swift */,
 				92D2E06B2844AFFE00A9EDE1 /* EmailLogin.swift */,
@@ -812,6 +812,7 @@
 				92D2E06A2844AFC900A9EDE1 /* EmailLoginInput.swift in Sources */,
 				9260747628482F5D0093425D /* News.swift in Sources */,
 				92B1CFAA283E523500223987 /* ReviewCell.swift in Sources */,
+				9260747F2848DEE00093425D /* Holic.swift in Sources */,
 				92D2E10A2846EF8600A9EDE1 /* NewsCell.swift in Sources */,
 				92D2E0E828468BD800A9EDE1 /* TopListViewController.swift in Sources */,
 				92D2E0682844AF5900A9EDE1 /* EmailLoginViewModel.swift in Sources */,
@@ -887,7 +888,6 @@
 				92D2E0DB28466D3F00A9EDE1 /* SettingViewController.swift in Sources */,
 				92D2E0822844D99C00A9EDE1 /* JoinInput.swift in Sources */,
 				92D2E11F2847431300A9EDE1 /* TodayReview.swift in Sources */,
-				92D2E0962844E82000A9EDE1 /* KakaoInput.swift in Sources */,
 				92B1CF4C283925A700223987 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

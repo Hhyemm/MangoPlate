@@ -3,9 +3,9 @@ import Foundation
 import Alamofire
 
 class KakaoViewModel {
-    func postKakao( request: KakaoRequest, viewController: LoginViewController, kakao: String) {
-        let header: HTTPHeaders = [ "Content-Type":"application/json", "X-ACCESS-TOKEN":"\(kakao)"]
-        AF.request("\(Constant.BASE_URL2)/oauth/kakao/login", method: .post, parameters: request, encoder: JSONParameterEncoder(), headers: header)
+    func postKakao(viewController: LoginViewController, kakao: String) {
+        let header: HTTPHeaders = [ "Content-Type":"application/json", "ACCESS_TOKEN":"\(kakao)"]
+        AF.request("\(Constant.BASE_URL2)/oauth/kakao/login", method: .post, parameters: "", encoder: JSONParameterEncoder(), headers: header)
             .validate()
             .responseDecodable(of: Kakao.self) { response in
                 switch response.result {

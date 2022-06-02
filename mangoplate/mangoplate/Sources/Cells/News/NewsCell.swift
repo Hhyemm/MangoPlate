@@ -51,11 +51,9 @@ class NewsCell: UICollectionViewCell {
     }
     
     func sizeFittingWith(cellHeight: CGFloat, text: String) -> CGSize {
-            content.text = text
+        content.text = text
+        let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: cellHeight)
 
-            let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: cellHeight)
-
-        
-            return self.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
-        }
+        return self.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
+    }
 }
