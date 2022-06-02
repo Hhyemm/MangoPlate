@@ -1,5 +1,6 @@
 
 import UIKit
+import Alamofire
 
 class ReviewWriteViewController: UIViewController {
 
@@ -11,6 +12,9 @@ class ReviewWriteViewController: UIViewController {
     @IBOutlet weak var select5Label: UILabel!
     @IBOutlet weak var select3Label: UILabel!
     @IBOutlet weak var select1Label: UILabel!
+    
+    var nowSocre = 5
+    var id: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,9 @@ class ReviewWriteViewController: UIViewController {
         select3Label.textColor = .mainLightGrayColor
         select1Label.textColor = .mainLightGrayColor
         
+        nowSocre = sender.tag
+        print(sender.tag)
+        
     }
     
     @IBAction func select3Button(_ sender: UIButton) {
@@ -43,6 +50,9 @@ class ReviewWriteViewController: UIViewController {
         select5Label.textColor = .mainLightGrayColor
         select3Label.textColor = .mainOrangeColor
         select1Label.textColor = .mainLightGrayColor
+        
+        nowSocre = sender.tag
+        print(sender.tag)
     }
     
     @IBAction func select1Button(_ sender: UIButton) {
@@ -53,5 +63,37 @@ class ReviewWriteViewController: UIViewController {
         select5Label.textColor = .mainLightGrayColor
         select3Label.textColor = .mainLightGrayColor
         select1Label.textColor = .mainOrangeColor
+        
+        nowSocre = sender.tag
+        print(sender.tag)
+    }
+    
+    @IBAction func pressCompleteButton(_ sender: UIButton) {
+        let input = WriteInput(content: textField.text!, score: nowSocre)
+        writePost(input, id: id!)
+        print(id!, nowSocre, textField.text!)
+    }
+}
+
+extension ReviewWriteViewController {
+    func writePost(_ parameters: WriteInput, id: Int) {
+        let header: HTTPHeaders = [ "Content-Type":"multipart/form-data",
+                                    "X-ACCESS-TOKEN":"\(Constant.token)"]
+        
+            AF.request("\(Constant.BASE_URL2)/reviews/\(id)", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: header)
+                .validate()
+                .responseDecodable(of: Write.self) { response in
+                    switch response.result {
+                    case .success(let response):
+                        if response.isSuccess{
+                            print("성공")
+                        } else {
+                            print("실패")
+                        }
+                    case .failure(let error):
+                        print(error.localizedDescription)
+
+                }
+            }
     }
 }

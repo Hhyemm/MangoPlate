@@ -7,6 +7,7 @@ class ReviewWriteImageSelectViewController: UIViewController {
     @IBOutlet weak var collectionViewView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var selectCount = 0
+    var id: Int?
     
     var images = ["cameraImage", "searchImage1", "searchImage2", "searchImage3", "searchImage4", "searchImage5"]
     
@@ -54,6 +55,7 @@ class ReviewWriteImageSelectViewController: UIViewController {
     
     @IBAction func pressPassButton(_ sender: UIButton) {
         guard let VC = self.storyboard?.instantiateViewController(identifier: "ReviewWriteViewController") as? ReviewWriteViewController else { return }
+        VC.id = id
         VC.modalPresentationStyle = .fullScreen
         self.present(VC, animated: false, completion: nil)
     }

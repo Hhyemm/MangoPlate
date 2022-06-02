@@ -5,9 +5,9 @@ struct Search: Codable {
     var isSuccess: Bool
     var code: Int
     var message: String
-    //var result: SearchInfo?
+    var result: [SearchInfo]?
 }
-/*
+
 struct SearchInfo: Codable {
     var id: Int
     var name: String
@@ -20,6 +20,7 @@ struct SearchInfo: Codable {
     var isWishes: Int
     var isVisits: Int
     var imgUrl: String
+    var view: Int
     var distance: Double
 }
-*/
+

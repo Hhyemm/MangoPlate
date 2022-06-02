@@ -5,7 +5,14 @@ import CoreLocation
 import MapKit
 import SwiftUI
 
-extension RestaurantDetailViewController: ClickLikeDelegate {
+extension RestaurantDetailViewController: ClickLikeDelegate, ClickUpdateDeleteDelegate {
+    func clickUpdateDeleteButton(for index: Int, id: Int?) {
+        guard let VC = self.storyboard?.instantiateViewController(identifier: "UpdateDeletePopupViewController") as? UpdateDeletePopupViewController else { return }
+        VC.id = id
+        VC.modalPresentationStyle = .overCurrentContext
+        self.present(VC, animated: false, completion: nil)
+    }
+    
     func clickLikeButton(for index: Int, id: Int?) {
         
         if likeList[index] == 1 {
@@ -46,7 +53,6 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     
     @IBOutlet weak var callView: UIView!
     
-    @IBOutlet weak var reviewView: UIView!
     @IBOutlet weak var reviewCollectionView: UICollectionView!
     
     @IBOutlet weak var blogSearchView: UIView!
@@ -79,8 +85,6 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     @IBOutlet weak var review1Count: UILabel!
     @IBOutlet weak var review2Count: UILabel!
     @IBOutlet weak var review3Count: UILabel!
-    
-    @IBOutlet weak var reviewCollectionViewHeight: NSLayoutConstraint!
     
     var restuarantDetailInfoList: RestuarantDetailInfo!
     let locationManager = CLLocationManager()
@@ -166,6 +170,7 @@ class RestaurantDetailViewController: UIViewController, CLLocationManagerDelegat
     
     @IBAction func pressWriteReviewButton(_ sender: UIButton) {
         guard let VC = self.storyboard?.instantiateViewController(identifier: "ReviewWriteImageSelectViewController") as? ReviewWriteImageSelectViewController else { return }
+        VC.id = restuarantDetailInfoList.id
         VC.modalPresentationStyle = .fullScreen
         self.present(VC, animated: false, completion: nil)
     }
@@ -204,12 +209,15 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == imageCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailImageCell", for: indexPath) as! DetailImageCell
-           // let url = URL(string: (restuarantDetailInfoList.imgUrls[indexPath.item]))!
-           // cell.detailImage.load(url: url)
+            let url = URL(string: (restuarantDetailInfoList.imgUrls[indexPath.item]))
+           // print(url!)
+            cell.detailImage.load(url: url!)
+           // (restuarantDetailInfoList.imgUrls[indexPath.item]) == nil ? cell.detailImage.image = nil : cell.detailImage.load(url: URL(string: (restuarantDetailInfoList.imgUrls[indexPath.item]))!)
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as! ReviewCell
         cell.delegate = self
+        cell.delegate2 = self
         cell.index = indexPath.item
         cell.id = restuarantDetailInfoList.reviews[indexPath.item].id
         (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl) == nil ? cell.userImage.image = UIImage(named: "testImage2") : cell.userImage.load(url: URL(string: (restuarantDetailInfoList.reviews[indexPath.item].profileImgUrl!))!)
@@ -228,10 +236,10 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         default :
             break
         }
-        //print(restuarantDetailInfoList.reviews[indexPath.item])
-        //let url = URL(string: restuarantDetailInfoList.reviews[indexPath.item].imgUrls[0])!
-        //print(url)
-       // cell.image.load(url: url)
+        if restuarantDetailInfoList.reviews[indexPath.item].userId == Constant.userIdx {
+            cell.updateDeleteButton.isHidden = false
+            cell.updateDeleteImage.isHidden = false
+        }
         cell.reviewCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].reviewCnt!)"
         cell.followCount.text = "\(restuarantDetailInfoList.reviews[indexPath.item].followCnt!)"
         cell.updatedAt.text = restuarantDetailInfoList.reviews[indexPath.item].updatedAt
@@ -255,17 +263,17 @@ extension RestaurantDetailViewController: UICollectionViewDelegate, UICollection
         guard let cell = reviewCollectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCell else { return .zero }
         cell.content.text = restuarantDetailInfoList.reviews[indexPath.item].content
         cell.content.sizeToFit()
-        let cellheight = cell.content.frame.height + 250
+        let cellheight = cell.content.frame.height + 225
        
         return CGSize(width: reviewCollectionView.bounds.width, height: (cellheight))
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == reviewCollectionView {
-            guard let RDVC = self.storyboard?.instantiateViewController(identifier: "ReviewDetailViewController") as? ReviewDetailViewController else { return }
-            RDVC.id = restuarantDetailInfoList.reviews[indexPath.item].id
-            RDVC.modalPresentationStyle = .fullScreen
-            self.present(RDVC, animated: false, completion: nil)
+            guard let VC = self.storyboard?.instantiateViewController(identifier: "ReviewDetailViewController") as? ReviewDetailViewController else { return }
+            VC.id = restuarantDetailInfoList.reviews[indexPath.item].id
+            VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: false, completion: nil)
         }
     }
 }
@@ -282,6 +290,8 @@ extension RestaurantDetailViewController {
                         let getInstanceData = try JSONDecoder().decode(RestuarantDetail.self, from: dataJSON)
                         if let results = getInstanceData.result {
                             self.restuarantDetailInfoList = results
+                            self.restuarantDetailInfoList.reviews =
+                            self.restuarantDetailInfoList.reviews.sorted{$0.id > $1.id}
                             self.imageCollectionView.reloadData()
                             self.reviewCollectionView.reloadData()
                             for i in self.restuarantDetailInfoList!.reviews.map{$0.id}{
@@ -292,7 +302,8 @@ extension RestaurantDetailViewController {
                             self.restaurantView.text = "\(self.restuarantDetailInfoList.view)"
                             self.restaurantReviewsCount.text = "\(self.restuarantDetailInfoList.reviews.count)"
                             self.restaurantWishCount.text = "\(self.restuarantDetailInfoList.wishCnt)"
-                            self.restaurantScore.text = "\(self.restuarantDetailInfoList.score)"
+                            var s = String(self.restuarantDetailInfoList.score).map{String($0)}.joined().prefix(3)
+                            self.restaurantScore.text = String(s)
                             self.restaurantAddress.text = self.restuarantDetailInfoList.address
                             self.setAnnotation(latitudeValue: self.restuarantDetailInfoList.latitude, longitudeValue: self.restuarantDetailInfoList.longitude, delta: 0.0005)
                             self.restaurantUpdatedAt1.text = self.restuarantDetailInfoList.updatedAt
@@ -304,7 +315,9 @@ extension RestaurantDetailViewController {
                             self.menu1.text = self.restuarantDetailInfoList.menus[0].name
                             self.menu2.text = self.restuarantDetailInfoList.menus[1].name
                             self.menu3.text = self.restuarantDetailInfoList.menus[2].name
-                            self.menuPrice1.text = "\(self.restuarantDetailInfoList.menus[0].price)"
+                            let numberFormatter = NumberFormatter()
+                            numberFormatter.numberStyle = .decimal
+                            self.menuPrice1.text = numberFormatter.string(from: NSNumber(value: self.restuarantDetailInfoList.menus[0].price))
                             self.menuPrice2.text = "\(self.restuarantDetailInfoList.menus[1].price)"
                             self.menuPrice3.text = "\(self.restuarantDetailInfoList.menus[2].price)"
                             self.reviewsCount.text = "\(self.restuarantDetailInfoList.reviews.count)"
@@ -335,6 +348,7 @@ extension RestaurantDetailViewController {
                             default :
                                 self.restaurantMaxPrice.text = "4만원 이상"
                             }
+                            
                         }
                     } catch {
                         print(error.localizedDescription)

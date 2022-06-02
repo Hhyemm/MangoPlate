@@ -10,15 +10,16 @@ class SearchResultViewController: UIViewController {
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var restaurantCollectionView: UICollectionView!
     
-    let parma: Parameters = [
+    var searchResult: [SearchInfo]?
+    var search: String?
+    let parma = [
         "search" : "세계음식",
-        "lat" : "37.5732",
-        "long" : "126.9891"
-    ]
+        "lat" : "\(myLocation.0)",
+        "long" : "\(myLocation.1)"
+    ] as Dictionary
     
     var images = ["searchImage2", "searchImage1", "searchImage3", "searchImage4", "searchImage5"]
     var titles = ["2022 올해의 키워드: 그릭요거트", "2022 올해의 키워드: 생면파스타", "2022 다이닝 맛집 TOP 30", "2022 떡볶이 맛집 TOP 20", "2022 돼지고기 인기 맛집 TOP 50"]
-    var search: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +77,10 @@ class SearchResultViewController: UIViewController {
 
 extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titles.count
+        if collectionView == bannerCollectionView {
+            return titles.count
+        }
+        return searchResult?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,6 +91,17 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        cell.resIndex.text = "\(indexPath.item + 1)."
+        cell.resTitle.text = searchResult?[indexPath.item].name
+        var address = searchResult?[indexPath.item].address
+        var x = address?.prefix(9).suffix(3).map{String($0)}.joined()
+        cell.resLoc.text = x
+        let url = URL(string: (searchResult?[indexPath.item].imgUrl ?? ""))!
+        cell.resImage.load(url: url)
+        cell.resRate.text = "\(searchResult?[indexPath.item].ratingsAvg ?? 0)"
+        cell.wishImage.tintColor = (searchResult?[indexPath.item].isWishes) == 0 ? .clear : .mainOrangeColor
+        cell.resRead.text = "\(searchResult?[indexPath.item].view ?? 0)"
+        cell.resReview.text = "\(searchResult?[indexPath.item].numReviews ?? 0)"
         return cell
     }
     
@@ -101,32 +116,25 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
 extension SearchResultViewController {
     
     func fetchData() {
-        let url = "\(Constant.BASE_URL2)/search?search=세계음식&lat=37.5732&long=126.9891"
+        let url = "\(Constant.BASE_URL2)/search"
         
         AF.request(url,
                    method: .get,
                    parameters: parma,
-                   encoding: URLEncoding.httpBody,
-                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)"])
+                   encoding: URLEncoding.default,
+                   headers: ["X-ACCESS-TOKEN": "\(Constant.token)", "Content-Type" : "application/json"])
             .validate(statusCode: 200..<300)
             .responseJSON { (response) in
-                print(response)
                 switch response.result {
                 case .success(let obj) :
                     if let nsDiectionary = obj as? NSDictionary {
-                        print(nsDiectionary)
                         do {
                             let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-                           // let getInstanceData = try JSONDecoder().decode(Search.self, from: dataJSON)
-                            /*if let results = getInstanceData.result {
-                                DispatchQueue.main.async {
-                                    self.restuarantInfoList = results
-                                    for i in self.restuarantInfoList!.map({$0.id}) {
-                                        self.wishGetData(i)
-                                    }
-                                    self.restaurantCollectionView.reloadData()
-                                }
-                            }*/
+                            let getInstanceData = try JSONDecoder().decode(Search.self, from: dataJSON)
+                            if let results = getInstanceData.result {
+                                self.searchResult = results
+                                self.restaurantCollectionView.reloadData()
+                            }
                         } catch {
                             print(error.localizedDescription)
                         }

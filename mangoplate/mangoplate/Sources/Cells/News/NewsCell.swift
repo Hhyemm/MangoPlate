@@ -8,6 +8,7 @@ protocol ClickLikeDelegate2: AnyObject {
 class NewsCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var resName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var content: UILabel!
@@ -32,6 +33,11 @@ class NewsCell: UICollectionViewCell {
         userImage.layer.cornerRadius = userImage.frame.width / 2
     }
     
+    override func prepareForReuse() {
+        image.image = nil
+        content.text = nil
+    }
+    
     @IBAction func pressLikeButton(_ sender: UIButton) {
         guard let idx = index else { return }
         if sender.isSelected {
@@ -43,4 +49,13 @@ class NewsCell: UICollectionViewCell {
         }
         sender.isSelected = !sender.isSelected
     }
+    
+    func sizeFittingWith(cellHeight: CGFloat, text: String) -> CGSize {
+            content.text = text
+
+            let targetSize = CGSize(width: UIView.layoutFittingCompressedSize.width, height: cellHeight)
+
+        
+            return self.contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .required)
+        }
 }

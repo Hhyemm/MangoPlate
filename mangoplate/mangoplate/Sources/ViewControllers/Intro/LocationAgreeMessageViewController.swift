@@ -3,7 +3,7 @@ import UIKit
 import CoreLocation
 
 var locationAgree = false
-var myLocation = (37.5732, 126.9891)
+var myLocation = (37.5552, 126.9142)
 
 class LocationAgreeMessageViewController: UIViewController, CLLocationManagerDelegate {
 

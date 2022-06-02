@@ -36,7 +36,7 @@ class AllViewController: UIViewController {
         setCollectionVieW()
         
         todayReviewfetchData()
-        newsfetchData()
+        newsfetchData("1,3,5")
     }
     
     func setViewDesign(_ selectView: UIView) {
@@ -89,8 +89,8 @@ class AllViewController: UIViewController {
         }
         selects[tag]! = !selects[tag]!
         var x = selects.filter{$0.value}.map{String($0.key)}.joined(separator: ",")
-       // print(x)
-       // newsfetchData(x)
+        print(x)
+        newsfetchData(x)
     }
     
     func pressSelectButton(_ selectView: UIView, _ selectLabel: UILabel) {
@@ -157,7 +157,7 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
                     break
             }
             cell.resName.text = todayReveiw?.restaurantName
-            (todayReveiw?.imgUrls?[0]) == nil ? cell.image.image = UIImage(named: "testImage2") : cell.image.load(url: URL(string: (todayReveiw?.imgUrls?[0] ?? ""))!)
+            //(todayReveiw?.imgUrls?.count == 0) ? cell.image.image = UIImage(named: "testtest") : cell.image.load(url: URL(string: (todayReveiw?.imgUrls?[0] ?? ""))!)
             cell.reviewCount.text = "\(todayReveiw?.reviewCnt ?? 0)"
             cell.followCount.text = "\(todayReveiw?.followCnt ?? 0)"
             cell.isHolic.isHidden = todayReveiw?.isHolic ?? 0 == 0
@@ -181,6 +181,34 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCell
+        if newsList?[indexPath.item-1].profileImgUrl != nil {
+            let url = URL(string: newsList?[indexPath.item-1].profileImgUrl ?? "")!
+            cell.userImage.load(url: url)
+        }
+        cell.userName.text = newsList?[indexPath.item-1].userName
+        cell.reviewCount.text = "\(newsList?[indexPath.item-1].reviewCnt ?? 0)"
+        cell.followCount.text = "\(newsList?[indexPath.item-1].followCnt ?? 0)"
+        switch newsList?[indexPath.item-1].score {
+            case 5 :
+                cell.score.text = "맛있다!"
+                cell.scoreImage.image = UIImage(named: "reviewImage1")
+            case 3 :
+                cell.score.text = "괜찮다"
+                cell.scoreImage.image = UIImage(named: "reviewImage2")
+            case 1 :
+                cell.score.text = "별로"
+                cell.scoreImage.image = UIImage(named: "reviewImage3")
+            default :
+                break
+            }
+        cell.resName.text = newsList?[indexPath.item-1].restaurantName
+        cell.content.text = newsList?[indexPath.item-1].content
+        if newsList?[indexPath.item-1].imgUrls ?? [] != [] {
+            let url = URL(string: (newsList?[indexPath.item-1].imgUrls![0])!)!
+            cell.image.load(url: url)
+        }
+        cell.updatedAt.text = newsList?[indexPath.item-1].updatedAt
+        cell.isHolic.isHidden = newsList?[indexPath.item-1].isHolic == 0
         return cell
     }
     
@@ -194,7 +222,12 @@ extension AllViewController: UICollectionViewDelegate, UICollectionViewDataSourc
             let cellheight = cell.content.frame.height + cell.image.frame.height + 300
             return CGSize(width: collectionView.frame.width, height: cellheight)
         }
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height/1.3)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as? NewsCell else {
+                return .zero }
+            
+        //let cellheight = cell.content.frame.height + cell.image.frame.height + 100
+        return CGSize(width: collectionView.frame.width, height: cell.content.frame.height + cell.image.frame.height + 300)
+
     }
 }
 
@@ -228,8 +261,8 @@ extension AllViewController {
         }
     }
     
-    func newsfetchData() {
-        let url = "\(Constant.BASE_URL2)/reviews?score=1,3,5"
+    func newsfetchData(_ score: String) {
+        let url = "\(Constant.BASE_URL2)/reviews?score=\(score)"
         AF.request(url,
                    method: .get,
                    parameters: nil,
@@ -240,13 +273,12 @@ extension AllViewController {
                 switch response.result {
                 case .success(let obj) :
                     if let nsDiectionary = obj as? NSDictionary {
-                        print(nsDiectionary)
                         do {
                             let dataJSON = try JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                             let getInstanceData = try JSONDecoder().decode(News.self, from: dataJSON)
                             if let results = getInstanceData.result {
                                 self.newsList = results
-                                print(self.newsList)
+                              //  self.newsList! = self.newsList!.filter{$0.imgUrls! != []}
                                 self.collectionView.reloadData()
                             }
                         } catch {
